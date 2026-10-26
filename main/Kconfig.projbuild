@@ -1,0 +1,125 @@
+menu "IGNACC Controller"
+
+    menu "Relays"
+
+        config IGNACC_RELAY1_GPIO
+            int "IN1 relay GPIO"
+            range 0 33
+            default 26
+            help
+                GPIO driving relay module input IN1.
+                Must be output-capable (not 34-39) and not a flash pin (6-11).
+                Avoid strapping pins (0, 2, 5, 12, 15) and GPIO14 (PWM at boot).
+
+        config IGNACC_RELAY2_GPIO
+            int "IN2 relay GPIO"
+            range 0 33
+            default 27
+            help
+                GPIO driving relay module input IN2. Same constraints as IN1.
+
+        choice IGNACC_RELAY_ACTIVE_LEVEL
+            prompt "Relay active level"
+            default IGNACC_RELAY_ACTIVE_LOW
+            help
+                Pin level that switches a relay ON.
+
+            config IGNACC_RELAY_ACTIVE_LOW
+                bool "Active LOW (pin LOW = relay ON)"
+            config IGNACC_RELAY_ACTIVE_HIGH
+                bool "Active HIGH (pin HIGH = relay ON)"
+        endchoice
+
+        config IGNACC_RELAY_ACTIVE_LEVEL
+            int
+            default 0 if IGNACC_RELAY_ACTIVE_LOW
+            default 1 if IGNACC_RELAY_ACTIVE_HIGH
+
+        config IGNACC_RELAY_SETTLE_MS
+            int "Relay settle delay (ms)"
+            range 0 1000
+            default 15
+            help
+                Delay between driving a relay pin and sending the _OK response.
+                Covers relay operate time (<= 10 ms) plus contact bounce.
+
+    endmenu
+
+    menu "UART link"
+
+        config IGNACC_UART_PORT
+            int "UART port number"
+            range 0 2
+            default 0
+            help
+                UART0 is wired to the on-board USB-UART bridge.
+
+        config IGNACC_UART_BAUD
+            int "Baud rate"
+            range 1200 921600
+            default 115200
+
+        config IGNACC_UART_TX_GPIO
+            int "UART TX GPIO"
+            range 0 33
+            default 1
+
+        config IGNACC_UART_RX_GPIO
+            int "UART RX GPIO"
+            range 0 39
+            default 3
+
+        config IGNACC_UART_RX_BUF_SIZE
+            int "UART driver RX ring buffer size (bytes)"
+            range 256 4096
+            default 256
+            help
+                Must be larger than the hardware FIFO (128 bytes).
+
+        config IGNACC_UART_EVENT_QUEUE_LEN
+            int "UART driver event queue length"
+            range 4 64
+            default 16
+
+        config IGNACC_MAX_LINE_LEN
+            int "Maximum command line length (chars)"
+            range 4 128
+            default 32
+            help
+                Excluding the line terminator. Longer lines are discarded entirely.
+
+    endmenu
+
+    menu "Tasks"
+
+        config IGNACC_CMD_QUEUE_DEPTH
+            int "Command queue depth (lines)"
+            range 1 32
+            default 4
+            help
+                Complete lines waiting for the state machine. When full, new
+                lines are dropped (no response is sent for them).
+
+        config IGNACC_UART_TASK_PRIORITY
+            int "UART RX task priority"
+            range 1 24
+            default 10
+
+        config IGNACC_UART_TASK_STACK
+            int "UART RX task stack size (bytes)"
+            range 2048 16384
+            default 3072
+
+        config IGNACC_FSM_TASK_PRIORITY
+            int "State machine task priority"
+            range 1 24
+            default 9
+
+        config IGNACC_FSM_TASK_STACK
+            int "State machine task stack size (bytes)"
+            range 2048 16384
+            default 3072
+
+    endmenu
+
+endmenu

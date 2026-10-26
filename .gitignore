@@ -1,0 +1,12 @@
+build/
+test/host/build/
+sdkconfig
+sdkconfig.old
+managed_components/
+dependencies.lock
+.vscode/
+*.swp
+tools/ignacc_tester/.venv/
+tools/ignacc_tester/build/
+tools/ignacc_tester/dist/
+__pycache__/

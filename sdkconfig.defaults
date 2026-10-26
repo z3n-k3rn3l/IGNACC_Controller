@@ -1,0 +1,16 @@
+# Target
+CONFIG_IDF_TARGET="esp32"
+
+# --- UART0 carries the relay protocol: keep everything else off it ---------
+# No stdout/stderr/console on any UART. The application installs the UART
+# driver on UART0 and is its only writer.
+CONFIG_ESP_CONSOLE_NONE=y
+# No application log output.
+CONFIG_LOG_DEFAULT_LEVEL_NONE=y
+# No second-stage bootloader log output.
+CONFIG_BOOTLOADER_LOG_LEVEL_NONE=y
+# Note: the first-stage ROM bootloader still prints at reset; this cannot be
+# disabled from the application on ESP32. The protocol parser ignores it.
+
+# 1 ms tick so the relay settle delay is not rounded to 10 ms steps.
+CONFIG_FREERTOS_HZ=1000

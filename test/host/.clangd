@@ -1,0 +1,4 @@
+# Host unit tests are built with MinGW gcc; use their own compile database
+# (cmake -S test/host -B test/host/build exports it).
+CompileFlags:
+  CompilationDatabase: build
