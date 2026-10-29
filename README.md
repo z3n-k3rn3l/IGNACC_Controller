@@ -150,6 +150,16 @@ host-test `cmake -S test/host -B test/host/build ...` configure step, then run
 Full step-by-step guide, including the exact settings, how to verify, and
 troubleshooting: [docs/vscode-clangd-setup.md](docs/vscode-clangd-setup.md).
 
+## Prebuilt binaries
+
+[bin/v1.0.0/](bin/v1.0.0/) has the files ready to use, so there's nothing to build:
+
+- the tester `.exe`
+- the firmware as one merged image (flash it at `0x0`)
+- the firmware as separate images
+- SHA-256 checksums
+- a README with the flash commands
+
 ## Repositories
 
 This repo is kept in two private GitHub repos, `GeoLCost/IGNACC_Controller`

@@ -1,0 +1,3 @@
+3b6f2dde3972fca583bfee286f7dd931bdb9d7aa74023ef47bf3707cccc0918c  IGNACC_Controller-v1.0.0-esp32-merged.bin
+2d73f242720e836584e6003f407bdb99d0da06825abfe3f3038ab59a638f6be1  IGNACC_Controller-v1.0.0-esp32-parts.zip
+fb7e6c66a126a4746c55d55099d9051789dd91b3ea152413e88d0dd0b5e56dc5  IGNACC_Tester-v1.0.0-windows-x64.exe
