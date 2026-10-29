@@ -150,6 +150,13 @@ host-test `cmake -S test/host -B test/host/build ...` configure step, then run
 Full step-by-step guide, including the exact settings, how to verify, and
 troubleshooting: [docs/vscode-clangd-setup.md](docs/vscode-clangd-setup.md).
 
+## Repositories
+
+This repo is kept in two private GitHub repos, `GeoLCost/IGNACC_Controller`
+and `z3n-k3rn3l/IGNACC_Controller`. A plain `git push` updates both. To set up
+two accounts on Windows or Linux, see
+[docs/github-two-accounts.md](docs/github-two-accounts.md).
+
 ## IGNACC Tester (GUI)
 
 `tools/ignacc_tester/dist/IGNACC_Tester.exe` is a single-file Windows app.
