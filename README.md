@@ -150,15 +150,12 @@ host-test `cmake -S test/host -B test/host/build ...` configure step, then run
 Full step-by-step guide, including the exact settings, how to verify, and
 troubleshooting: [docs/vscode-clangd-setup.md](docs/vscode-clangd-setup.md).
 
-## Prebuilt binaries
+## Prebuilt tester
 
-[bin/v1.0.0/](bin/v1.0.0/) has the files ready to use, so there's nothing to build:
-
-- the tester `.exe`
-- the firmware as one merged image (flash it at `0x0`)
-- the firmware as separate images
-- SHA-256 checksums
-- a README with the flash commands
+[tools/ignacc_tester/bin/v1.0.0/](tools/ignacc_tester/bin/v1.0.0/) has the
+ready-to-run tester `.exe`, its SHA-256 checksum and a short README. The
+firmware isn't stored as binaries: build and flash it from source with
+`idf.py -p COMx flash`.
 
 ## Repositories
 
@@ -169,8 +166,10 @@ two accounts on Windows or Linux, see
 
 ## IGNACC Tester (GUI)
 
-`tools/ignacc_tester/dist/IGNACC_Tester.exe` is a single-file Windows app.
-No Python is needed to run it.
+A single-file Windows app that runs without Python installed. The committed
+copy is `tools/ignacc_tester/bin/v1.0.0/IGNACC_Tester-v1.0.0-windows-x64.exe`.
+A local rebuild goes to `tools/ignacc_tester/dist/IGNACC_Tester.exe`, which
+git ignores.
 
 - **Connection:** pick the COM port from the dropdown (Refresh rescans) and
   click Connect. The port is opened with DTR/RTS off, so the board is not reset.

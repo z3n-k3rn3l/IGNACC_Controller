@@ -1,2 +1,2 @@
-# Prebuilt binaries and their checksum files must stay byte-exact on every OS.
-bin/** -text
+# Prebuilt tester binaries and their checksum files must stay byte-exact on every OS.
+tools/ignacc_tester/bin/** -text
