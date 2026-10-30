@@ -139,8 +139,10 @@ A host unit test (`test_relay_bank.c`) checks this list against all 40 GPIOs.
 | `app_fsm` | Reads it from the bank | Ignores `IN<n>` above the count; `STATUS` lists exactly that many |
 | `main` | Yes, from Kconfig | Creates that many relays |
 
-On a 2-channel build, every command and reply is byte-for-byte the same as in
-firmware 1.0.0, so existing CAPL scripts keep working.
+On a 2-channel build, every valid command and its reply are byte-for-byte the
+same as in firmware 1.0.0, so existing CAPL scripts keep working. Since 1.2.0,
+an invalid line, including `IN<n>` for a channel the board doesn't have, is
+answered with `UNK_NACK` instead of silence.
 
 ---
 

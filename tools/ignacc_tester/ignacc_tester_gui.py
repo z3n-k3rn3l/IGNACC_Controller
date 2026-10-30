@@ -19,7 +19,7 @@ import serial
 
 import tester_core as core
 
-APP_VERSION = "1.1.0"
+APP_VERSION = "1.2.0"
 APP_TITLE = "IGNACC Tester"
 BAUD_RATES = ["9600", "19200", "38400", "57600", "115200", "230400", "460800", "921600"]
 POLL_MS = 50

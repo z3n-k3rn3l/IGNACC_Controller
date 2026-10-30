@@ -180,6 +180,17 @@ static void test_hello_fits_longest_version(void)
     TEST_ASSERT_GREATER_THAN_INT(0, proto_format_hello(version, buf, sizeof(buf)));
 }
 
+static void test_formats_nack(void)
+{
+    char buf[PROTO_RESPONSE_MAX];
+    int n = proto_format_nack(buf, sizeof(buf));
+    TEST_ASSERT_EQUAL_STRING("UNK_NACK\r\n", buf);
+    TEST_ASSERT_EQUAL_INT(10, n);
+    char tight[10]; /* one byte short for the NUL */
+    TEST_ASSERT_EQUAL_INT(-1, proto_format_nack(tight, sizeof(tight)));
+    TEST_ASSERT_EQUAL_INT(-1, proto_format_nack(NULL, 0));
+}
+
 static void test_formats_two_channel_status_unchanged(void)
 {
     char buf[PROTO_RESPONSE_MAX];
@@ -266,6 +277,7 @@ int main(void)
     RUN_TEST(test_result_rejects_non_relay_commands);
     RUN_TEST(test_formats_hello);
     RUN_TEST(test_hello_fits_longest_version);
+    RUN_TEST(test_formats_nack);
     RUN_TEST(test_formats_two_channel_status_unchanged);
     RUN_TEST(test_formats_status_any_count);
     RUN_TEST(test_max_status_fits_response_buffer);

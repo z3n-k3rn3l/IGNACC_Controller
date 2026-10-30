@@ -83,9 +83,11 @@ static void handle_command(app_fsm_t *self, const proto_cmd_t *cmd)
 
     switch (cmd->kind) {
     case PROTO_CMD_RELAY:
-        /* A channel this board doesn't have is not a command: ignore it. */
         if (cmd->channel >= 1 && cmd->channel <= relay_bank_count(&self->cfg.relays)) {
             handle_relay_command(self, cmd);
+        } else {
+            /* A channel this board doesn't have: unknown here. */
+            send_response(self, buf, proto_format_nack(buf, sizeof(buf)));
         }
         break;
     case PROTO_CMD_ALL:
@@ -99,7 +101,8 @@ static void handle_command(app_fsm_t *self, const proto_cmd_t *cmd)
         break;
     case PROTO_CMD_NONE:
     default:
-        break; /* Not a command: ignore silently. */
+        send_response(self, buf, proto_format_nack(buf, sizeof(buf)));
+        break;
     }
 }
 

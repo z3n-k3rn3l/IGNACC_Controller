@@ -15,7 +15,7 @@
  * | `ALL_ON` / `ALL_OFF`     | `ALL_ON_OK` / `ALL_ON_FAIL` / ...            |
  * | `HeyU`                   | `Hello IGNACC v<version> READY`              |
  * | `STATUS`                 | `STATUS IN1=<ON|OFF> ... IN<count>=<ON|OFF>` |
- * | anything else            | no response                                  |
+ * | anything else            | `UNK_NACK`                                   |
  *
  * Received lines have their terminator stripped before parsing. Every
  * formatted response ends with `"\r\n"`.
@@ -37,7 +37,7 @@ extern "C" {
 
 /** What kind of command a line is. */
 typedef enum {
-    PROTO_CMD_NONE = 0, /**< Not a command: must be ignored silently. */
+    PROTO_CMD_NONE = 0, /**< Not a command: answered with `UNK_NACK`. */
     PROTO_CMD_RELAY,    /**< `IN<n>_ON` / `IN<n>_OFF`: one channel. */
     PROTO_CMD_ALL,      /**< `ALL_ON` / `ALL_OFF`: every channel on the board. */
     PROTO_CMD_HELLO,    /**< `HeyU`: handshake. */
@@ -91,6 +91,18 @@ int proto_format_result(const proto_cmd_t *cmd, bool ok, char *buf, size_t size)
  *         @p buf is too small.
  */
 int proto_format_hello(const char *fw_version, char *buf, size_t size);
+
+/**
+ * @brief Format the reply to an unknown or unsupported command: `"UNK_NACK\r\n"`.
+ *
+ * Sent for any line that is not a valid command, and for `IN<n>` commands
+ * naming a channel the board doesn't have.
+ *
+ * @param buf  Output buffer; receives the response and a NUL terminator.
+ * @param size Size of @p buf in bytes.
+ * @return Response length excluding the NUL, or -1 if @p buf is NULL or too small.
+ */
+int proto_format_nack(char *buf, size_t size);
 
 /**
  * @brief Format `"STATUS IN1=<ON|OFF> ... IN<count>=<ON|OFF>\r\n"`.

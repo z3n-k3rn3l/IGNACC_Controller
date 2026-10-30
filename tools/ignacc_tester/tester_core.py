@@ -22,6 +22,8 @@ SILENCE_WINDOW = 0.4
 SETTLE_MS = 15      # firmware default CONFIG_IGNACC_RELAY_SETTLE_MS
 MAX_LINE_LEN = 32   # firmware default CONFIG_IGNACC_MAX_LINE_LEN
 HELLO_RE = re.compile(r"^Hello IGNACC v(\S+) READY$")
+NACK = "UNK_NACK"
+NACK_LINE = b"UNK_NACK\r\n"
 STATUS_RE = re.compile(r"^STATUS( IN\d+=(ON|OFF))+$")
 
 
@@ -179,6 +181,14 @@ class TestContext:
             ms -= SETTLE_MS
         return ms <= self.latency_limit_ms
 
+    def expect_nack(self, step: str, data: bytes):
+        """Send raw bytes; expect exactly one UNK_NACK line and nothing else."""
+        self._pace()
+        start = time.perf_counter()
+        received = self.link.silence(data)
+        ms = (time.perf_counter() - start) * 1000.0
+        self.record(step, received == NACK_LINE, f"received {received!r} within {ms:.0f} ms window")
+
     def expect_silent(self, step: str, data: bytes):
         self._pace()
         extra = self.link.silence(data)
@@ -292,16 +302,23 @@ def t_line_endings(ctx: TestContext):
     ctx.expect("ALL_OFF", "ALL_OFF_OK", eol="\r\n", min_ms=SETTLE_MS)
 
 
-def t_ignored_input(ctx: TestContext):
+def t_unknown_commands(ctx: TestContext):
     junk_lines = ["heyu", "HEYU", "in1_on", "IN1_on", "IN1_ON ", " IN1_ON", "garbage", "STATUS?",
                   "all_on", "ALL_on", "ALL_ON ", " ALL_OFF", "ALL", "ALL_", "ALL_ONX", "ALLON",
                   "IN0_ON", "IN01_ON", "IN17_ON", f"IN{ctx.channels + 1}_ON"]
     for junk in dict.fromkeys(junk_lines):
-        ctx.expect_silent(f"ignored {junk!r}", (junk + "\r\n").encode())
-    ctx.expect_silent("ignored embedded NUL", b"IN1_ON\x00\r\n")
-    ctx.expect_silent("ignored embedded NUL (ALL)", b"ALL_ON\x00\r\n")
-    ctx.expect_silent("ignored ROM-style text", b"rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)\r\n")
-    ctx.expect("STATUS", _status(False, False))
+        ctx.expect_nack(f"{junk!r} -> UNK_NACK", (junk + "\r\n").encode())
+    ctx.expect_nack("embedded NUL -> UNK_NACK", b"IN1_ON\x00\r\n")
+    ctx.expect_nack("embedded NUL (ALL) -> UNK_NACK", b"ALL_ON\x00\r\n")
+    ctx.expect_nack("short ROM-style line -> UNK_NACK", b"entry 0x400805e4\r\n")
+    ctx.expect_silent("56-char ROM-style line: overlong, dropped silently",
+                      b"rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)\r\n")
+    ctx.expect("STATUS", _status(False, False))  # nothing switched
+    # UNK_NACK must not change relay state
+    ctx.expect("IN1_ON", "IN1_ON_OK", min_ms=SETTLE_MS)
+    ctx.expect("garbage", NACK)
+    ctx.expect("STATUS", _status_n([True] + [False] * (ctx.channels - 1)))
+    ctx.expect("IN1_OFF", "IN1_OFF_OK", min_ms=SETTLE_MS)
 
 
 def t_overlong(ctx: TestContext):
@@ -406,7 +423,7 @@ TESTS: List[TestCase] = [
     TestCase("ALL idempotent", "ALL_ON twice, ALL_OFF twice: re-driven, still _OK", t_all_idempotent),
     TestCase("ALL from mixed states", "ALL_ON / ALL_OFF when only some channels are ON", t_all_mixed),
     TestCase("Line endings", "LF and CRLF accepted (incl. ALL_OFF); CR alone waits for LF", t_line_endings),
-    TestCase("Ignored input", "Wrong case, spaces, unknown text, NUL, ROM text: no reply", t_ignored_input),
+    TestCase("Unknown commands", "Wrong case, spaces, unknown text, NUL, bad channels: UNK_NACK, state unchanged", t_unknown_commands),
     TestCase("Overlong lines", "Lines longer than 32 chars are dropped entirely", t_overlong),
     TestCase("Split + pipelined", "Line split across writes; pipelined commands (incl. ALL)", t_split_and_pipelined),
     TestCase("Latency", f"Round trip of each command x{LATENCY_SAMPLES}: min/avg/max vs limit", t_latency),

@@ -304,7 +304,7 @@ static void test_readback_lost_after_settle_is_fail(void)
     TEST_ASSERT_FALSE(s_relay[0].on);
 }
 
-static void test_unknown_lines_are_silent(void)
+static void test_unknown_lines_get_nack(void)
 {
     start_ready();
     line("rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)");
@@ -313,11 +313,30 @@ static void test_unknown_lines_are_silent(void)
     line("");
     line("all_on");
     line("ALL_ON ");
+    line("IN0_ON");
+    line("IN01_ON");
     app_fsm_handle_line(s_fsm, "IN1_ON\0", 7);
     app_fsm_handle_line(s_fsm, "ALL_ON\0", 7);
-    TEST_ASSERT_EQUAL_size_t(0, s_out_len);
-    TEST_ASSERT_EQUAL_INT(0, s_relay[0].set_calls);
-    TEST_ASSERT_EQUAL_INT(0, s_relay[1].set_calls);
+    /* One UNK_NACK per line, nothing else sent, no relay touched. */
+    char want[256] = "";
+    for (int i = 0; i < 10; i++) {
+        strcat(want, "UNK_NACK\r\n");
+    }
+    TEST_ASSERT_EQUAL_STRING(want, s_out);
+    TEST_ASSERT_EQUAL_INT(10, count_events(EV_SEND));
+    TEST_ASSERT_EQUAL_INT(0, count_events(EV_SET));
+    TEST_ASSERT_EQUAL_INT(0, count_events(EV_DELAY));
+}
+
+static void test_nack_does_not_change_state(void)
+{
+    start_ready();
+    line("IN1_ON");
+    clear_logs();
+    line("garbage");
+    line("STATUS");
+    TEST_ASSERT_EQUAL_STRING("UNK_NACK\r\nSTATUS IN1=ON IN2=OFF\r\n", s_out);
+    TEST_ASSERT_TRUE(s_relay[0].on);
 }
 
 static void test_zero_settle_skips_delay(void)
@@ -471,15 +490,16 @@ static void test_all_does_not_touch_relays_beyond_count(void)
 
 /* ---- Channel count handling --------------------------------------------- */
 
-static void test_channels_beyond_count_are_ignored(void)
+static void test_channels_beyond_count_get_nack(void)
 {
     use_fsm(2, 15);
     start_ready();
-    line("IN3_ON");
+    line("IN3_ON");   /* valid grammar, channel not on this board */
     line("IN16_OFF");
-    line("IN17_ON");
-    TEST_ASSERT_EQUAL_size_t(0, s_out_len);
+    line("IN17_ON");  /* outside the grammar */
+    TEST_ASSERT_EQUAL_STRING("UNK_NACK\r\nUNK_NACK\r\nUNK_NACK\r\n", s_out);
     TEST_ASSERT_EQUAL_INT(0, s_relay[2].set_calls);
+    TEST_ASSERT_EQUAL_INT(0, count_events(EV_SET));
 }
 
 static void test_single_channel_board(void)
@@ -489,10 +509,10 @@ static void test_single_channel_board(void)
     TEST_ASSERT_EQUAL_UINT(1, app_fsm_channel_count(s_fsm));
     line("STATUS");
     line("IN1_ON");
-    line("IN2_ON"); /* not on this board: ignored */
+    line("IN2_ON"); /* not on this board */
     line("STATUS");
     line("ALL_OFF");
-    TEST_ASSERT_EQUAL_STRING("STATUS IN1=OFF\r\nIN1_ON_OK\r\nSTATUS IN1=ON\r\nALL_OFF_OK\r\n", s_out);
+    TEST_ASSERT_EQUAL_STRING("STATUS IN1=OFF\r\nIN1_ON_OK\r\nUNK_NACK\r\nSTATUS IN1=ON\r\nALL_OFF_OK\r\n", s_out);
 }
 
 static void test_max_channel_board(void)
@@ -559,7 +579,8 @@ int main(void)
     RUN_TEST(test_set_failure_replies_fail_and_forces_safe_state);
     RUN_TEST(test_io_failure_on_off_command);
     RUN_TEST(test_readback_lost_after_settle_is_fail);
-    RUN_TEST(test_unknown_lines_are_silent);
+    RUN_TEST(test_unknown_lines_get_nack);
+    RUN_TEST(test_nack_does_not_change_state);
     RUN_TEST(test_zero_settle_skips_delay);
     RUN_TEST(test_create_rejects_incomplete_config);
     /* ALL_ON / ALL_OFF */
@@ -572,7 +593,7 @@ int main(void)
     RUN_TEST(test_all_off_failure_reports_fail);
     RUN_TEST(test_all_does_not_touch_relays_beyond_count);
     /* channel count */
-    RUN_TEST(test_channels_beyond_count_are_ignored);
+    RUN_TEST(test_channels_beyond_count_get_nack);
     RUN_TEST(test_single_channel_board);
     RUN_TEST(test_max_channel_board);
     RUN_TEST(test_status_matches_every_count);

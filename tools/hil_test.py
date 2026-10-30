@@ -111,6 +111,12 @@ def expect(res: Results, board: Board, cmd: str, expected: str, eol: str = "\r\n
     res.check(f"{cmd!r} -> {expected!r}", ok, detail)
 
 
+def expect_nack(res: Results, board: Board, name: str, data: bytes):
+    board.send_raw(data)
+    got = board.silence()
+    res.check(name, got == b"UNK_NACK\r\n", f"received {got!r}")
+
+
 def expect_silence(res: Results, board: Board, name: str, data: bytes):
     board.send_raw(data)
     extra = board.silence()
@@ -163,9 +169,10 @@ def main() -> int:
 
         # --- Ignored input -------------------------------------------------
         for junk in ["heyu", "HEYU", "in1_on", "IN1_on", "IN1_ON ", " IN1_ON", "IN3_ON", "garbage", "STATUS?"]:
-            expect_silence(res, board, f"ignored {junk!r}", (junk + "\r\n").encode())
-        expect_silence(res, board, "ignored embedded NUL", b"IN1_ON\x00\r\n")
-        expect_silence(res, board, "ignored ROM-style text",
+            expect_nack(res, board, f"{junk!r} -> UNK_NACK", (junk + "\r\n").encode())
+        expect_nack(res, board, "embedded NUL -> UNK_NACK", b"IN1_ON\x00\r\n")
+        expect_nack(res, board, "short ROM-style line -> UNK_NACK", b"entry 0x400805e4\r\n")
+        expect_silence(res, board, "56-char ROM-style line: overlong, dropped silently",
                        b"rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)\r\n")
         expect_silence(res, board, f"overlong line ({MAX_LINE_LEN + 1} chars) dropped",
                        b"A" * (MAX_LINE_LEN + 1) + b"\r\n")

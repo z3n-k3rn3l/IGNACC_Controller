@@ -105,6 +105,14 @@ int proto_format_hello(const char *fw_version, char *buf, size_t size)
     return format_checked(size, n);
 }
 
+int proto_format_nack(char *buf, size_t size)
+{
+    if (buf == NULL || size == 0) {
+        return -1;
+    }
+    return format_checked(size, snprintf(buf, size, "UNK_NACK\r\n"));
+}
+
 int proto_format_status(const bool *on, unsigned count, char *buf, size_t size)
 {
     if (on == NULL || count < 1 || count > PROTO_MAX_CHANNELS || buf == NULL || size == 0) {

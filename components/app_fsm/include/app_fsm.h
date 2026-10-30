@@ -16,10 +16,11 @@
  *
  * Command handling in READY:
  * - `IN<n>_ON/OFF`: drive relay n, wait the settle delay, verify the read-back,
- *   reply `_OK`. A channel the board doesn't have is ignored.
+ *   reply `_OK`. A channel the board doesn't have gets `UNK_NACK`.
  * - `ALL_ON/OFF`: drive every relay, wait **one** settle delay, verify every
  *   read-back, reply `_OK`.
  * - Any failure: reply `_FAIL` immediately and drive **all** relays OFF.
+ * - Anything else: reply `UNK_NACK`; no relay is touched.
  *
  * Safety: all relays are driven OFF on start and whenever a relay command fails.
  */
@@ -90,7 +91,10 @@ void app_fsm_destroy(app_fsm_t *fsm);
 bool app_fsm_start(app_fsm_t *fsm);
 
 /**
- * @brief Handle one received line. Unknown lines are ignored silently.
+ * @brief Handle one received line.
+ *
+ * In READY, unknown lines are answered with `UNK_NACK`. In INIT, every line is
+ * ignored without a reply.
  * @param fsm  The FSM.
  * @param line Line bytes, terminator stripped; need not be NUL-terminated.
  * @param len  Number of bytes in @p line.

@@ -53,7 +53,7 @@ UART0 through the on-board micro-USB bridge, **115200 8N1**.
 | `ALL_ON`  | `ALL_ON_OK` / `ALL_ON_FAIL` |
 | `ALL_OFF` | `ALL_OFF_OK` / `ALL_OFF_FAIL` |
 | `STATUS`  | `STATUS IN1=<ON\|OFF> IN2=<ON\|OFF>`, one field per configured channel |
-| anything else | *(no response)* |
+| anything else (typo, wrong case, a channel the board doesn't have) | `UNK_NACK` |
 
 - **OK** is sent after the pin is driven, the relay settle delay (default 15 ms)
   has passed, and read-back still shows the commanded level.
@@ -67,8 +67,13 @@ UART0 through the on-board micro-USB bridge, **115200 8N1**.
   wait one settle delay, then check every read-back before `_OK`. If any channel
   fails, all relays are driven OFF and the reply is `_FAIL`. A CAPL script can
   start with `ALL_OFF` to put the bench in a known safe state.
-- A channel number the board doesn't have (e.g. `IN3_ON` on a 2-channel board),
-  or a malformed one (`IN0_ON`, `IN01_ON`), is ignored like any unknown line.
+- **UNK_NACK** answers any line that isn't a valid command: wrong case, extra
+  spaces, unknown text, a malformed channel (`IN0_ON`, `IN01_ON`) or a channel
+  the board doesn't have (`IN3_ON` on a 2-channel board). The host learns about
+  the mistake in a few ms instead of waiting for a timeout. No relay is touched.
+- Still silent: lines longer than 32 characters (dropped by the UART layer
+  before parsing), an incomplete line (no `\n` yet), and anything received
+  during the first milliseconds after boot.
 - Commands are idempotent: re-sending the current state drives the pin again
   and returns `_OK`.
 - If more than 4 lines (configurable) are waiting, extra lines are dropped
@@ -164,7 +169,7 @@ troubleshooting: [docs/vscode-clangd-setup.md](docs/vscode-clangd-setup.md).
 
 ## Prebuilt tester
 
-[tools/ignacc_tester/bin/v1.1.0/](tools/ignacc_tester/bin/v1.1.0/) (with ALL ON/OFF) has the
+[tools/ignacc_tester/bin/v1.2.0/](tools/ignacc_tester/bin/v1.2.0/) (ALL ON/OFF, UNK_NACK tests) has the
 ready-to-run tester `.exe`, its SHA-256 checksum and a short README. The
 firmware isn't stored as binaries: build and flash it from source with
 `idf.py -p COMx flash`.
@@ -179,7 +184,7 @@ two accounts on Windows or Linux, see
 ## IGNACC Tester (GUI)
 
 A single-file Windows app that runs without Python installed. The committed
-copy is `tools/ignacc_tester/bin/v1.1.0/IGNACC_Tester-v1.1.0-windows-x64.exe`.
+copy is `tools/ignacc_tester/bin/v1.2.0/IGNACC_Tester-v1.2.0-windows-x64.exe`.
 A local rebuild goes to `tools/ignacc_tester/dist/IGNACC_Tester.exe`, which
 git ignores.
 
