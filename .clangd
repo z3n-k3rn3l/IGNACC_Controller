@@ -4,6 +4,7 @@
 CompileFlags:
   CompilationDatabase: build
   Remove: [-m*, -f*]
+  Add: [-Wdocumentation]
 
 Diagnostics:
   UnusedIncludes: None

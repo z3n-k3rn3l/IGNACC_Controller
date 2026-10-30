@@ -252,6 +252,11 @@ main (composition root)
 | `app_fsm` | State machine `INIT → READY`; sole owner of the relays (copies the bank's handles). Works with any channel count. Relays, link and delay are injected. `app_fsm_task.c` is the FreeRTOS runner | `app_fsm.c` yes |
 | `main` | Reads Kconfig (channel count and pins), checks the pins at compile time, creates and wires the objects, starts the tasks | – |
 
+Full details, including how the Kconfig channel model works, the
+compile-time pin checks and every setting, are in
+[docs/configuration-and-architecture.md](docs/configuration-and-architecture.md).
+All public headers have Doxygen comments.
+
 ### Extending
 
 - **More channels (up to 14):** menuconfig only. No code changes.

@@ -1,8 +1,10 @@
-/*
- * line_assembler - assembles a byte stream into lines. Pure C.
+/**
+ * @file line_assembler.h
+ * @brief Assembles a byte stream into lines. Pure C.
  *
- * - Lines end with '\n'; one trailing '\r' is stripped.
- * - Lines longer than max_len (excluding terminators) are discarded entirely.
+ * - Lines end with `'\n'`; one trailing `'\r'` is stripped.
+ * - Lines longer than `max_len` (excluding terminators) are discarded entirely,
+ *   including any command at their end.
  * - Empty lines are not emitted.
  */
 #pragma once
@@ -16,25 +18,36 @@
 extern "C" {
 #endif
 
+/** Assembler state. Treat as opaque; it is public only so it can live on the stack. */
 typedef struct {
-    char buf[LINK_LINE_MAX_LEN + 1]; /*!< +1: room for a trailing '\r' */
-    size_t len;
-    size_t max_len;
-    bool discarding; /*!< Dropping bytes until the next '\n' */
+    char buf[LINK_LINE_MAX_LEN + 1]; /**< Line being assembled; +1 for a trailing '\\r'. */
+    size_t len;                      /**< Bytes in @ref buf. */
+    size_t max_len;                  /**< Longest accepted line. */
+    bool discarding;                 /**< Dropping bytes until the next '\\n'. */
 } line_asm_t;
 
-/** Initialise. max_len is clamped to [1, LINK_LINE_MAX_LEN]. */
+/**
+ * @brief Initialise an assembler.
+ * @param a       The assembler.
+ * @param max_len Longest accepted line, clamped to [1, #LINK_LINE_MAX_LEN].
+ */
 void line_asm_init(line_asm_t *a, size_t max_len);
 
 /**
- * Drop the partial line and everything up to and including the next '\n'.
- * Use after receive errors or data loss, so a corrupted line is never emitted.
+ * @brief Drop the partial line and everything up to and including the next '\\n'.
+ *
+ * Call after receive errors or data loss, so a corrupted line is never emitted.
+ *
+ * @param a The assembler.
  */
 void line_asm_discard(line_asm_t *a);
 
 /**
- * Feed one byte.
- * @return true if a complete line was written to *out.
+ * @brief Feed one byte.
+ * @param a   The assembler.
+ * @param c   Received byte.
+ * @param out Receives the line when one is complete.
+ * @return true if a complete line was written to @p out.
  */
 bool line_asm_push(line_asm_t *a, char c, link_line_t *out);
 

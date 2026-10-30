@@ -157,6 +157,7 @@ At the project root, `.clangd`:
 CompileFlags:
   CompilationDatabase: build
   Remove: [-m*, -f*]
+  Add: [-Wdocumentation]
 
 Diagnostics:
   UnusedIncludes: None
@@ -167,6 +168,8 @@ Diagnostics:
 - **`Remove: [-m*, -f*]`**: drop GCC-only flags clang doesn't understand,
   such as `-mlongcalls`, `-fstrict-volatile-bitfields` and
   `-fno-tree-switch-conversion`. This is Espressif's recommended setting.
+- **`Add: [-Wdocumentation]`**: flags Doxygen mistakes as you type, e.g. a
+  `@param` naming a parameter that doesn't exist.
 - **`UnusedIncludes: None`**: no "unused include" warnings. ESP-IDF headers
   trigger many false positives.
 
