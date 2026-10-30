@@ -43,4 +43,6 @@ endfunction()
 add_unit_test(test_protocol       test_protocol.c       "${COMP}/protocol/protocol.c")
 add_unit_test(test_line_assembler test_line_assembler.c "${COMP}/uart_link/line_assembler.c")
 add_unit_test(test_relay_gpio     test_relay_gpio.c     "${COMP}/relay/relay_gpio.c")
-add_unit_test(test_app_fsm        test_app_fsm.c        "${COMP}/app_fsm/app_fsm.c" "${COMP}/protocol/protocol.c")
+add_unit_test(test_relay_bank     test_relay_bank.c     "${COMP}/relay/relay_bank.c")
+add_unit_test(test_app_fsm        test_app_fsm.c        "${COMP}/app_fsm/app_fsm.c" "${COMP}/protocol/protocol.c"
+                                                        "${COMP}/relay/relay_bank.c")

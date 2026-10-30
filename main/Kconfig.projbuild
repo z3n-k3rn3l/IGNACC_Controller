@@ -2,21 +2,116 @@ menu "IGNACC Controller"
 
     menu "Relays"
 
+        config IGNACC_RELAY_COUNT
+            int "Number of relay channels"
+            range 1 14
+            default 2
+            help
+                How many relays (IN1..INn) this board drives. Up to 14: every
+                ESP32-WROOM-32 GPIO that is output-capable and safe at boot.
+                Each channel's GPIO is set below. The protocol, STATUS reply,
+                ALL_ON/ALL_OFF and the state machine adapt automatically.
+
         config IGNACC_RELAY1_GPIO
             int "IN1 relay GPIO"
             range 0 33
             default 26
             help
-                GPIO driving relay module input IN1.
-                Must be output-capable (not 34-39) and not a flash pin (6-11).
-                Avoid strapping pins (0, 2, 5, 12, 15) and GPIO14 (PWM at boot).
+                GPIO driving relay input IN1. Must be a safe pin:
+                4, 13, 16, 17, 18, 19, 21, 22, 23, 25, 26, 27, 32 or 33
+                (no strapping, flash, UART, boot-PWM or input-only pins).
+                The build fails if an unsafe or duplicate pin is chosen.
 
         config IGNACC_RELAY2_GPIO
-            int "IN2 relay GPIO"
+            int "IN2 relay GPIO" if IGNACC_RELAY_COUNT >= 2
             range 0 33
             default 27
             help
-                GPIO driving relay module input IN2. Same constraints as IN1.
+                GPIO driving relay input IN2. Same rules as IN1.
+
+        config IGNACC_RELAY3_GPIO
+            int "IN3 relay GPIO" if IGNACC_RELAY_COUNT >= 3
+            range 0 33
+            default 25
+            help
+                GPIO driving relay input IN3. Same rules as IN1.
+
+        config IGNACC_RELAY4_GPIO
+            int "IN4 relay GPIO" if IGNACC_RELAY_COUNT >= 4
+            range 0 33
+            default 33
+            help
+                GPIO driving relay input IN4. Same rules as IN1.
+
+        config IGNACC_RELAY5_GPIO
+            int "IN5 relay GPIO" if IGNACC_RELAY_COUNT >= 5
+            range 0 33
+            default 32
+            help
+                GPIO driving relay input IN5. Same rules as IN1.
+
+        config IGNACC_RELAY6_GPIO
+            int "IN6 relay GPIO" if IGNACC_RELAY_COUNT >= 6
+            range 0 33
+            default 4
+            help
+                GPIO driving relay input IN6. Same rules as IN1.
+
+        config IGNACC_RELAY7_GPIO
+            int "IN7 relay GPIO" if IGNACC_RELAY_COUNT >= 7
+            range 0 33
+            default 13
+            help
+                GPIO driving relay input IN7. Same rules as IN1.
+
+        config IGNACC_RELAY8_GPIO
+            int "IN8 relay GPIO" if IGNACC_RELAY_COUNT >= 8
+            range 0 33
+            default 16
+            help
+                GPIO driving relay input IN8. Same rules as IN1.
+
+        config IGNACC_RELAY9_GPIO
+            int "IN9 relay GPIO" if IGNACC_RELAY_COUNT >= 9
+            range 0 33
+            default 17
+            help
+                GPIO driving relay input IN9. Same rules as IN1.
+
+        config IGNACC_RELAY10_GPIO
+            int "IN10 relay GPIO" if IGNACC_RELAY_COUNT >= 10
+            range 0 33
+            default 18
+            help
+                GPIO driving relay input IN10. Same rules as IN1.
+
+        config IGNACC_RELAY11_GPIO
+            int "IN11 relay GPIO" if IGNACC_RELAY_COUNT >= 11
+            range 0 33
+            default 19
+            help
+                GPIO driving relay input IN11. Same rules as IN1.
+
+        config IGNACC_RELAY12_GPIO
+            int "IN12 relay GPIO" if IGNACC_RELAY_COUNT >= 12
+            range 0 33
+            default 21
+            help
+                GPIO driving relay input IN12. Same rules as IN1.
+
+        config IGNACC_RELAY13_GPIO
+            int "IN13 relay GPIO" if IGNACC_RELAY_COUNT >= 13
+            range 0 33
+            default 22
+            help
+                GPIO driving relay input IN13. Same rules as IN1.
+
+        config IGNACC_RELAY14_GPIO
+            int "IN14 relay GPIO" if IGNACC_RELAY_COUNT >= 14
+            range 0 33
+            default 23
+            help
+                GPIO driving relay input IN14. Same rules as IN1.
 
         choice IGNACC_RELAY_ACTIVE_LEVEL
             prompt "Relay active level"

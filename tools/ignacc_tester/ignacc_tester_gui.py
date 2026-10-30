@@ -19,6 +19,7 @@ import serial
 
 import tester_core as core
 
+APP_VERSION = "1.1.0"
 APP_TITLE = "IGNACC Tester"
 BAUD_RATES = ["9600", "19200", "38400", "57600", "115200", "230400", "460800", "921600"]
 POLL_MS = 50
@@ -29,7 +30,7 @@ COLORS = {"pass": "#1a7f37", "fail": "#cf222e", "info": "#57606a", "test": "#055
 class TesterApp(tk.Tk):
     def __init__(self):
         super().__init__()
-        self.title(APP_TITLE)
+        self.title(f"{APP_TITLE} v{APP_VERSION}")
         self.minsize(980, 680)
 
         self.link = core.Link()
@@ -155,24 +156,25 @@ class TesterApp(tk.Tk):
         self.manual_buttons = []
         cmds = [("HeyU", "HeyU"), ("STATUS", "STATUS"),
                 ("IN1 ON", "IN1_ON"), ("IN1 OFF", "IN1_OFF"),
-                ("IN2 ON", "IN2_ON"), ("IN2 OFF", "IN2_OFF")]
+                ("IN2 ON", "IN2_ON"), ("IN2 OFF", "IN2_OFF"),
+                ("ALL ON", "ALL_ON"), ("ALL OFF", "ALL_OFF")]
         for n, (label, cmd) in enumerate(cmds):
             b = ttk.Button(manual, text=label, width=10, command=lambda c=cmd: self.send_manual(c))
             b.grid(row=n // 2, column=n % 2, padx=3, pady=3, sticky="ew")
             self.manual_buttons.append(b)
         ind = ttk.Frame(manual)
-        ind.grid(row=3, column=0, columnspan=2, pady=(8, 4))
+        ind.grid(row=4, column=0, columnspan=2, pady=(8, 4))
         ttk.Label(ind, text="Relays:").pack(side="left", padx=(0, 6))
         self.ind1 = ttk.Label(ind, text="IN1 ?", style="Off.TLabel")
         self.ind1.pack(side="left", padx=2)
         self.ind2 = ttk.Label(ind, text="IN2 ?", style="Off.TLabel")
         self.ind2.pack(side="left", padx=2)
-        ttk.Label(manual, text="Custom line:").grid(row=4, column=0, columnspan=2, sticky="w", pady=(8, 0))
+        ttk.Label(manual, text="Custom line:").grid(row=5, column=0, columnspan=2, sticky="w", pady=(8, 0))
         self.custom_entry = ttk.Entry(manual, textvariable=self.custom_var, width=24)
-        self.custom_entry.grid(row=5, column=0, columnspan=2, sticky="ew")
+        self.custom_entry.grid(row=6, column=0, columnspan=2, sticky="ew")
         self.custom_entry.bind("<Return>", lambda _e: self.send_manual(self.custom_var.get()))
         b = ttk.Button(manual, text="Send", command=lambda: self.send_manual(self.custom_var.get()))
-        b.grid(row=6, column=0, columnspan=2, sticky="ew", pady=3)
+        b.grid(row=7, column=0, columnspan=2, sticky="ew", pady=3)
         self.manual_buttons.append(b)
 
         # --- Log ---------------------------------------------------------
@@ -298,6 +300,9 @@ class TesterApp(tk.Tk):
             for key, lbl in (("IN1", self.ind1), ("IN2", self.ind2)):
                 if key in fields:
                     self._set_indicator(lbl, key, fields[key] == "ON")
+        elif reply in ("ALL_ON_OK", "ALL_OFF_OK"):
+            for key, lbl in (("IN1", self.ind1), ("IN2", self.ind2)):
+                self._set_indicator(lbl, key, reply == "ALL_ON_OK")
         else:
             for key, lbl in (("IN1", self.ind1), ("IN2", self.ind2)):
                 if reply == f"{key}_ON_OK":
@@ -477,8 +482,7 @@ class TesterApp(tk.Tk):
                 self.worker.join(timeout=5)  # its cleanup switches both relays OFF
         try:
             if self.link.is_open:
-                self.link.command("IN1_OFF")
-                self.link.command("IN2_OFF")
+                core.all_off(self.link)
         except (serial.SerialException, OSError):
             pass
         self.link.close()

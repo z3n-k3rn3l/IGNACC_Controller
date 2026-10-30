@@ -22,6 +22,14 @@ SILENCE_WINDOW = 0.4
 SETTLE_MS = 15      # firmware default CONFIG_IGNACC_RELAY_SETTLE_MS
 MAX_LINE_LEN = 32   # firmware default CONFIG_IGNACC_MAX_LINE_LEN
 HELLO_RE = re.compile(r"^Hello IGNACC v(\S+) READY$")
+STATUS_RE = re.compile(r"^STATUS( IN\d+=(ON|OFF))+$")
+
+
+def parse_status(reply: Optional[str]) -> Optional[List[bool]]:
+    """'STATUS IN1=ON IN2=OFF' -> [True, False]; None if not a STATUS reply."""
+    if not reply or not STATUS_RE.match(reply):
+        return None
+    return [part.split("=", 1)[1] == "ON" for part in reply.split()[1:]]
 
 
 def list_ports():
@@ -134,6 +142,7 @@ class TestContext:
         self.report = report
         self.stop = stop
         self.test_name = ""
+        self.channels = 2  # set by run_tests from the board's STATUS reply
         self.ok = True
         self._first_step = True
 
@@ -192,6 +201,10 @@ def _status(in1: bool, in2: bool) -> str:
     return f"STATUS IN1={'ON' if in1 else 'OFF'} IN2={'ON' if in2 else 'OFF'}"
 
 
+def _status_n(states: List[bool]) -> str:
+    return "STATUS " + " ".join(f"IN{i}={'ON' if on else 'OFF'}" for i, on in enumerate(states, 1))
+
+
 def t_handshake(ctx: TestContext):
     ctx.handshake()
 
@@ -235,17 +248,58 @@ def t_idempotent(ctx: TestContext):
     ctx.expect("STATUS", _status(False, False))
 
 
+def t_all_on_off(ctx: TestContext):
+    n = ctx.channels
+    ctx.expect("ALL_OFF", "ALL_OFF_OK", min_ms=SETTLE_MS)
+    ctx.expect("STATUS", _status_n([False] * n))
+    ctx.expect("ALL_ON", "ALL_ON_OK", min_ms=SETTLE_MS)
+    ctx.expect("STATUS", _status_n([True] * n))
+    ctx.expect("ALL_OFF", "ALL_OFF_OK", min_ms=SETTLE_MS)
+    ctx.expect("STATUS", _status_n([False] * n))
+
+
+def t_all_idempotent(ctx: TestContext):
+    n = ctx.channels
+    ctx.expect("ALL_ON", "ALL_ON_OK", min_ms=SETTLE_MS)
+    ctx.expect("ALL_ON", "ALL_ON_OK", min_ms=SETTLE_MS)
+    ctx.expect("STATUS", _status_n([True] * n))
+    ctx.expect("ALL_OFF", "ALL_OFF_OK", min_ms=SETTLE_MS)
+    ctx.expect("ALL_OFF", "ALL_OFF_OK", min_ms=SETTLE_MS)
+    ctx.expect("STATUS", _status_n([False] * n))
+
+
+def t_all_mixed(ctx: TestContext):
+    n = ctx.channels
+    ctx.expect("IN1_ON", "IN1_ON_OK", min_ms=SETTLE_MS)
+    ctx.expect("STATUS", _status_n([True] + [False] * (n - 1)))
+    ctx.expect("ALL_ON", "ALL_ON_OK", min_ms=SETTLE_MS)          # some ON -> all ON
+    ctx.expect("STATUS", _status_n([True] * n))
+    ctx.expect("IN1_OFF", "IN1_OFF_OK", min_ms=SETTLE_MS)
+    ctx.expect("STATUS", _status_n([False] + [True] * (n - 1)))
+    ctx.expect("ALL_OFF", "ALL_OFF_OK", min_ms=SETTLE_MS)        # some OFF -> all OFF
+    ctx.expect("STATUS", _status_n([False] * n))
+    ctx.expect(f"IN{n}_ON", f"IN{n}_ON_OK", min_ms=SETTLE_MS)    # last channel only
+    ctx.expect("ALL_OFF", "ALL_OFF_OK", min_ms=SETTLE_MS)
+    ctx.expect("STATUS", _status_n([False] * n))
+
+
 def t_line_endings(ctx: TestContext):
     ctx.expect("STATUS", _status(False, False), eol="\n")
     ctx.expect("STATUS", _status(False, False), eol="\r\n")
     ctx.expect_silent("CR only ('STATUS\\r') gets no reply", b"STATUS\r")
     ctx.expect("", _status(False, False), eol="\n")  # the LF completes the pending line
+    ctx.expect("ALL_OFF", "ALL_OFF_OK", eol="\n", min_ms=SETTLE_MS)
+    ctx.expect("ALL_OFF", "ALL_OFF_OK", eol="\r\n", min_ms=SETTLE_MS)
 
 
 def t_ignored_input(ctx: TestContext):
-    for junk in ["heyu", "HEYU", "in1_on", "IN1_on", "IN1_ON ", " IN1_ON", "IN3_ON", "garbage", "STATUS?"]:
+    junk_lines = ["heyu", "HEYU", "in1_on", "IN1_on", "IN1_ON ", " IN1_ON", "garbage", "STATUS?",
+                  "all_on", "ALL_on", "ALL_ON ", " ALL_OFF", "ALL", "ALL_", "ALL_ONX", "ALLON",
+                  "IN0_ON", "IN01_ON", "IN17_ON", f"IN{ctx.channels + 1}_ON"]
+    for junk in dict.fromkeys(junk_lines):
         ctx.expect_silent(f"ignored {junk!r}", (junk + "\r\n").encode())
     ctx.expect_silent("ignored embedded NUL", b"IN1_ON\x00\r\n")
+    ctx.expect_silent("ignored embedded NUL (ALL)", b"ALL_ON\x00\r\n")
     ctx.expect_silent("ignored ROM-style text", b"rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)\r\n")
     ctx.expect("STATUS", _status(False, False))
 
@@ -272,6 +326,14 @@ def t_split_and_pipelined(ctx: TestContext):
         lines = [ctx.link.read_line() for _ in want]
     ctx.record("4 pipelined commands answered in order", lines == want, f"got {lines!r}")
 
+    ctx._pace()
+    n = ctx.channels
+    want = ["ALL_ON_OK", _status_n([True] * n), "ALL_OFF_OK", _status_n([False] * n)]
+    with ctx.link.lock:
+        ctx.link.send_raw(b"ALL_ON\r\nSTATUS\r\nALL_OFF\r\nSTATUS\r\n")
+        lines = [ctx.link.read_line() for _ in want]
+    ctx.record("pipelined ALL_ON/STATUS/ALL_OFF/STATUS answered in order", lines == want, f"got {lines!r}")
+
 
 LATENCY_SAMPLES = 10
 LATENCY_GAP = 0.05  # s between samples, so the relays are not buzzed
@@ -284,6 +346,7 @@ def t_latency(ctx: TestContext):
         ("STATUS", [("STATUS", None)]),
         ("IN1_ON / IN1_OFF", [("IN1_ON", "IN1_ON_OK"), ("IN1_OFF", "IN1_OFF_OK")]),
         ("IN2_ON / IN2_OFF", [("IN2_ON", "IN2_ON_OK"), ("IN2_OFF", "IN2_OFF_OK")]),
+        ("ALL_ON / ALL_OFF", [("ALL_ON", "ALL_ON_OK"), ("ALL_OFF", "ALL_OFF_OK")]),
     ]
     for label, cmds in groups:
         ctx._pace()
@@ -316,12 +379,13 @@ def t_latency(ctx: TestContext):
 
 
 def t_reset_boot(ctx: TestContext):
+    ctx.expect("ALL_ON", "ALL_ON_OK", min_ms=SETTLE_MS)  # reset while everything is ON
     ctx._pace()
     boot = ctx.link.hard_reset()
     ctx.record("board reset via RTS; boot output contains no protocol reply",
                not re.search(rb"_OK|_FAIL|STATUS|Hello", boot), f"{len(boot)} bytes of ROM output")
     ctx.handshake()
-    ctx.expect("STATUS", _status(False, False))
+    ctx.expect("STATUS", _status_n([False] * ctx.channels))  # boots with every relay OFF
 
 
 @dataclass
@@ -338,13 +402,25 @@ TESTS: List[TestCase] = [
     TestCase("IN2 ON/OFF", "Toggle relay 2, check STATUS after each step", t_in2_cycle),
     TestCase("Both ON, then OFF", "Both relays ON together, then OFF one by one", t_both_on),
     TestCase("Idempotent commands", "Repeat the same command: re-driven, still _OK", t_idempotent),
-    TestCase("Line endings", "LF and CRLF accepted; CR alone waits for LF", t_line_endings),
+    TestCase("ALL_ON / ALL_OFF", "Switch every channel at once; STATUS confirms all ON / all OFF", t_all_on_off),
+    TestCase("ALL idempotent", "ALL_ON twice, ALL_OFF twice: re-driven, still _OK", t_all_idempotent),
+    TestCase("ALL from mixed states", "ALL_ON / ALL_OFF when only some channels are ON", t_all_mixed),
+    TestCase("Line endings", "LF and CRLF accepted (incl. ALL_OFF); CR alone waits for LF", t_line_endings),
     TestCase("Ignored input", "Wrong case, spaces, unknown text, NUL, ROM text: no reply", t_ignored_input),
     TestCase("Overlong lines", "Lines longer than 32 chars are dropped entirely", t_overlong),
-    TestCase("Split + pipelined", "Line split across writes; 4 commands sent at once", t_split_and_pipelined),
+    TestCase("Split + pipelined", "Line split across writes; pipelined commands (incl. ALL)", t_split_and_pipelined),
     TestCase("Latency", f"Round trip of each command x{LATENCY_SAMPLES}: min/avg/max vs limit", t_latency),
-    TestCase("Reset and boot", "Reset the board (RTS); boot text ignored; relays OFF after boot", t_reset_boot),
+    TestCase("Reset and boot", "ALL_ON, reset the board (RTS); boot text ignored; all OFF after boot", t_reset_boot),
 ]
+
+
+def all_off(link: Link) -> bool:
+    """Switch every relay OFF. Falls back to IN1_OFF/IN2_OFF for v1.0 firmware without ALL_OFF."""
+    if link.command("ALL_OFF")[0] == "ALL_OFF_OK":
+        return True
+    ok1 = link.command("IN1_OFF")[0] == "IN1_OFF_OK"
+    ok2 = link.command("IN2_OFF")[0] == "IN2_OFF_OK"
+    return ok1 and ok2
 
 
 @dataclass
@@ -380,6 +456,14 @@ def run_tests(link: Link, indices: List[int], delay: float,
         counts["steps_ok" if r.ok else "steps_fail"] += 1
         on_step(r)
 
+    channels = 2
+    try:
+        states = parse_status(link.command("STATUS")[0])
+        if states:
+            channels = len(states)
+    except (serial.SerialException, OSError):
+        pass
+
     passed = failed = 0
     stopped = False
     first = True
@@ -389,6 +473,7 @@ def run_tests(link: Link, indices: List[int], delay: float,
             on_test(i, test, None)
             ctx = TestContext(link, delay, report, stop, latency_limit_ms, latencies, exclude_settle)
             ctx.test_name = test.name
+            ctx.channels = channels
             ctx._first_step = first
             first = False
             try:
@@ -410,8 +495,7 @@ def run_tests(link: Link, indices: List[int], delay: float,
         # Leave the hardware safe.
         try:
             if link.is_open:
-                link.command("IN1_OFF")
-                link.command("IN2_OFF")
+                all_off(link)
         except (serial.SerialException, OSError):
             pass
     return RunSummary(passed, failed, counts["steps_ok"], counts["steps_fail"], stopped, latencies)

@@ -27,9 +27,12 @@ ASCII commands received over the board's USB-UART bridge.
   switched to output, so there is no ON glitch at boot. During reset, before
   the firmware runs, the pins are high-impedance inputs, which typical
   opto-isolated modules see as OFF.
-- Defaults avoid strapping pins (0, 2, 5, 12, 15), flash pins (6–11),
-  input-only pins (34–39) and GPIO14. The build fails for flash or input-only
-  relay pins and warns for strapping pins and GPIO14.
+- **Channels:** 2 by default, up to 14 (menuconfig → Relays → Number of relay
+  channels). Each channel gets its own GPIO setting. The safe pins are 4, 13,
+  16, 17, 18, 19, 21, 22, 23, 25, 26, 27, 32 and 33 (`esp32_relay_pins.h`).
+- **Build-time pin checks:** the build fails if a channel uses a strapping
+  pin (0, 2, 5, 12, 15), a flash pin (6–11), a UART pin, GPIO14 or an
+  input-only pin (34–39), or if two channels share a GPIO.
 
 ## Protocol
 
@@ -46,7 +49,10 @@ UART0 through the on-board micro-USB bridge, **115200 8N1**.
 | `IN2_ON`  | `IN2_ON_OK` / `IN2_ON_FAIL` |
 | `IN2_OFF` | `IN2_OFF_OK` / `IN2_OFF_FAIL` |
 | `HeyU`    | `Hello IGNACC v<FW_VERSION> READY` |
-| `STATUS`  | `STATUS IN1=<ON\|OFF> IN2=<ON\|OFF>` |
+| `IN<n>_ON` / `IN<n>_OFF` | `IN<n>_ON_OK` … for every configured channel n (IN3… only on boards with 3+ channels) |
+| `ALL_ON`  | `ALL_ON_OK` / `ALL_ON_FAIL` |
+| `ALL_OFF` | `ALL_OFF_OK` / `ALL_OFF_FAIL` |
+| `STATUS`  | `STATUS IN1=<ON\|OFF> IN2=<ON\|OFF>`, one field per configured channel |
 | anything else | *(no response)* |
 
 - **OK** is sent after the pin is driven, the relay settle delay (default 15 ms)
@@ -57,6 +63,12 @@ UART0 through the on-board micro-USB bridge, **115200 8N1**.
   The read-back checks the **pin**, not the relay contact; no contact feedback
   is wired.
 - **STATUS** reports the pin levels as read back from the hardware.
+- **ALL_ON / ALL_OFF** drive every channel back to back (microseconds apart),
+  wait one settle delay, then check every read-back before `_OK`. If any channel
+  fails, all relays are driven OFF and the reply is `_FAIL`. A CAPL script can
+  start with `ALL_OFF` to put the bench in a known safe state.
+- A channel number the board doesn't have (e.g. `IN3_ON` on a 2-channel board),
+  or a malformed one (`IN0_ON`, `IN01_ON`), is ignored like any unknown line.
 - Commands are idempotent: re-sending the current state drives the pin again
   and returns `_OK`.
 - If more than 4 lines (configurable) are waiting, extra lines are dropped
@@ -85,7 +97,7 @@ UART0 through the on-board micro-USB bridge, **115200 8N1**.
 
 `idf.py menuconfig` → **IGNACC Controller** has these settings:
 
-- relay pins and active level
+- number of relay channels (1–14), their pins and the active level
 - relay settle delay
 - UART port, baud rate, TX/RX pins, RX buffer size and event queue length
 - maximum line length
@@ -152,7 +164,7 @@ troubleshooting: [docs/vscode-clangd-setup.md](docs/vscode-clangd-setup.md).
 
 ## Prebuilt tester
 
-[tools/ignacc_tester/bin/v1.0.0/](tools/ignacc_tester/bin/v1.0.0/) has the
+[tools/ignacc_tester/bin/v1.1.0/](tools/ignacc_tester/bin/v1.1.0/) (with ALL ON/OFF) has the
 ready-to-run tester `.exe`, its SHA-256 checksum and a short README. The
 firmware isn't stored as binaries: build and flash it from source with
 `idf.py -p COMx flash`.
@@ -167,13 +179,13 @@ two accounts on Windows or Linux, see
 ## IGNACC Tester (GUI)
 
 A single-file Windows app that runs without Python installed. The committed
-copy is `tools/ignacc_tester/bin/v1.0.0/IGNACC_Tester-v1.0.0-windows-x64.exe`.
+copy is `tools/ignacc_tester/bin/v1.1.0/IGNACC_Tester-v1.1.0-windows-x64.exe`.
 A local rebuild goes to `tools/ignacc_tester/dist/IGNACC_Tester.exe`, which
 git ignores.
 
 - **Connection:** pick the COM port from the dropdown (Refresh rescans) and
   click Connect. The port is opened with DTR/RTS off, so the board is not reset.
-- **Tests:** run all 12 tests, only the ticked ones, or a range (from/to).
+- **Tests:** run all 15 tests (including ALL_ON/ALL_OFF), only the ticked ones, or a range (from/to).
   - The delay between steps (default 1 s) lets you watch the relays switch.
   - Each test shows PASS/FAIL, and the log has the reply and round trip for
     every step. Save log writes it to a file.
@@ -227,7 +239,7 @@ main (composition root)
  ├─> app_fsm ──> protocol        (pure C)
  │      ├────> relay.h           (interface)
  │      └────> link_if.h         (interface)
- ├─> relay      relay_gpio ──> pin_hal.h ──> pin_hal_esp (IDF GPIO driver)
+ ├─> relay      relay_bank (N relays) ──> relay.h ──> relay_gpio ──> pin_hal.h ──> pin_hal_esp
  └─> uart_link  line_assembler (pure C) + IDF UART driver, implements link_if
 ```
 
@@ -235,10 +247,20 @@ main (composition root)
 |---|---|---|
 | `protocol` | Parse lines into commands and format responses | yes |
 | `link_if` | Line type and transmit interface shared by the link and the FSM | yes (header only) |
-| `relay` | `relay_t` interface (handle + ops table); `relay_gpio` on a mockable `pin_hal_t`; `pin_hal_esp` is the only file that uses `driver/gpio.h` | `relay_gpio.c` yes |
+| `relay` | `relay_t` interface (handle + ops table); `relay_bank` groups any number of `relay_t` for ALL_ON/ALL_OFF; `relay_gpio` on a mockable `pin_hal_t`; `pin_hal_esp` is the only file that uses `driver/gpio.h` | `relay_gpio.c`, `relay_bank.c` yes |
 | `uart_link` | IDF UART driver (driver ISR, ring buffer, event queue). The RX task assembles lines and posts them to the command queue. No knowledge of relays | `line_assembler.c` yes |
-| `app_fsm` | State machine `INIT → READY`; sole owner of the relays. Relays, link and delay are injected. `app_fsm_task.c` is the FreeRTOS runner | `app_fsm.c` yes |
-| `main` | Reads Kconfig, creates and wires the objects, starts the tasks | – |
+| `app_fsm` | State machine `INIT → READY`; sole owner of the relays (copies the bank's handles). Works with any channel count. Relays, link and delay are injected. `app_fsm_task.c` is the FreeRTOS runner | `app_fsm.c` yes |
+| `main` | Reads Kconfig (channel count and pins), checks the pins at compile time, creates and wires the objects, starts the tasks | – |
+
+### Extending
+
+- **More channels (up to 14):** menuconfig only. No code changes.
+- **Different relay hardware** (I/O expander, shift register, a second relay
+  board): write a new `relay_t` implementation (one `.c` file with `set` and
+  `is_on`) and create it in `main`. The protocol, relay bank and state machine
+  don't change.
+- **More than 16 channels:** raise `PROTO_MAX_CHANNELS` (and `PROTO_RESPONSE_MAX`
+  for the longer `STATUS` line).
 
 Only `main` reads `sdkconfig`. All other components receive plain config
 structs, which is what makes them host-testable.

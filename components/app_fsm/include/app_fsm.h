@@ -3,14 +3,15 @@
  *
  * Sole owner of the relays. Consumes received lines, drives relays and sends
  * responses through the injected link. All dependencies (relays, link, delay)
- * are injected, so it runs unchanged on the host with mocks.
+ * are injected, so it runs unchanged on the host with mocks, and with any
+ * number of relays (1..PROTO_MAX_CHANNELS) of any relay_t implementation.
  *
  * States:
  *   INIT  --app_fsm_start()-->  READY
  *   INIT  : lines are ignored.
  *   READY : lines are parsed and executed.
  *
- * Safety: on start, and whenever a relay command fails, both relays are
+ * Safety: on start, and whenever a relay command fails, all relays are
  * driven OFF.
  */
 #pragma once
@@ -21,7 +22,7 @@
 
 #include "link_if.h"
 #include "protocol.h"
-#include "relay.h"
+#include "relay_bank.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -35,23 +36,26 @@ typedef enum {
 } app_fsm_state_t;
 
 typedef struct {
-    relay_t relays[PROTO_RELAY_CHANNELS]; /*!< [0] = IN1, [1] = IN2 */
+    relay_bank_t relays;     /*!< IN1..INn; 1..PROTO_MAX_CHANNELS relays. Copied at create. */
     link_tx_t link;
-    const char *fw_version;               /*!< Must outlive the FSM */
-    uint32_t settle_ms;                   /*!< Delay before _OK is sent */
+    const char *fw_version;  /*!< Must outlive the FSM */
+    uint32_t settle_ms;      /*!< Delay before _OK is sent */
     app_fsm_delay_fn_t delay;
     void *delay_ctx;
 } app_fsm_config_t;
 
 typedef struct app_fsm app_fsm_t;
 
-/** Create in state INIT. Returns NULL on invalid config or no memory. */
+/**
+ * Create in state INIT. The relay handles are copied, so cfg->relays.relays
+ * may be a temporary array. Returns NULL on invalid config or no memory.
+ */
 app_fsm_t *app_fsm_create(const app_fsm_config_t *cfg);
 
 void app_fsm_destroy(app_fsm_t *fsm);
 
 /**
- * INIT -> READY. Drives both relays OFF first.
+ * INIT -> READY. Drives all relays OFF first.
  * @return true if the safe state was applied and verified.
  */
 bool app_fsm_start(app_fsm_t *fsm);
@@ -60,6 +64,9 @@ bool app_fsm_start(app_fsm_t *fsm);
 void app_fsm_handle_line(app_fsm_t *fsm, const char *line, size_t len);
 
 app_fsm_state_t app_fsm_state(const app_fsm_t *fsm);
+
+/** Number of relay channels this FSM controls. */
+unsigned app_fsm_channel_count(const app_fsm_t *fsm);
 
 #ifdef __cplusplus
 }
