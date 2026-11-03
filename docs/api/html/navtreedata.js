@@ -73,21 +73,39 @@ var NAVTREE =
       [ "Troubleshooting", "md_docs_2github-two-accounts.html#autotoc_md108", null ],
       [ "Undo", "md_docs_2github-two-accounts.html#autotoc_md110", null ]
     ] ],
-    [ "VS Code code navigation (clangd) for ESP-IDF projects", "md_docs_2vscode-clangd-setup.html", [
-      [ "How it fits together", "md_docs_2vscode-clangd-setup.html#autotoc_md113", null ],
-      [ "Step 1: Install the clangd extension", "md_docs_2vscode-clangd-setup.html#autotoc_md115", null ],
-      [ "Step 2: Make sure the extension is ENABLED", "md_docs_2vscode-clangd-setup.html#autotoc_md116", null ],
-      [ "Step 3: Turn off Microsoft C/C++ IntelliSense", "md_docs_2vscode-clangd-setup.html#autotoc_md117", null ],
-      [ "Step 4: Check the clangd binary and builtin headers exist", "md_docs_2vscode-clangd-setup.html#autotoc_md118", null ],
-      [ "Step 5: Generate the compile database", "md_docs_2vscode-clangd-setup.html#autotoc_md119", null ],
-      [ "Step 6: Workspace settings: <span class=\"tt\">.vscode/settings.json</span>", "md_docs_2vscode-clangd-setup.html#autotoc_md120", null ],
-      [ "Step 7: Project file: <span class=\"tt\">.clangd</span> (committed)", "md_docs_2vscode-clangd-setup.html#autotoc_md121", null ],
-      [ "Step 8: Restart clangd and verify", "md_docs_2vscode-clangd-setup.html#autotoc_md122", [
-        [ "Optional: verify from the command line", "md_docs_2vscode-clangd-setup.html#autotoc_md123", null ]
+    [ "Unit testing", "md_docs_2unit-testing.html", [
+      [ "At a glance", "md_docs_2unit-testing.html#autotoc_md112", null ],
+      [ "1. What is tested, and what isn't", "md_docs_2unit-testing.html#autotoc_md114", null ],
+      [ "2. Install the tools (Windows 11)", "md_docs_2unit-testing.html#autotoc_md116", [
+        [ "2.1 C compiler: MinGW-w64 GCC", "md_docs_2unit-testing.html#autotoc_md117", null ],
+        [ "2.2 CMake", "md_docs_2unit-testing.html#autotoc_md118", null ],
+        [ "2.3 Unity", "md_docs_2unit-testing.html#autotoc_md119", null ],
+        [ "2.4 Check the installation", "md_docs_2unit-testing.html#autotoc_md120", null ],
+        [ "Linux", "md_docs_2unit-testing.html#autotoc_md121", null ]
       ] ],
-      [ "Troubleshooting", "md_docs_2vscode-clangd-setup.html#autotoc_md125", null ],
-      [ "After upgrading ESP-IDF or the tools", "md_docs_2vscode-clangd-setup.html#autotoc_md126", null ],
-      [ "Using this setup in another ESP-IDF project", "md_docs_2vscode-clangd-setup.html#autotoc_md127", null ]
+      [ "3. Build and run", "md_docs_2unit-testing.html#autotoc_md123", [
+        [ "Run one suite or see every test", "md_docs_2unit-testing.html#autotoc_md124", null ]
+      ] ],
+      [ "4. How a test program is compiled and linked", "md_docs_2unit-testing.html#autotoc_md126", null ],
+      [ "5. How the mocks work", "md_docs_2unit-testing.html#autotoc_md128", null ],
+      [ "6. Adding a test", "md_docs_2unit-testing.html#autotoc_md130", null ],
+      [ "7. Troubleshooting", "md_docs_2unit-testing.html#autotoc_md132", null ]
+    ] ],
+    [ "VS Code code navigation (clangd) for ESP-IDF projects", "md_docs_2vscode-clangd-setup.html", [
+      [ "How it fits together", "md_docs_2vscode-clangd-setup.html#autotoc_md135", null ],
+      [ "Step 1: Install the clangd extension", "md_docs_2vscode-clangd-setup.html#autotoc_md137", null ],
+      [ "Step 2: Make sure the extension is ENABLED", "md_docs_2vscode-clangd-setup.html#autotoc_md138", null ],
+      [ "Step 3: Turn off Microsoft C/C++ IntelliSense", "md_docs_2vscode-clangd-setup.html#autotoc_md139", null ],
+      [ "Step 4: Check the clangd binary and builtin headers exist", "md_docs_2vscode-clangd-setup.html#autotoc_md140", null ],
+      [ "Step 5: Generate the compile database", "md_docs_2vscode-clangd-setup.html#autotoc_md141", null ],
+      [ "Step 6: Workspace settings: <span class=\"tt\">.vscode/settings.json</span>", "md_docs_2vscode-clangd-setup.html#autotoc_md142", null ],
+      [ "Step 7: Project file: <span class=\"tt\">.clangd</span> (committed)", "md_docs_2vscode-clangd-setup.html#autotoc_md143", null ],
+      [ "Step 8: Restart clangd and verify", "md_docs_2vscode-clangd-setup.html#autotoc_md144", [
+        [ "Optional: verify from the command line", "md_docs_2vscode-clangd-setup.html#autotoc_md145", null ]
+      ] ],
+      [ "Troubleshooting", "md_docs_2vscode-clangd-setup.html#autotoc_md147", null ],
+      [ "After upgrading ESP-IDF or the tools", "md_docs_2vscode-clangd-setup.html#autotoc_md148", null ],
+      [ "Using this setup in another ESP-IDF project", "md_docs_2vscode-clangd-setup.html#autotoc_md149", null ]
     ] ],
     [ "Data Structures", "annotated.html", [
       [ "Data Structures", "annotated.html", "annotated_dup" ],
@@ -115,7 +133,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"structapp__fsm__task__config__t.html#a9f66320f2e53a7c409a6e8a4ad9e72b2"
+"relay__gpio_8h.html#a839080f90ab81795a59e1b20f2dee2a8"
 ];
 
 const SYNCONMSG = 'click to disable panel synchronization';

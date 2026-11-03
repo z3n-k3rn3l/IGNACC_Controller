@@ -139,7 +139,10 @@ idf.py build
 idf.py -p COM15 flash
 ```
 
-Host unit tests (MinGW gcc + CMake; Unity is taken from `$IDF_PATH`):
+Host unit tests: 75 Unity tests on the PC, **no hardware needed**. They use
+MinGW GCC 15.2 and CMake, and take Unity from `$IDF_PATH`. The full guide,
+covering installation, how the tests are linked, mocks and adding tests, is
+[docs/unit-testing.md](docs/unit-testing.md).
 
 ```bash
 cmake -S test/host -B test/host/build -G "MinGW Makefiles"

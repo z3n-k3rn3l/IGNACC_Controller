@@ -46,9 +46,11 @@ var searchData=
   ['repo_20to_20both_20accounts_43',['Step 6: Connect the repo to both accounts',['../md_docs_2github-two-accounts.html#autotoc_md97',1,'']]],
   ['repositories_44',['Repositories',['../index.html#autotoc_md9',1,'']]],
   ['rest_20of_20the_20firmware_20adapts_45',['3.4 How the rest of the firmware adapts',['../md_docs_2configuration-and-architecture.html#autotoc_md42',1,'']]],
-  ['restart_20clangd_20and_20verify_46',['Step 8: Restart clangd and verify',['../md_docs_2vscode-clangd-setup.html#autotoc_md122',1,'']]],
+  ['restart_20clangd_20and_20verify_46',['Step 8: Restart clangd and verify',['../md_docs_2vscode-clangd-setup.html#autotoc_md144',1,'']]],
   ['result_20to_20text_205_20min_47',['Stop 5 — &lt;span class=&quot;tt&quot;&gt;protocol&lt;/span&gt;: text to command, result to text (5 min)',['../md_docs_2code-tour.html#autotoc_md27',1,'']]],
-  ['rx_5fbuf_5fsize_48',['rx_buf_size',['../structuart__link__config__t.html#ae09978093e01efd068496f014000834e',1,'uart_link_config_t']]],
-  ['rx_5fchunk_5fsize_49',['RX_CHUNK_SIZE',['../uart__link_8c.html#abe2bc57f345bbdd72f3a229d7aa411ca',1,'uart_link.c']]],
-  ['rx_5fpin_50',['rx_pin',['../structuart__link__config__t.html#ab28430d760b9da0dbb0e8eb0b3abf672',1,'uart_link_config_t']]]
+  ['run_48',['3. Build and run',['../md_docs_2unit-testing.html#autotoc_md123',1,'']]],
+  ['run_20one_20suite_20or_20see_20every_20test_49',['Run one suite or see every test',['../md_docs_2unit-testing.html#autotoc_md124',1,'']]],
+  ['rx_5fbuf_5fsize_50',['rx_buf_size',['../structuart__link__config__t.html#ae09978093e01efd068496f014000834e',1,'uart_link_config_t']]],
+  ['rx_5fchunk_5fsize_51',['RX_CHUNK_SIZE',['../uart__link_8c.html#abe2bc57f345bbdd72f3a229d7aa411ca',1,'uart_link.c']]],
+  ['rx_5fpin_52',['rx_pin',['../structuart__link__config__t.html#ab28430d760b9da0dbb0e8eb0b3abf672',1,'uart_link_config_t']]]
 ];

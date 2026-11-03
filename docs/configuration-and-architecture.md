@@ -193,7 +193,7 @@ config structs.
 
 | Layer | Where | Count |
 |---|---|---|
-| Unit (host, Unity, mocks) | `test/host/` | 73 tests: protocol grammar, relay bank, safe-pin list, FSM with 1–16 channels, failure paths |
+| Unit (host, Unity, mocks) | `test/host/` | 75 tests: protocol grammar, `UNK_NACK`, relay bank, safe-pin list, FSM with 1–16 channels, failure paths. See [unit-testing.md](unit-testing.md) |
 | Compile-time | `main.c` `static_assert`s | unsafe, UART-overlapping or duplicate pins fail the build |
 | Hardware (COM15) | `tools/ignacc_tester` | 15 tests / 93 steps, including ALL_ON/ALL_OFF and reset-while-ON |
 

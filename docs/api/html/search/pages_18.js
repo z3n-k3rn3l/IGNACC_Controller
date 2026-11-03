@@ -13,6 +13,8 @@ var searchData=
   ['repo_20to_20both_20accounts_10',['Step 6: Connect the repo to both accounts',['../md_docs_2github-two-accounts.html#autotoc_md97',1,'']]],
   ['repositories_11',['Repositories',['../index.html#autotoc_md9',1,'']]],
   ['rest_20of_20the_20firmware_20adapts_12',['3.4 How the rest of the firmware adapts',['../md_docs_2configuration-and-architecture.html#autotoc_md42',1,'']]],
-  ['restart_20clangd_20and_20verify_13',['Step 8: Restart clangd and verify',['../md_docs_2vscode-clangd-setup.html#autotoc_md122',1,'']]],
-  ['result_20to_20text_205_20min_14',['Stop 5 — &lt;span class=&quot;tt&quot;&gt;protocol&lt;/span&gt;: text to command, result to text (5 min)',['../md_docs_2code-tour.html#autotoc_md27',1,'']]]
+  ['restart_20clangd_20and_20verify_13',['Step 8: Restart clangd and verify',['../md_docs_2vscode-clangd-setup.html#autotoc_md144',1,'']]],
+  ['result_20to_20text_205_20min_14',['Stop 5 — &lt;span class=&quot;tt&quot;&gt;protocol&lt;/span&gt;: text to command, result to text (5 min)',['../md_docs_2code-tour.html#autotoc_md27',1,'']]],
+  ['run_15',['3. Build and run',['../md_docs_2unit-testing.html#autotoc_md123',1,'']]],
+  ['run_20one_20suite_20or_20see_20every_20test_16',['Run one suite or see every test',['../md_docs_2unit-testing.html#autotoc_md124',1,'']]]
 ];

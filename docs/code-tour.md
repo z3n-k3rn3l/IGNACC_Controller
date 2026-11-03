@@ -200,6 +200,7 @@ Every hop you just read, in the order a real command takes them (the
 | Next | Why |
 |---|---|
 | [test/host/test_app_fsm.c](../test/host/test_app_fsm.c) | The best executable description of the behaviour: each test name is a rule |
+| [unit-testing.md](unit-testing.md) | How those tests are built, linked and run on the PC (no hardware) |
 | [configuration-and-architecture.md](configuration-and-architecture.md) | Every setting, and how the Kconfig channel model works |
 | [diagrams/README.md](diagrams/README.md) | All 20 diagrams, each explained in plain words |
 | [tools/ignacc_tester](../tools/ignacc_tester) | How the board is tested from the PC |

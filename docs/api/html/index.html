@@ -219,7 +219,7 @@ Build, flash, test</h1>
 <div class="fragment"><div class="line">idf.py set-target esp32</div>
 </div><!-- fragment --> <div class="fragment"><div class="line">idf.py build</div>
 </div><!-- fragment --> <div class="fragment"><div class="line">idf.py -p COM15 flash</div>
-</div><!-- fragment --><p>Host unit tests (MinGW gcc + CMake; Unity is taken from <span class="tt">$IDF_PATH</span>):</p>
+</div><!-- fragment --><p>Host unit tests: 75 Unity tests on the PC, <b>no hardware needed</b>. They use MinGW GCC 15.2 and CMake, and take Unity from <span class="tt">$IDF_PATH</span>. The full guide, covering installation, how the tests are linked, mocks and adding tests, is <a class="el" href="md_docs_2unit-testing.html" title="Unit testing">docs/unit-testing.md</a>.</p>
 <div class="fragment"><div class="line">cmake -S test/host -B test/host/build -G &quot;MinGW Makefiles&quot;</div>
 </div><!-- fragment --> <div class="fragment"><div class="line">cmake --build test/host/build</div>
 </div><!-- fragment --> <div class="fragment"><div class="line">ctest --test-dir test/host/build --output-on-failure</div>
