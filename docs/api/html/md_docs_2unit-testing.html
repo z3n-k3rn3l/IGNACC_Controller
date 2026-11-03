@@ -113,9 +113,9 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('md_docs_2unit-
   <div class="headertitle"><div class="title">Unit testing </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="autotoc_md130"></a></p>
+<div class="textblock"><p><a class="anchor" id="autotoc_md173"></a></p>
 <p>How the firmware's unit tests work: the framework, the compiler, how a test is compiled and linked, how to install everything, and how to add a test.</p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md131"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md174"></a>
 At a glance</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -138,7 +138,7 @@ At a glance</h1>
 <td class="markdownTableBodyNone">Flags  </td><td class="markdownTableBodyNone"><span class="tt">-Wall -Wextra -Werror</span>: a warning fails the build  </td></tr>
 </table>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md133"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md176"></a>
 1. What is tested, and what isn't</h1>
 <p>The tests compile the firmware's <b>pure-C modules</b>, the ones with no ESP-IDF calls, with the PC's own compiler. Hardware is replaced by small fakes (mocks).</p>
 <table class="markdownTable">
@@ -174,10 +174,10 @@ At a glance</h1>
 </table>
 <p>The unit tests are the only layer that can exercise failures a working board never shows: a relay failing halfway through <span class="tt">ALL_ON</span>, a read-back lost after the settle delay, 1 or 16 channels.</p>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md135"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md178"></a>
 2. Install the tools (Windows 11)</h1>
 <p>You need three things: a C compiler, CMake, and the Unity sources.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md136"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md179"></a>
 2.1 C compiler: MinGW-w64 GCC</h2>
 <p>This PC uses the MinGW-Builds GCC 15.2.0 (64-bit, posix threads, seh) in <span class="tt">C:\Mingw64</span>. Install one of:</p>
 <ul>
@@ -185,28 +185,28 @@ At a glance</h1>
 <li><b>WinLibs via winget:</b> run <span class="tt">winget search winlibs</span> and install the <span class="tt">POSIX.UCRT</span> package.</li>
 <li><b>MSYS2:</b> install it, then run <span class="tt">pacman -S mingw-w64-ucrt-x86_64-gcc</span> in the UCRT64 shell.</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md137"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md180"></a>
 2.2 CMake</h2>
 <div class="fragment"><div class="line">winget install --id Kitware.CMake -e</div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md138"></a>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md181"></a>
 2.3 Unity</h2>
 <p>Nothing to install if ESP-IDF is installed: the CMake file uses <span class="tt">$IDF_PATH/components/unity/unity/src</span>. The ESP-IDF PowerShell profile sets <span class="tt">IDF_PATH</span> (<span class="tt">C:\Espressif\tools\Microsoft.v6.1.PowerShell_profile.ps1</span>).</p>
 <p>Without ESP-IDF, get Unity on its own and point CMake at it:</p>
 <div class="fragment"><div class="line">git clone --depth 1 --branch v2.6.0 https://github.com/ThrowTheSwitch/Unity.git C:/tools/Unity</div>
 </div><!-- fragment --><p>Then add <span class="tt">-DUNITY_DIR=C:/tools/Unity/src</span> to the configure command in section 3.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md139"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md182"></a>
 2.4 Check the installation</h2>
 <p>Open a <b>new</b> PowerShell, so it picks up the new PATH, and run:</p>
 <div class="fragment"><div class="line">gcc --version</div>
 </div><!-- fragment --> <div class="fragment"><div class="line">mingw32-make --version</div>
 </div><!-- fragment --> <div class="fragment"><div class="line">cmake --version</div>
 </div><!-- fragment --><p>Expected: GCC 15.x (any recent GCC works), GNU Make 4.x, and CMake 3.16 or newer.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md140"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md183"></a>
 Linux</h2>
 <div class="fragment"><div class="line">sudo apt install build-essential cmake</div>
 </div><!-- fragment --><p>Use Unity from ESP-IDF or the <span class="tt">git clone</span> above, and replace <span class="tt">-G "MinGW Makefiles"</span> with <span class="tt">-G "Unix Makefiles"</span> (or leave <span class="tt">-G</span> out).</p>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md142"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md185"></a>
 3. Build and run</h1>
 <p>From the project root, with <span class="tt">IDF_PATH</span> set (ESP-IDF shell) or with <span class="tt">-DUNITY_DIR=…</span>:</p>
 <div class="fragment"><div class="line">cmake -S test/host -B test/host/build -G &quot;MinGW Makefiles&quot;</div>
@@ -220,7 +220,7 @@ Linux</h2>
 <p>Expected end of the output:</p>
 <div class="fragment"><div class="line">100% tests passed, 0 tests failed out of 5</div>
 </div><!-- fragment --><p>CTest counts <b>programs</b> (5); Unity counts <b>tests</b> inside each (75 in total).</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md143"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md186"></a>
 Run one suite or see every test</h2>
 <div class="fragment"><div class="line">ctest --test-dir test/host/build -R app_fsm -V</div>
 </div><!-- fragment --><ul>
@@ -236,7 +236,7 @@ Run one suite or see every test</h2>
 <div class="line">OK</div>
 </div><!-- fragment --><p>Each line gives the file, the line of its <span class="tt">RUN_TEST</span>, the test name and PASS or FAIL.</p>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md145"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md188"></a>
 4. How a test program is compiled and linked</h1>
 <p><a href="../test/host/CMakeLists.txt">test/host/CMakeLists.txt</a> builds one library and five programs:</p>
 <div class="fragment"><div class="line">unity.c ──────────────► libunity.a          (static library, built once)</div>
@@ -278,7 +278,7 @@ Run one suite or see every test</h2>
 <p>No ESP-IDF header and no FreeRTOS code is ever compiled here. That is possible only because of the firmware's design: those modules talk to hardware exclusively through injected interfaces (<span class="tt"><a class="el" href="structrelay__t.html" title="A relay: function table plus opaque implementation handle.">relay_t</a></span>, <span class="tt"><a class="el" href="structpin__hal__t.html" title="A pin HAL instance: function table plus opaque handle.">pin_hal_t</a></span>, <span class="tt"><a class="el" href="structlink__tx__t.html" title="A link&#39;s transmit side: function table plus opaque handle.">link_tx_t</a></span> and a delay function).</p>
 <p>The configure step also writes <span class="tt">test/host/build/compile_commands.json</span>, which clangd uses for code navigation in the test files (see <a class="el" href="md_docs_2vscode-clangd-setup.html" title="VS Code code navigation (clangd) for ESP-IDF projects">vscode-clangd-setup.md</a>).</p>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md147"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md190"></a>
 5. How the mocks work</h1>
 <p>No mocking library is used. A mock is just another implementation of the module's interface, written in the test file.</p>
 <p>For example, the fake GPIO in <span class="tt">test_relay_gpio.c</span>:</p>
@@ -312,7 +312,7 @@ Run one suite or see every test</h2>
 </table>
 <p>Unity calls <span class="tt">setUp()</span> before and <span class="tt">tearDown()</span> after every test, so every test starts from a fresh state.</p>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md149"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md192"></a>
 6. Adding a test</h1>
 <p><b>To an existing suite:</b> write a <span class="tt">static void test_…(void)</span> function using <span class="tt">TEST_ASSERT_*</span> macros, and add <span class="tt">RUN_TEST(test_…);</span> to <span class="tt">main()</span> in the same file. Rebuild and run (section 3); no CMake change is needed.</p>
 <div class="fragment"><div class="line"><span class="keyword">static</span> <span class="keywordtype">void</span> test_status_after_all_on(<span class="keywordtype">void</span>)</div>
@@ -332,7 +332,7 @@ Run one suite or see every test</h2>
 <p>The module must be pure C to be unit-testable. If it needs hardware, give it an interface (like <span class="tt"><a class="el" href="structpin__hal__t.html" title="A pin HAL instance: function table plus opaque handle.">pin_hal_t</a></span>) and test it through a mock.</p>
 <p>Common Unity assertions: <span class="tt">TEST_ASSERT_TRUE/FALSE</span>, <span class="tt">TEST_ASSERT_EQUAL(_INT/_UINT)</span>, <span class="tt">TEST_ASSERT_EQUAL_STRING</span>, <span class="tt">TEST_ASSERT_EQUAL_MEMORY</span>, <span class="tt">TEST_ASSERT_NULL/NOT_NULL</span>. The full list is in <span class="tt">unity.h</span>.</p>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md151"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md194"></a>
 7. Troubleshooting</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">

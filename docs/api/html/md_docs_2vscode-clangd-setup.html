@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('md_docs_2vscod
   <div class="headertitle"><div class="title">VS Code code navigation (clangd) for ESP-IDF projects </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="autotoc_md152"></a></p>
+<div class="textblock"><p><a class="anchor" id="autotoc_md195"></a></p>
 <p>This guide sets up <b>Ctrl+Click / Go to Definition, hover, autocomplete and error squiggles</b> for this project in VS Code, using <b>clangd</b>. It is written for Windows with ESP-IDF <b>v6.1</b> installed by the Espressif Installation Manager (EIM), and works for any ESP-IDF project.</p>
 <p>Tested setup (2026-10-26):</p>
 <table class="markdownTable">
@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('md_docs_2vscod
 <td class="markdownTableBodyNone">ESP-IDF  </td><td class="markdownTableBodyNone"><span class="tt">C:\esp\v6.1\esp-idf</span>, tools in <span class="tt">C:\Espressif\tools</span>  </td></tr>
 </table>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md154"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md197"></a>
 How it fits together</h1>
 <div class="fragment"><div class="line">idf.py build ──&gt; build/compile_commands.json   (exact compiler flags for every .c file)</div>
 <div class="line">                         │</div>
@@ -150,7 +150,7 @@ How it fits together</h1>
 </ol>
 <p>If any one of them is missing, navigation breaks.</p>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md156"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md199"></a>
 Step 1: Install the clangd extension</h1>
 <ol type="1">
 <li>Press <b>Ctrl+Shift+X</b> to open the Extensions view.</li>
@@ -158,7 +158,7 @@ Step 1: Install the clangd extension</h1>
 <li>Install <b>clangd</b> by <b>LLVM</b> (<span class="tt">llvm-vs-code-extensions.vscode-clangd</span>).</li>
 </ol>
 <p>If the extension offers to <b>download a clangd binary</b>, click <b>No</b> (or ignore it). We use Espressif's <span class="tt">esp-clangd</span>, because it understands the Xtensa and RISC-V ESP targets.</p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md157"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md200"></a>
 Step 2: Make sure the extension is ENABLED</h1>
 <p>This was the last missing piece when the setup was first done here.</p>
 <ol type="1">
@@ -166,7 +166,7 @@ Step 2: Make sure the extension is ENABLED</h1>
 <li>If the button says <b>Enable</b> or <b>Enable (Workspace)</b>, click it, then <b>Restart Extensions</b> or reload the window.</li>
 <li>Correct state: the buttons read <b>Disable</b> and <b>Uninstall</b>.</li>
 </ol>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md158"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md201"></a>
 Step 3: Turn off Microsoft C/C++ IntelliSense</h1>
 <p>The Microsoft C/C++ extension (<span class="tt">ms-vscode.cpptools</span>) and clangd conflict if both provide IntelliSense. Keep cpptools installed if you use it for debugging, but disable its IntelliSense engine.</p>
 <ul>
@@ -174,7 +174,7 @@ Step 3: Turn off Microsoft C/C++ IntelliSense</h1>
 <li>or let Step 6 set it for this workspace only.</li>
 </ul>
 <p>The clangd extension usually offers to do this itself; accepting is fine.</p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md159"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md202"></a>
 Step 4: Check the clangd binary and builtin headers exist</h1>
 <p><span class="tt">esp-clangd</span> is installed with ESP-IDF (tools.json marks it <span class="tt">always</span>). <span class="tt">esp-clang</span> is <b>on request</b>, so it may be missing on a new PC.</p>
 <p>Check in PowerShell:</p>
@@ -183,14 +183,14 @@ Step 4: Check the clangd binary and builtin headers exist</h1>
 </div><!-- fragment --><p>If the second command finds nothing, install <span class="tt">esp-clang</span> from an ESP-IDF PowerShell (run <span class="tt">C:\Espressif\tools\Microsoft.v6.1.PowerShell_profile.ps1</span> first):</p>
 <div class="fragment"><div class="line">python $env:IDF_PATH\tools\idf_tools.py install esp-clang</div>
 </div><!-- fragment --><p>Note the <b>version folder names</b> (here <span class="tt">esp-21.1.3_20260408</span>) and the <b>clang major version</b> under <span class="tt">lib\clang\</span> (here <span class="tt">21</span>). You need them in Step 6. <span class="tt">esp-clangd</span> and <span class="tt">esp-clang</span> should be the same version.</p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md160"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md203"></a>
 Step 5: Generate the compile database</h1>
 <p>From an ESP-IDF PowerShell in the project folder:</p>
 <div class="fragment"><div class="line">idf.py build</div>
 </div><!-- fragment --><p>This writes <span class="tt">build/compile_commands.json</span>. Run <span class="tt">idf.py reconfigure</span> instead if you only want the database without compiling. Repeat after adding or removing source files or components.</p>
 <p>For the <b>host unit tests</b> (<span class="tt">test/host</span>), the CMake file sets <span class="tt">CMAKE_EXPORT_COMPILE_COMMANDS ON</span>, so configuring them writes <span class="tt">test/host/build/compile_commands.json</span>:</p>
 <div class="fragment"><div class="line">cmake -S test/host -B test/host/build -G &quot;MinGW Makefiles&quot;</div>
-</div><!-- fragment --><h1 class="doxsection"><a class="anchor" id="autotoc_md161"></a>
+</div><!-- fragment --><h1 class="doxsection"><a class="anchor" id="autotoc_md204"></a>
 Step 6: Workspace settings: <span class="tt">.vscode/settings.json</span></h1>
 <p>Create or update <span class="tt">.vscode/settings.json</span> in the project root. This file is machine-specific (absolute paths) and is git-ignored, so <b>this section is the reference copy</b>:</p>
 <div class="fragment"><div class="line">{</div>
@@ -224,7 +224,7 @@ Step 6: Workspace settings: <span class="tt">.vscode/settings.json</span></h1>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">C_Cpp.intelliSenseEngine</span>  </td><td class="markdownTableBodyNone">Keeps Microsoft IntelliSense off in this workspace (see Step 3).  </td></tr>
 </table>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md162"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md205"></a>
 Step 7: Project file: <span class="tt">.clangd</span> (committed)</h1>
 <p>At the project root, <span class="tt">.clangd</span>:</p>
 <div class="fragment"><div class="line">CompileFlags:</div>
@@ -244,7 +244,7 @@ Step 7: Project file: <span class="tt">.clangd</span> (committed)</h1>
 <div class="fragment"><div class="line">CompileFlags:</div>
 <div class="line">  CompilationDatabase: build</div>
 </div><!-- fragment --><p>The <span class="tt">build</span> path is relative to the folder of the <span class="tt">.clangd</span> file, so this means <span class="tt">test/host/build/</span>.</p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md163"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md206"></a>
 Step 8: Restart clangd and verify</h1>
 <ol type="1">
 <li><b>Ctrl+Shift+P</b> → <b>clangd: Restart language server</b>, or <b>Developer: Reload Window</b>.</li>
@@ -269,13 +269,13 @@ Step 8: Restart clangd and verify</h1>
 <td class="markdownTableBodyNone"><span class="tt">test/host/test_app_fsm.c</span>  </td><td class="markdownTableBodyNone"><span class="tt"><a class="el" href="app__fsm_8c.html#a0a79060be7a1e1b2c649c4e498a49ae0" title="Handle one received line.">app_fsm_handle_line</a></span>  </td><td class="markdownTableBodyNone"><span class="tt"><a class="el" href="app__fsm_8c.html" title="The state machine: parses each line, drives relays, sends replies.">components/app_fsm/app_fsm.c</a></span>  </td></tr>
 </table>
 <p>The first Ctrl+Click on a function may land on its header declaration. Once the background index finishes (a few seconds, shown in the status bar), it jumps to the function body.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md164"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md207"></a>
 Optional: verify from the command line</h2>
 <p><span class="tt">clangd --check</span> parses a file exactly like the editor and prints any errors:</p>
 <div class="fragment"><div class="line">C:\Espressif\tools\esp-clangd\esp-21.1.3_20260408\esp-clangd\bin\clangd.exe &quot;--query-driver=**/xtensa-esp*-elf-gcc*,C:/Mingw64/bin/*&quot; &quot;--resource-dir=C:/Espressif/tools/esp-clang/esp-21.1.3_20260408/esp-clang/lib/clang/21&quot; --check=main\main.c</div>
 </div><!-- fragment --><p>The last line should read <span class="tt">All checks completed, 0 errors</span>. Lines starting with <span class="tt">tweak: ... FAIL</span> are clangd testing its refactoring actions, not code errors.</p>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md166"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md209"></a>
 Troubleshooting</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -299,7 +299,7 @@ Troubleshooting</h1>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone">Goes to the declaration instead of the body  </td><td class="markdownTableBodyNone">Background index still running  </td><td class="markdownTableBodyNone">Wait for indexing to finish in the status bar  </td></tr>
 </table>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md167"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md210"></a>
 After upgrading ESP-IDF or the tools</h1>
 <p>The version folder names change, so update the paths:</p>
 <ol type="1">
@@ -310,7 +310,7 @@ After upgrading ESP-IDF or the tools</h1>
 <li>Update <span class="tt">idf.currentSetup</span> to the new ESP-IDF path.</li>
 <li>Run <span class="tt">idf.py fullclean</span>, then <span class="tt">idf.py build</span>, then <b>clangd: Restart language server</b>.</li>
 </ol>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md168"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md211"></a>
 Using this setup in another ESP-IDF project</h1>
 <p>Copy <span class="tt">.clangd</span> and <span class="tt">.vscode/settings.json</span> into the other project. Drop the MinGW part of <span class="tt">--query-driver</span> if it has no host tests. Then do Step 5 and Step 8. </p>
 </div></div><!-- contents -->

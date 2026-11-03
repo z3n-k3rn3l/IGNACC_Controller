@@ -113,11 +113,11 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('md_docs_2code-
   <div class="headertitle"><div class="title">Code tour </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="autotoc_md15"></a></p>
+<div class="textblock"><p><a class="anchor" id="autotoc_md29"></a></p>
 <p>A guided reading order through the firmware, about 45 minutes. It follows the order in which <span class="tt"><a class="el" href="main_8c.html#a630544a7f0a2cc40d8a7fefab7e2fe70" title="Firmware entry point (called by ESP-IDF after boot).">app_main()</a></span> builds the system, then traces one command from start to finish. Read each stop's files in the order given; links jump to the exact line.</p>
 <p>Firmware 1.2.0. Line numbers are for <span class="tt">feature/unk-nack</span>.</p>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md17"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md31"></a>
 Before you start (5 min)</h1>
 <ol type="1">
 <li>Look at the <a href="diagrams/system-context.svg">system context</a>: PC → USB → ESP32 → relays → ECU.</li>
@@ -141,7 +141,7 @@ Before you start (5 min)</h1>
 <td class="markdownTableBodyNone"><b>safe state</b>  </td><td class="markdownTableBodyNone">Every relay OFF. Used at boot and after any failure  </td></tr>
 </table>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md19"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md33"></a>
 Stop 1 — <span class="tt">main</span>: where everything is built (10 min)</h1>
 <p><b>Read:</b> <a href="../main/main.c">main/main.c</a>, starting at <a href="../main/main.c#L122"><span class="tt">app_main()</span>, line 122</a>.</p>
 <p><span class="tt"><a class="el" href="main_8c.html#a630544a7f0a2cc40d8a7fefab7e2fe70" title="Firmware entry point (called by ESP-IDF after boot).">app_main()</a></span> does five things, in this order. The tour follows the same order:</p>
@@ -169,7 +169,7 @@ Stop 1 — <span class="tt">main</span>: where everything is built (10 min)</h1>
 </ul>
 <p><b>Diagrams:</b> <a href="diagrams/module-main.svg">module-main</a>, <a href="diagrams/kconfig-channel-model.svg">kconfig-channel-model</a>, <a href="diagrams/activity-boot.svg">activity-boot</a></p>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md21"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md35"></a>
 Stop 2 — <span class="tt">relay</span>: switching one pin, safely (10 min)</h1>
 <p><em>From step 1 of <span class="tt"><a class="el" href="main_8c.html#a630544a7f0a2cc40d8a7fefab7e2fe70" title="Firmware entry point (called by ESP-IDF after boot).">app_main()</a></span>.</em> Read bottom-up: the interface first, then one implementation, then the group.</p>
 <ol type="1">
@@ -182,7 +182,7 @@ Stop 2 — <span class="tt">relay</span>: switching one pin, safely (10 min)</h1
 <p><b>Notice:</b> nothing above <span class="tt"><a class="el" href="relay_8h.html" title="Abstract relay interface: an opaque handle plus a function table.">relay.h</a></span> knows about GPIOs. A relay on an I/O expander would be a new file implementing <span class="tt"><a class="el" href="structrelay__t.html" title="A relay: function table plus opaque implementation handle.">relay_t</a></span>, and nothing else would change.</p>
 <p><b>Diagrams:</b> <a href="diagrams/module-relay.svg">module-relay</a>, <a href="diagrams/state-relay-channel.svg">state-relay-channel</a></p>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md23"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md37"></a>
 Stop 3 — <span class="tt">uart_link</span>: bytes in, lines out (8 min)</h1>
 <p><em>From steps 2–3 of <span class="tt"><a class="el" href="main_8c.html#a630544a7f0a2cc40d8a7fefab7e2fe70" title="Firmware entry point (called by ESP-IDF after boot).">app_main()</a></span>.</em></p>
 <ol type="1">
@@ -197,7 +197,7 @@ Stop 3 — <span class="tt">uart_link</span>: bytes in, lines out (8 min)</h1>
 </ul>
 <p><b>Diagrams:</b> <a href="diagrams/module-uart-link.svg">module-uart-link</a>, <a href="diagrams/state-line-assembler.svg">state-line-assembler</a></p>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md25"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md39"></a>
 Stop 4 — <span class="tt">app_fsm</span>: the decision maker (10 min)</h1>
 <p><em>From steps 4–5 of <span class="tt"><a class="el" href="main_8c.html#a630544a7f0a2cc40d8a7fefab7e2fe70" title="Firmware entry point (called by ESP-IDF after boot).">app_main()</a></span>.</em> This is the heart of the firmware.</p>
 <ol type="1">
@@ -218,7 +218,7 @@ Stop 4 — <span class="tt">app_fsm</span>: the decision maker (10 min)</h1>
 </ul>
 <p><b>Diagrams:</b> <a href="diagrams/state-app-fsm.svg">state-app-fsm</a>, <a href="diagrams/activity-command-handling.svg">activity-command-handling</a>, <a href="diagrams/module-app-fsm.svg">module-app-fsm</a></p>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md27"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md41"></a>
 Stop 5 — <span class="tt">protocol</span>: text to command, result to text (5 min)</h1>
 <p><em>Called by <span class="tt"><a class="el" href="structapp__fsm.html" title="FSM instance (opaque to users of app_fsm.h).">app_fsm</a></span> in Stop 4.</em></p>
 <ol type="1">
@@ -229,7 +229,7 @@ Stop 5 — <span class="tt">protocol</span>: text to command, result to text (5 
 <p><b>Notice:</b> the protocol accepts <span class="tt">IN1</span>–<span class="tt">IN16</span> but doesn't know the board. <span class="tt"><a class="el" href="structapp__fsm.html" title="FSM instance (opaque to users of app_fsm.h).">app_fsm</a></span> decides that <span class="tt">IN3</span> doesn't exist on a 2-channel board and answers <span class="tt">UNK_NACK</span>.</p>
 <p><b>Diagram:</b> <a href="diagrams/module-protocol.svg">module-protocol</a></p>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md29"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md43"></a>
 Recap: follow <span class="tt">IN1_ON</span> from end to end</h1>
 <p>Every hop you just read, in the order a real command takes them (the <a href="diagrams/sequence-relay-command.svg">sequence diagram</a> shows the same thing):</p>
 <ol type="1">
@@ -241,7 +241,7 @@ Recap: follow <span class="tt">IN1_ON</span> from end to end</h1>
 <li><a href="../components/uart_link/uart_link.c#L39"><span class="tt">uart_link_send()</span></a> writes <span class="tt">IN1_ON_OK\r\n</span> back to the PC, about 19 ms after it was sent.</li>
 </ol>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md31"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md45"></a>
 After the tour</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">

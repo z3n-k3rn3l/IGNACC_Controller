@@ -10,7 +10,7 @@ PROJECT_BRIEF          = "ESP32 UART-controlled relay controller for ACC / IGN t
 OUTPUT_DIRECTORY       = docs/api
 
 # Sources: public headers, implementation, composition root and the docs.
-INPUT                  = README.md docs components main
+INPUT                  = README.md docs components main tools/README.md
 FILE_PATTERNS          = *.h *.c *.md
 RECURSIVE              = YES
 EXCLUDE                = docs/api

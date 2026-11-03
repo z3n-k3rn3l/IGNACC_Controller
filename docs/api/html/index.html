@@ -116,6 +116,20 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('index.html',''
 <div class="textblock"><p><a class="anchor" id="md__r_e_a_d_m_e"></a></p>
 <p>ESP32 firmware (ESP-IDF v6.1, C) that switches relays (2 by default, up to 14) on ASCII commands received over the board's USB-UART bridge.</p>
 <p><b>New here?</b> Start with the <a class="el" href="md_docs_2code-tour.html" title="Code tour">code tour</a>. It's a 45-minute reading order through the firmware, starting at <span class="tt"><a class="el" href="main_8c.html#a630544a7f0a2cc40d8a7fefab7e2fe70" title="Firmware entry point (called by ESP-IDF after boot).">app_main()</a></span>. Then see the <a class="el" href="dir_185e1be576cc3aab87068787be53911a.html" title="C:/Users/ramna/Documents/IGNACC_Controller/docs/diagrams/README.md">diagrams</a>. The <a class="el" href="md_docs_2toolchain.html" title="Toolchain">toolchain</a> page lists every tool, with versions: ESP-IDF, unit tests, the <b>IGNACC Tester</b> app for hardware testing over the serial port, Doxygen and VS Code.</p>
+<p><b>New to the ESP32 or ESP-IDF?</b> Read these first, in this order:</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">#  </th><th class="markdownTableHeadNone">Document  </th><th class="markdownTableHeadNone">What you learn  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">1  </td><td class="markdownTableBodyNone"><a class="el" href="md_docs_2esp32-primer.html" title="ESP32 primer">ESP32 primer</a>  </td><td class="markdownTableBodyNone">The chip on this board: cores, memory, pins, and what is open source (the ROM bootloader and Wi-Fi libraries are not)  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">2  </td><td class="markdownTableBodyNone"><a class="el" href="md_docs_2esp-idf-primer.html" title="ESP-IDF primer">ESP-IDF primer</a>  </td><td class="markdownTableBodyNone">How code becomes firmware (toolchain, components), how Kconfig settings reach the code, why FreeRTOS is used, and install links for Windows and Linux  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">3  </td><td class="markdownTableBodyNone"><a class="el" href="md_docs_2boot-and-flashing.html" title="Boot and flashing">Boot and flashing</a>  </td><td class="markdownTableBodyNone">Boot chain and flashing over USB, and what this project switched off because UART0 is shared  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">4  </td><td class="markdownTableBodyNone"><a class="el" href="md_docs_2code-tour.html" title="Code tour">Code tour</a>  </td><td class="markdownTableBodyNone">This project's code, starting at <span class="tt"><a class="el" href="main_8c.html#a630544a7f0a2cc40d8a7fefab7e2fe70" title="Firmware entry point (called by ESP-IDF after boot).">app_main()</a></span>  </td></tr>
+</table>
+<p><b>The tester app:</b> <a href="tools/ignacc_tester/bin/v1.2.0/">tools/ignacc_tester/bin/v1.2.0/</a> has the current <span class="tt">.exe</span>. See also tools/README.md.</p>
 <h1 class="doxsection"><a class="anchor" id="autotoc_md1"></a>
 Hardware</h1>
 <table class="markdownTable">

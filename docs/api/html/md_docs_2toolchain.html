@@ -113,15 +113,15 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('md_docs_2toolc
   <div class="headertitle"><div class="title">Toolchain </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="autotoc_md111"></a></p>
+<div class="textblock"><p><a class="anchor" id="autotoc_md154"></a></p>
 <p>Every tool this project uses, what it is for, the version on the reference PC (Windows 11), and where the details are.</p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md112"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md155"></a>
 Overview</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadNone">Purpose  </th><th class="markdownTableHeadNone">Tool  </th><th class="markdownTableHeadNone">Version  </th><th class="markdownTableHeadNone">Needs the board?  </th><th class="markdownTableHeadNone">Details  </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">Build and flash the firmware  </td><td class="markdownTableBodyNone">ESP-IDF  </td><td class="markdownTableBodyNone">v6.1  </td><td class="markdownTableBodyNone">flashing only  </td><td class="markdownTableBodyNone">section 1 below  </td></tr>
+<td class="markdownTableBodyNone">Build and flash the firmware  </td><td class="markdownTableBodyNone">ESP-IDF  </td><td class="markdownTableBodyNone">v6.1  </td><td class="markdownTableBodyNone">flashing only  </td><td class="markdownTableBodyNone">section 1 below; background in <a class="el" href="md_docs_2esp-idf-primer.html" title="ESP-IDF primer">esp-idf-primer.md</a>  </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone">Unit tests (firmware logic)  </td><td class="markdownTableBodyNone">MinGW GCC + CMake + Unity  </td><td class="markdownTableBodyNone">GCC 15.2.0 · CMake 4.3.3 · Unity 2.6.0  </td><td class="markdownTableBodyNone"><b>no</b>  </td><td class="markdownTableBodyNone"><a class="el" href="md_docs_2unit-testing.html" title="Unit testing">unit-testing.md</a>  </td></tr>
 <tr class="markdownTableRowOdd">
@@ -135,7 +135,7 @@ Overview</h1>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone">Version control (two GitHub accounts)  </td><td class="markdownTableBodyNone">Git + SSH  </td><td class="markdownTableBodyNone">2.56  </td><td class="markdownTableBodyNone">no  </td><td class="markdownTableBodyNone"><a class="el" href="md_docs_2github-two-accounts.html" title="Two GitHub accounts, one computer, one repo">github-two-accounts.md</a>  </td></tr>
 </table>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md113"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md156"></a>
 Before every commit</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -151,7 +151,7 @@ Before every commit</h2>
 </table>
 <p>The first two need no hardware. The third needs the board on a COM port.</p>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md115"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md158"></a>
 1. Firmware: ESP-IDF</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -180,7 +180,7 @@ Before every commit</h2>
 </ul>
 <p>ESP-IDF brings its own CMake (4.0.3). The unit tests use the system CMake (4.3.3). Both work. Each shell simply finds a different one on PATH.</p>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md117"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md160"></a>
 2. Unit tests (no hardware)</h1>
 <p>These are C tests that run on the PC against the real firmware sources, with fakes in place of the hardware. Everything is covered in <b><a class="el" href="md_docs_2unit-testing.html" title="Unit testing">unit-testing.md</a></b>: install, build, how the tests are linked, the mocks, and adding tests.</p>
 <table class="markdownTable">
@@ -194,11 +194,11 @@ Before every commit</h2>
 <td class="markdownTableBodyNone">Framework  </td><td class="markdownTableBodyNone">Unity <b>2.6.0</b> (from ESP-IDF)  </td></tr>
 </table>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md119"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md162"></a>
 3. Hardware testing: IGNACC Tester</h1>
 <p>A <b>compiled Python app</b> that talks to the board over the serial port, the same way CANoe/CAPL does. It sends commands, checks every reply, and measures the round-trip time. Use it to check a board after flashing, to switch relays by hand, or as a starting point for other serial-command test benches.</p>
 <p>This section gives the overview. A full user and developer guide for the app will follow.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md120"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md163"></a>
 What it does</h2>
 <ul>
 <li><b>GUI:</b> pick the COM port, then connect. The status shows the firmware version from <span class="tt">HeyU</span>.</li>
@@ -213,7 +213,7 @@ What it does</h2>
 <li><b>Safety:</b> every relay is switched OFF after a run, on Stop, and when the window closes.</li>
 <li><b>Command line:</b> the same tests without the GUI, for scripts or CI.</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md121"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md164"></a>
 Get it and run it</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -235,7 +235,7 @@ Get it and run it</h2>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone">1.0.0  </td><td class="markdownTableBodyNone"><span class="tt">bin/v1.0.0</span>  </td><td class="markdownTableBodyNone">first release  </td></tr>
 </table>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md122"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md165"></a>
 How it is built</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -249,7 +249,7 @@ How it is built</h2>
 </table>
 <div class="fragment"><div class="line">powershell -ExecutionPolicy Bypass -File tools/ignacc_tester/build_exe.ps1</div>
 </div><!-- fragment --><p>The script creates <span class="tt">tools/ignacc_tester/.venv</span> and installs the pinned packages from <span class="tt">requirements.txt</span>. It writes <span class="tt">dist/IGNACC_Tester.exe</span>. To publish a new version, copy that file to <span class="tt">bin/vX.Y.Z/</span> with a new <span class="tt">SHA256SUMS.txt</span>.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md123"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md166"></a>
 Adapting it</h2>
 <p>The app is two files, and most changes touch only one:</p>
 <table class="markdownTable">
@@ -280,7 +280,7 @@ Adapting it</h2>
 <div class="line"> </div>
 <div class="line">TESTS.append(TestCase(<span class="stringliteral">&quot;IN2 twice&quot;</span>, <span class="stringliteral">&quot;IN2_ON twice, then OFF&quot;</span>, t_in2_twice))</div>
 </div><!-- fragment --><p><span class="tt">min_ms=SETTLE_MS</span> also checks that <span class="tt">_OK</span> arrives no sooner than the 15 ms settle delay.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md124"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md167"></a>
 Other hardware tools</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -290,11 +290,11 @@ Other hardware tools</h2>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">tools/hil_test.py</span>  </td><td class="markdownTableBodyNone">The original command-line hardware test (33 checks), kept as a second, independent check  </td></tr>
 </table>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md125"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md168"></a>
 Diagram</h2>
 <p><a href="diagrams/module-tester.svg">module-tester.svg</a> shows the app's structure: GUI, <span class="tt">tester_core</span>, threads, build and committed binaries.</p>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md127"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md170"></a>
 4. Documentation</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -311,7 +311,7 @@ Diagram</h2>
 </div><!-- fragment --> <div class="fragment"><div class="line">winget install --id Graphviz.Graphviz -e</div>
 </div><!-- fragment --><p>The generated HTML is committed, so anyone can open <span class="tt">docs/api/html/index.html</span> without installing Doxygen. Doxygen's cache files are git-ignored.</p>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md129"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md172"></a>
 5. Editor and version control</h1>
 <ul>
 <li><b>VS Code + clangd:</b> Ctrl+Click navigation for firmware and test code, using esp-clangd 21.1.3. See <a class="el" href="md_docs_2vscode-clangd-setup.html" title="VS Code code navigation (clangd) for ESP-IDF projects">vscode-clangd-setup.md</a>.</li>

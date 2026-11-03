@@ -7,7 +7,7 @@ Every tool this project uses, what it is for, the version on the reference PC
 
 | Purpose | Tool | Version | Needs the board? | Details |
 |---|---|---|---|---|
-| Build and flash the firmware | ESP-IDF | v6.1 | flashing only | section 1 below |
+| Build and flash the firmware | ESP-IDF | v6.1 | flashing only | section 1 below; background in [esp-idf-primer.md](esp-idf-primer.md) |
 | Unit tests (firmware logic) | MinGW GCC + CMake + Unity | GCC 15.2.0 · CMake 4.3.3 · Unity 2.6.0 | **no** | [unit-testing.md](unit-testing.md) |
 | Hardware tests over the serial port | **IGNACC Tester** (compiled Python app) | 1.2.0 | **yes** (COM port) | section 3 below |
 | API documentation | Doxygen + Graphviz | 1.18.0 · 16.1.0 | no | section 4 below |

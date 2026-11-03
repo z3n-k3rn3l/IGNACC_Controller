@@ -9,6 +9,18 @@ reading order through the firmware, starting at `app_main()`. Then see the
 lists every tool, with versions: ESP-IDF, unit tests, the **IGNACC Tester**
 app for hardware testing over the serial port, Doxygen and VS Code.
 
+**New to the ESP32 or ESP-IDF?** Read these first, in this order:
+
+| # | Document | What you learn |
+|---|---|---|
+| 1 | [ESP32 primer](docs/esp32-primer.md) | The chip on this board: cores, memory, pins, and what is open source (the ROM bootloader and Wi-Fi libraries are not) |
+| 2 | [ESP-IDF primer](docs/esp-idf-primer.md) | How code becomes firmware (toolchain, components), how Kconfig settings reach the code, why FreeRTOS is used, and install links for Windows and Linux |
+| 3 | [Boot and flashing](docs/boot-and-flashing.md) | Boot chain and flashing over USB, and what this project switched off because UART0 is shared |
+| 4 | [Code tour](docs/code-tour.md) | This project's code, starting at `app_main()` |
+
+**The tester app:** [tools/ignacc_tester/bin/v1.2.0/](tools/ignacc_tester/bin/v1.2.0/)
+has the current `.exe`. See also [tools/README.md](tools/README.md).
+
 ## Hardware
 
 | Relay module | ESP32-WROOM-32 devkit (38-pin) |

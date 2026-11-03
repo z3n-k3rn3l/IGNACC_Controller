@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('md_docs_2githu
   <div class="headertitle"><div class="title">Two GitHub accounts, one computer, one repo </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="autotoc_md80"></a></p>
+<div class="textblock"><p><a class="anchor" id="autotoc_md123"></a></p>
 <p>This is how this project is pushed to <b>two private GitHub repos owned by two different accounts</b>, from one Windows 11 PC. The same setup works on Linux. Only the file-permission step differs.</p>
 <p>The accounts used here:</p>
 <table class="markdownTable">
@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('md_docs_2githu
 <td class="markdownTableBodyNone"><b>GeoLCost</b>  </td><td class="markdownTableBodyNone"><span class="tt">GeoLCost/IGNACC_Controller</span>  </td><td class="markdownTableBodyNone"><span class="tt">~/.ssh/id_ed25519_geolcost</span>  </td></tr>
 </table>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md82"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md125"></a>
 The idea in one minute</h1>
 <p>GitHub recognises <b>who you are by the SSH key</b>, not by your Git name or email. One key can belong to only one account. So:</p>
 <ol type="1">
@@ -139,7 +139,7 @@ The idea in one minute</h1>
 </ol>
 <p>Your commit author name and email (<span class="tt">.gitconfig</span>) are a separate thing. They only label commits and have nothing to do with which account can push.</p>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md84"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md127"></a>
 Step 1: One SSH key per account</h1>
 <p>Skip this if the keys already exist. The command is the same on Windows (PowerShell) and Linux:</p>
 <div class="fragment"><div class="line">ssh-keygen -t ed25519 -C &quot;geolcost@gmail.com&quot; -f ~/.ssh/id_ed25519_geolcost</div>
@@ -157,10 +157,10 @@ Step 1: One SSH key per account</h1>
 <div class="fragment"><div class="line">cat ~/.ssh/id_ed25519_geolcost.pub</div>
 </div><!-- fragment --><p>On Windows, <span class="tt">type $env:USERPROFILE\.ssh\id_ed25519_geolcost.pub</span> does the same.</p>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md86"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md129"></a>
 Step 2: Lock down the key files</h1>
 <p>OpenSSH refuses to use a private key that other users can read. You'll see <span class="tt">UNPROTECTED PRIVATE KEY FILE</span> or <span class="tt">Bad permissions</span>.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md87"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md130"></a>
 Windows</h2>
 <p>On this PC the files had inherited access for <em>SYSTEM</em>, <em>Administrators</em> and <em>OWNER RIGHTS</em>, so Windows OpenSSH ignored the keys. The fix gives only your own user access. Run it for each private key <b>and</b> for <span class="tt">~/.ssh/config</span>:</p>
 <div class="fragment"><div class="line">icacls $env:USERPROFILE\.ssh\id_ed25519_geolcost /grant:r &quot;${env:USERDOMAIN}\${env:USERNAME}:F&quot;</div>
@@ -173,7 +173,7 @@ Windows</h2>
 <p>Check the result. Only your user should be listed:</p>
 <div class="fragment"><div class="line">icacls $env:USERPROFILE\.ssh\id_ed25519_geolcost</div>
 </div><!-- fragment --> <div class="fragment"><div class="line">C:\Users\ramna\.ssh\id_ed25519_geolcost DEVWINSYS\ramna:(F)</div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md88"></a>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md131"></a>
 Linux</h2>
 <div class="fragment"><div class="line">chmod 700 ~/.ssh</div>
 <div class="line">chmod 600 ~/.ssh/id_ed25519 ~/.ssh/id_ed25519_geolcost ~/.ssh/config</div>
@@ -184,7 +184,7 @@ Linux</h2>
 <li><span class="tt">644</span> on public keys: anyone may read them, and that's fine.</li>
 </ul>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md90"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md133"></a>
 Step 3: <span class="tt">~/.ssh/config</span>, which key for which account</h1>
 <p>This file is identical on Windows (<span class="tt">C:\Users\&lt;you&gt;\.ssh\config</span>) and Linux (<span class="tt">/home/&lt;you&gt;/.ssh/config</span>). This is the one used here:</p>
 <div class="fragment"><div class="line"># Two GitHub accounts on one PC: pick the account by the host name in the remote URL.</div>
@@ -218,7 +218,7 @@ Step 3: <span class="tt">~/.ssh/config</span>, which key for which account</h1>
 </table>
 <p>The plain <span class="tt">github.com</span> alias keeps the default account working everywhere else, including old clones and copy-pasted GitHub URLs.</p>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md92"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md135"></a>
 Step 4: Test both accounts</h1>
 <div class="fragment"><div class="line">ssh -T git@github.com</div>
 <div class="line">ssh -T git@github-geolcost</div>
@@ -230,7 +230,7 @@ Step 4: Test both accounts</h1>
 <div class="line">Hi GeoLCost! You&#39;ve successfully authenticated, but GitHub does not provide shell access.</div>
 </div><!-- fragment --><p>The exit code is 1, which is normal: GitHub doesn't offer a shell. If the name in the greeting is wrong, the wrong key is being used (see Troubleshooting).</p>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md94"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md137"></a>
 Step 5: <span class="tt">.gitconfig</span>, who the commits say they're from</h1>
 <p>The global identity on this PC (<span class="tt">C:\Users\ramna\.gitconfig</span>, or <span class="tt">~/.gitconfig</span> on Linux):</p>
 <div class="fragment"><div class="line">[user]</div>
@@ -244,7 +244,7 @@ Step 5: <span class="tt">.gitconfig</span>, who the commits say they're from</h1
 <li>The <span class="tt">...@users.noreply.github.com</span> address is GitHub's private no-reply email. Commits link to your profile without exposing your real email. You find yours under GitHub → <b>Settings → Emails</b>.</li>
 </ul>
 <p>In this project, <b>both repos show commits authored by z3n_k3rn3l</b>. That was a deliberate choice, and it doesn't stop GeoLCost from pushing, because pushing depends only on the SSH key.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md95"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md138"></a>
 Optional: a different identity per folder</h2>
 <p>If you later want commits in some projects to say GeoLCost, Git can switch the identity automatically based on the folder. Add this to the global <span class="tt">.gitconfig</span>:</p>
 <div class="fragment"><div class="line">[includeIf &quot;gitdir:~/work/geolcost/&quot;]</div>
@@ -258,10 +258,10 @@ Optional: a different identity per folder</h2>
 <div class="fragment"><div class="line">git config user.name &quot;GeoLCost&quot;</div>
 <div class="line">git config user.email &quot;geolcost@gmail.com&quot;</div>
 </div><!-- fragment --><hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md97"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md140"></a>
 Step 6: Connect the repo to both accounts</h1>
 <p>Create the repo on GitHub under each account first: <b>private and empty</b>, with no README, license or .gitignore. Otherwise the first push is rejected.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md98"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md141"></a>
 Add the remotes</h2>
 <div class="fragment"><div class="line">git remote add origin git@github-geolcost:GeoLCost/IGNACC_Controller.git</div>
 <div class="line">git remote add z3n git@github.com:z3n-k3rn3l/IGNACC_Controller.git</div>
@@ -273,14 +273,14 @@ Add the remotes</h2>
 <div class="fragment"><div class="line">git ls-remote origin</div>
 <div class="line">git ls-remote z3n</div>
 </div><!-- fragment --><p>An empty repo prints nothing and exits without error. "Repository not found" means the key belongs to an account that can't see that private repo.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md99"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md142"></a>
 First push</h2>
 <div class="fragment"><div class="line">git push -u origin master</div>
 <div class="line">git push z3n master</div>
 </div><!-- fragment --><ul>
 <li><span class="tt">-u</span>: remember <span class="tt">origin/master</span> as the default for <span class="tt">git push</span> and <span class="tt">git pull</span> on this branch. You only need it once.</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md100"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md143"></a>
 Make one <span class="tt">git push</span> update both</h2>
 <div class="fragment"><div class="line">git remote set-url --add --push origin git@github-geolcost:GeoLCost/IGNACC_Controller.git</div>
 <div class="line">git remote set-url --add --push origin git@github.com:z3n-k3rn3l/IGNACC_Controller.git</div>
@@ -308,7 +308,7 @@ Make one <span class="tt">git push</span> update both</h2>
 <div class="line">    url = git@github.com:z3n-k3rn3l/IGNACC_Controller.git</div>
 <div class="line">    fetch = +refs/heads/*:refs/remotes/z3n/*</div>
 </div><!-- fragment --><hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md102"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md145"></a>
 Everyday use</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -332,7 +332,7 @@ Everyday use</h1>
 </table>
 <p>After a fresh clone on another machine, repeat the remote setup from Step 6 (remotes live in <span class="tt">.git/config</span>, which isn't part of the repo).</p>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md104"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md147"></a>
 Setting this up on Linux, start to finish</h1>
 <div class="fragment"><div class="line"># 1. Keys (skip any that exist); add each .pub to its GitHub account</div>
 <div class="line">ssh-keygen -t ed25519 -C &quot;z3n_k3rn3l@protonmail.com&quot; -f ~/.ssh/id_ed25519</div>
@@ -362,7 +362,7 @@ Setting this up on Linux, start to finish</h1>
 <div class="line">git push --dry-run</div>
 </div><!-- fragment --><p>You can copy keys from Windows instead of making new ones. Copy both files of each pair into <span class="tt">~/.ssh/</span> and fix the permissions with step 2. Windows files often arrive with CRLF line endings. If SSH then says <span class="tt">invalid format</span>, run <span class="tt">dos2unix ~/.ssh/id_ed25519*</span> on the private keys.</p>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md106"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md149"></a>
 Passphrases</h1>
 <p>If your keys have a passphrase, an agent saves you typing it on every push.</p>
 <ul>
@@ -375,7 +375,7 @@ Passphrases</h1>
 </ul>
 <p><span class="tt">IdentitiesOnly yes</span> in the config still makes sure each alias uses only its own key, even with both keys loaded in the agent.</p>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md108"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md151"></a>
 Troubleshooting</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -399,7 +399,7 @@ Troubleshooting</h1>
 </table>
 <p><span class="tt">ssh -vT git@github-geolcost</span> (<span class="tt">-v</span> = verbose) prints each key SSH tries and the config lines it applied. It's the quickest way to see what's going on.</p>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md110"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md153"></a>
 Undo</h1>
 <div class="fragment"><div class="line"># Stop pushing to z3n-k3rn3l from plain `git push`</div>
 <div class="line">git remote set-url --delete --push origin git@github.com:z3n-k3rn3l/IGNACC_Controller.git</div>

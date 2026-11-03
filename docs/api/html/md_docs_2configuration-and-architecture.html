@@ -113,10 +113,10 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('md_docs_2confi
   <div class="headertitle"><div class="title">Configuration and architecture </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="autotoc_md32"></a></p>
+<div class="textblock"><p><a class="anchor" id="autotoc_md46"></a></p>
 <p>How the firmware is configured, why the relay channels are set up the way they are, and how to extend the system without touching its core.</p>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md34"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md48"></a>
 1. The big picture</h1>
 <p>Diagrams for everything in this document are in <a class="el" href="dir_185e1be576cc3aab87068787be53911a.html" title="C:/Users/ramna/Documents/IGNACC_Controller/docs/diagrams/README.md">diagrams/</a>, in particular <a href="diagrams/layered-architecture.svg">layered-architecture.svg</a>, <a href="diagrams/kconfig-channel-model.svg">kconfig-channel-model.svg</a> and <a href="diagrams/module-main.svg">module-main.svg</a>.</p>
 <div class="fragment"><div class="line">                      +-------------------- main (composition root) --------------------+</div>
@@ -149,7 +149,7 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('md_docs_2confi
 <td class="markdownTableBodyNone">Only <span class="tt">main</span> reads <span class="tt">sdkconfig</span>  </td><td class="markdownTableBodyNone">Every other module receives plain config structs  </td></tr>
 </table>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md36"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md50"></a>
 2. Where configuration lives</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -165,10 +165,10 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('md_docs_2confi
 </table>
 <p>All values are fixed at <b>build time</b>. Nothing is configurable at runtime, so a wrong value can't be sent to a running board.</p>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md38"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md52"></a>
 3. The relay channel model (what's different here)</h1>
 <p>A typical ESP-IDF project hard-codes "relay 1 = GPIO26, relay 2 = GPIO27" in C. Here the channel count is a setting, and the rest of the firmware adapts to it.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md39"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md53"></a>
 3.1 Kconfig: a count plus one pin per channel</h2>
 <div class="fragment"><div class="line">IGNACC Controller → Relays</div>
 <div class="line">    Number of relay channels      (1..14, default 2)</div>
@@ -186,7 +186,7 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('md_docs_2confi
 <div class="line">    default 25</div>
 </div><!-- fragment --><p>The <span class="tt">if</span> hides the prompt in menuconfig, but the symbol <b>still exists</b> with its default value. So <span class="tt">sdkconfig.h</span> always defines all 14 macros <span class="tt">CONFIG_IGNACC_RELAY1_GPIO</span> … <span class="tt">CONFIG_IGNACC_RELAY14_GPIO</span>, whatever the count. This is deliberate: C code can then list all 14 unconditionally, without 14 <span class="tt">#if</span> blocks. Only the first <span class="tt">CONFIG_IGNACC_RELAY_COUNT</span> entries are used.</p>
 <p>The 14 defaults are exactly the 14 safe pins (see 3.3), so raising the count never gives you an unsafe default.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md40"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md54"></a>
 3.2 main.c: one list, three compile-time checks</h2>
 <p><span class="tt"><a class="el" href="main_8c.html" title="IGNACC_Controller composition root.">main.c</a></span> turns the macros into a table with an X-macro:</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#define IGNACC_RELAY_GPIO_LIST(X) \</span></div>
@@ -209,7 +209,7 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('md_docs_2confi
 </table>
 <p>A bad configuration <b>fails the build on your PC</b>. It can't reach the bench. All three errors were verified by deliberately breaking <span class="tt">sdkconfig</span> (duplicate GPIO, strapping pin GPIO2, GPIO14 on a third channel).</p>
 <p>At start-up, <span class="tt"><a class="el" href="main_8c.html#a630544a7f0a2cc40d8a7fefab7e2fe70" title="Firmware entry point (called by ESP-IDF after boot).">app_main</a></span> loops over the first <span class="tt">CONFIG_IGNACC_RELAY_COUNT</span> entries, creates one <span class="tt">relay_gpio</span> per channel (each latched OFF before its pin becomes an output) and hands them to the state machine as a <span class="tt"><a class="el" href="structrelay__bank__t.html" title="A bank of relays.">relay_bank_t</a></span>.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md41"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md55"></a>
 3.3 Why 14 is the maximum</h2>
 <p><span class="tt"><a class="el" href="esp32__relay__pins_8h.html" title="Which ESP32 (WROOM-32) GPIOs are safe to drive a relay.">components/relay/include/esp32_relay_pins.h</a></span> defines the safe pins for an ESP32-WROOM-32:</p>
 <table class="markdownTable">
@@ -229,7 +229,7 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('md_docs_2confi
 <td class="markdownTableBodyNone">34–39  </td><td class="markdownTableBodyNone">Input only  </td></tr>
 </table>
 <p>A host unit test (<span class="tt">test_relay_bank.c</span>) checks this list against all 40 GPIOs.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md42"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md56"></a>
 3.4 How the rest of the firmware adapts</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -245,7 +245,7 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('md_docs_2confi
 </table>
 <p>On a 2-channel build, every valid command and its reply are byte-for-byte the same as in firmware 1.0.0, so existing CAPL scripts keep working. Since 1.2.0, an invalid line, including <span class="tt">IN&lt;n&gt;</span> for a channel the board doesn't have, is answered with <span class="tt">UNK_NACK</span> instead of silence.</p>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md44"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md58"></a>
 4. Other settings</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -275,7 +275,7 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('md_docs_2confi
 </table>
 <p><span class="tt">sdkconfig.defaults</span> also sets: console output <b>none</b>, application and second-stage bootloader logs <b>off</b> (UART0 carries only the protocol), and a <b>1 kHz</b> FreeRTOS tick (so a 15 ms settle isn't rounded to 10 ms steps).</p>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md46"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md60"></a>
 5. Extending without modifying the core</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -293,7 +293,7 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('md_docs_2confi
 </table>
 <p>The core modules don't need to change for any of these, because they only depend on interfaces (<span class="tt"><a class="el" href="structrelay__t.html" title="A relay: function table plus opaque implementation handle.">relay_t</a></span>, <span class="tt"><a class="el" href="structrelay__bank__t.html" title="A bank of relays.">relay_bank_t</a></span>, <span class="tt"><a class="el" href="structlink__tx__t.html" title="A link&#39;s transmit side: function table plus opaque handle.">link_tx_t</a></span>) and plain config structs.</p>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md48"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md62"></a>
 6. Tests that guard all this</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -306,7 +306,7 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('md_docs_2confi
 <td class="markdownTableBodyNone">Hardware (COM15)  </td><td class="markdownTableBodyNone"><span class="tt">tools/ignacc_tester</span>  </td><td class="markdownTableBodyNone">15 tests / 93 steps, including ALL_ON/ALL_OFF and reset-while-ON  </td></tr>
 </table>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md50"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md64"></a>
 7. API reference</h1>
 <p>Every public header in <span class="tt">components/*/include/</span> carries Doxygen comments: <span class="tt">@file</span> overview, <span class="tt">@param</span>/<span class="tt">@return</span> on every function, documented struct fields and enum values. To generate HTML, install Doxygen, then run from the project root:</p>
 <div class="fragment"><div class="line">doxygen -g Doxyfile</div>
