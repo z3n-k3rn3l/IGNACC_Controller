@@ -26,7 +26,7 @@ reading order through the firmware, starting at `app_main()`. Then see the
     base/gate, collector/drain pulls IN to GND). This inverts the logic, so set
     menuconfig → Relay active level → **Active HIGH**.
   - Or use a relay module rated for 3.3 V inputs.
-- At boot, and whenever a relay command fails, both relays are driven OFF.
+- At boot, and whenever a relay command fails, all relays are driven OFF.
 - The OFF level is written to the output register *before* the pin is
   switched to output, so there is no ON glitch at boot. During reset, before
   the firmware runs, the pins are high-impedance inputs, which typical

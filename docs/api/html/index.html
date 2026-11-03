@@ -136,7 +136,7 @@ Hardware</h1>
 <li>Or use a relay module rated for 3.3 V inputs.</li>
 </ul>
 </li>
-<li>At boot, and whenever a relay command fails, both relays are driven OFF.</li>
+<li>At boot, and whenever a relay command fails, all relays are driven OFF.</li>
 <li>The OFF level is written to the output register <em>before</em> the pin is switched to output, so there is no ON glitch at boot. During reset, before the firmware runs, the pins are high-impedance inputs, which typical opto-isolated modules see as OFF.</li>
 <li><b>Channels:</b> 2 by default, up to 14 (menuconfig → Relays → Number of relay channels). Each channel gets its own GPIO setting. The safe pins are 4, 13, 16, 17, 18, 19, 21, 22, 23, 25, 26, 27, 32 and 33 (<span class="tt"><a class="el" href="esp32__relay__pins_8h.html" title="Which ESP32 (WROOM-32) GPIOs are safe to drive a relay.">esp32_relay_pins.h</a></span>).</li>
 <li><b>Build-time pin checks:</b> the build fails if a channel uses a strapping pin (0, 2, 5, 12, 15), a flash pin (6–11), a UART pin, GPIO14 or an input-only pin (34–39), or if two channels share a GPIO.</li>
