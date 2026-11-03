@@ -23,6 +23,13 @@
  * - Anything else: reply `UNK_NACK`; no relay is touched.
  *
  * Safety: all relays are driven OFF on start and whenever a relay command fails.
+ *
+ * @image html module-app-fsm.svg "Module: app_fsm"
+ * Diagram: docs/diagrams/module-app-fsm.svg
+ * @image html state-app-fsm.svg "State machine: app_fsm"
+ * Diagram: docs/diagrams/state-app-fsm.svg
+ * @image html activity-command-handling.svg "Activity: handling one command"
+ * Diagram: docs/diagrams/activity-command-handling.svg
  */
 #pragma once
 

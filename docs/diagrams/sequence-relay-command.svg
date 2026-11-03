@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1340" height="1020" viewBox="0 0 1340 1020" role="img" aria-labelledby="t d">
+<title id="t">Sequence: one command through every layer (IN1_ON)</title>
+<desc id="d">Time runs downward. Solid arrow = call or message, dashed arrow = return or reply.</desc>
+<defs><marker id="filled-ink" viewBox="0 0 10 10" refX="9.6" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#374151"/></marker><marker id="open-ink" viewBox="0 0 10 10" refX="9.6" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0.5 L10,5 L0,9.5" fill="none" stroke="#374151" stroke-width="1.6"/></marker><marker id="hollow-ink" viewBox="0 0 12 12" refX="11.4" refY="6" markerWidth="15" markerHeight="15" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0.5,0.5 L11.5,6 L0.5,11.5 z" fill="#fff" stroke="#374151" stroke-width="1.3"/></marker><marker id="diamond-ink" viewBox="0 0 16 10" refX="0.6" refY="5" markerWidth="18" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0.5,5 L8,0.6 L15.5,5 L8,9.4 z" fill="#fff" stroke="#374151" stroke-width="1.3"/></marker><marker id="filled-red" viewBox="0 0 10 10" refX="9.6" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="open-red" viewBox="0 0 10 10" refX="9.6" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0.5 L10,5 L0,9.5" fill="none" stroke="#b91c1c" stroke-width="1.6"/></marker><marker id="hollow-red" viewBox="0 0 12 12" refX="11.4" refY="6" markerWidth="15" markerHeight="15" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0.5,0.5 L11.5,6 L0.5,11.5 z" fill="#fff" stroke="#b91c1c" stroke-width="1.3"/></marker><marker id="diamond-red" viewBox="0 0 16 10" refX="0.6" refY="5" markerWidth="18" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0.5,5 L8,0.6 L15.5,5 L8,9.4 z" fill="#fff" stroke="#b91c1c" stroke-width="1.3"/></marker><marker id="filled-green" viewBox="0 0 10 10" refX="9.6" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#15803d"/></marker><marker id="open-green" viewBox="0 0 10 10" refX="9.6" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0.5 L10,5 L0,9.5" fill="none" stroke="#15803d" stroke-width="1.6"/></marker><marker id="hollow-green" viewBox="0 0 12 12" refX="11.4" refY="6" markerWidth="15" markerHeight="15" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0.5,0.5 L11.5,6 L0.5,11.5 z" fill="#fff" stroke="#15803d" stroke-width="1.3"/></marker><marker id="diamond-green" viewBox="0 0 16 10" refX="0.6" refY="5" markerWidth="18" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0.5,5 L8,0.6 L15.5,5 L8,9.4 z" fill="#fff" stroke="#15803d" stroke-width="1.3"/></marker><marker id="filled-blue" viewBox="0 0 10 10" refX="9.6" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2563eb"/></marker><marker id="open-blue" viewBox="0 0 10 10" refX="9.6" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0.5 L10,5 L0,9.5" fill="none" stroke="#2563eb" stroke-width="1.6"/></marker><marker id="hollow-blue" viewBox="0 0 12 12" refX="11.4" refY="6" markerWidth="15" markerHeight="15" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0.5,0.5 L11.5,6 L0.5,11.5 z" fill="#fff" stroke="#2563eb" stroke-width="1.3"/></marker><marker id="diamond-blue" viewBox="0 0 16 10" refX="0.6" refY="5" markerWidth="18" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0.5,5 L8,0.6 L15.5,5 L8,9.4 z" fill="#fff" stroke="#2563eb" stroke-width="1.3"/></marker></defs>
+<rect x="0" y="0" width="1340" height="1020" fill="#ffffff"/>
+<text x="30" y="36" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="21" font-weight="bold" fill="#1f2937">Sequence: one command through every layer (IN1_ON)</text>
+<text x="30" y="58" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13" fill="#4b5563">Time runs downward. Solid arrow = call or message, dashed arrow = return or reply.</text>
+<line x1="95" y1="132" x2="95" y2="996" stroke="#9ca3af" stroke-width="1.3" stroke-dasharray="5 5"/>
+<rect x="32.5" y="84" width="125" height="48" rx="6" fill="#e0f2fe" stroke="#0369a1" stroke-width="1.5"/>
+<text x="95" y="104.5" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#1f2937">Host</text>
+<text x="95" y="120.5" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#1f2937">(CAPL / Tester)</text>
+<line x1="238" y1="132" x2="238" y2="996" stroke="#9ca3af" stroke-width="1.3" stroke-dasharray="5 5"/>
+<rect x="175.5" y="84" width="125" height="48" rx="6" fill="#f3e8ff" stroke="#7e22ce" stroke-width="1.5"/>
+<text x="238" y="104.5" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#1f2937">ESP-IDF</text>
+<text x="238" y="120.5" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#1f2937">UART driver</text>
+<line x1="381" y1="132" x2="381" y2="996" stroke="#9ca3af" stroke-width="1.3" stroke-dasharray="5 5"/>
+<rect x="318.5" y="84" width="125" height="48" rx="6" fill="#ffedd5" stroke="#c2410c" stroke-width="1.5"/>
+<text x="381" y="104.5" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#1f2937">uart_link</text>
+<text x="381" y="120.5" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#1f2937">RX task</text>
+<line x1="524" y1="132" x2="524" y2="996" stroke="#9ca3af" stroke-width="1.3" stroke-dasharray="5 5"/>
+<rect x="461.5" y="84" width="125" height="48" rx="6" fill="#ecfeff" stroke="#0e7490" stroke-width="1.5"/>
+<text x="524" y="104.5" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#1f2937">command</text>
+<text x="524" y="120.5" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#1f2937">queue</text>
+<line x1="667" y1="132" x2="667" y2="996" stroke="#9ca3af" stroke-width="1.3" stroke-dasharray="5 5"/>
+<rect x="604.5" y="84" width="125" height="48" rx="6" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="667" y="104.5" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#1f2937">app_fsm</text>
+<text x="667" y="120.5" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#1f2937">task</text>
+<line x1="810" y1="132" x2="810" y2="996" stroke="#9ca3af" stroke-width="1.3" stroke-dasharray="5 5"/>
+<rect x="747.5" y="84" width="125" height="48" rx="6" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="810" y="112.5" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#1f2937">app_fsm</text>
+<line x1="953" y1="132" x2="953" y2="996" stroke="#9ca3af" stroke-width="1.3" stroke-dasharray="5 5"/>
+<rect x="890.5" y="84" width="125" height="48" rx="6" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="953" y="112.5" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#1f2937">relay_bank</text>
+<line x1="1096" y1="132" x2="1096" y2="996" stroke="#9ca3af" stroke-width="1.3" stroke-dasharray="5 5"/>
+<rect x="1033.5" y="84" width="125" height="48" rx="6" fill="#ffedd5" stroke="#c2410c" stroke-width="1.5"/>
+<text x="1096" y="104.5" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#1f2937">relay_gpio</text>
+<text x="1096" y="120.5" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#1f2937">(IN1)</text>
+<line x1="1239" y1="132" x2="1239" y2="996" stroke="#9ca3af" stroke-width="1.3" stroke-dasharray="5 5"/>
+<rect x="1176.5" y="84" width="125" height="48" rx="6" fill="#f3e8ff" stroke="#7e22ce" stroke-width="1.5"/>
+<text x="1239" y="112.5" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#1f2937">pin_hal_esp</text>
+<polyline points="95,190 238,190" fill="none" stroke="#374151" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#open-ink)"/>
+<rect x="128.0" y="172.5" width="77.0" height="16.5" rx="3" fill="#ffffff" fill-opacity="0.92"/>
+<text x="166.5" y="184" font-family="Consolas, 'Cascadia Mono', Menlo, monospace" font-size="11.5" font-weight="normal" text-anchor="middle" fill="#1f2937" xml:space="preserve">&quot;IN1_ON\n&quot;</text>
+<polyline points="238,222 381,222" fill="none" stroke="#374151" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#open-ink)"/>
+<rect x="253.8" y="204.5" width="111.5" height="16.5" rx="3" fill="#ffffff" fill-opacity="0.92"/>
+<text x="309.5" y="216" font-family="Consolas, 'Cascadia Mono', Menlo, monospace" font-size="11.5" font-weight="normal" text-anchor="middle" fill="#1f2937" xml:space="preserve">UART_DATA event</text>
+<polyline points="381,246 415,246 415,262 384,262" fill="none" stroke="#374151" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#filled-ink)"/>
+<rect x="417.0" y="246.5" width="139.1" height="16.5" rx="3" fill="#ffffff" fill-opacity="0.92"/>
+<text x="421" y="258" font-family="Consolas, 'Cascadia Mono', Menlo, monospace" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1f2937" xml:space="preserve">line_asm_push() × 7</text>
+<polyline points="381,296 524,296" fill="none" stroke="#374151" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#open-ink)"/>
+<rect x="393.3" y="278.5" width="118.4" height="16.5" rx="3" fill="#ffffff" fill-opacity="0.92"/>
+<text x="452.5" y="290" font-family="Consolas, 'Cascadia Mono', Menlo, monospace" font-size="11.5" font-weight="normal" text-anchor="middle" fill="#1f2937" xml:space="preserve">xQueueSend(line)</text>
+<polyline points="524,328 667,328" fill="none" stroke="#374151" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#filled-ink)"/>
+<rect x="546.6" y="310.5" width="97.7" height="16.5" rx="3" fill="#ffffff" fill-opacity="0.92"/>
+<text x="595.5" y="322" font-family="Consolas, 'Cascadia Mono', Menlo, monospace" font-size="11.5" font-weight="normal" text-anchor="middle" fill="#1f2937" xml:space="preserve">xQueueReceive</text>
+<polyline points="667,360 810,360" fill="none" stroke="#374151" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#filled-ink)"/>
+<rect x="689.6" y="342.5" width="97.7" height="16.5" rx="3" fill="#ffffff" fill-opacity="0.92"/>
+<text x="738.5" y="354" font-family="Consolas, 'Cascadia Mono', Menlo, monospace" font-size="11.5" font-weight="normal" text-anchor="middle" fill="#1f2937" xml:space="preserve">handle_line()</text>
+<polyline points="810,384 844,384 844,400 813,400" fill="none" stroke="#374151" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#filled-ink)"/>
+<rect x="846.0" y="384.5" width="166.7" height="16.5" rx="3" fill="#ffffff" fill-opacity="0.92"/>
+<text x="850" y="396" font-family="Consolas, 'Cascadia Mono', Menlo, monospace" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1f2937" xml:space="preserve">proto_parse() → IN1, ON</text>
+<polyline points="810,434 953,434" fill="none" stroke="#374151" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#filled-ink)"/>
+<rect x="843.0" y="416.5" width="77.0" height="16.5" rx="3" fill="#ffffff" fill-opacity="0.92"/>
+<text x="881.5" y="428" font-family="Consolas, 'Cascadia Mono', Menlo, monospace" font-size="11.5" font-weight="normal" text-anchor="middle" fill="#1f2937" xml:space="preserve">set(0, ON)</text>
+<polyline points="953,466 1096,466" fill="none" stroke="#374151" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#filled-ink)"/>
+<rect x="975.6" y="448.5" width="97.7" height="16.5" rx="3" fill="#ffffff" fill-opacity="0.92"/>
+<text x="1024.5" y="460" font-family="Consolas, 'Cascadia Mono', Menlo, monospace" font-size="11.5" font-weight="normal" text-anchor="middle" fill="#1f2937" xml:space="preserve">relay_set(ON)</text>
+<polyline points="1096,498 1239,498" fill="none" stroke="#374151" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#filled-ink)"/>
+<rect x="1108.3" y="480.5" width="118.4" height="16.5" rx="3" fill="#ffffff" fill-opacity="0.92"/>
+<text x="1167.5" y="492" font-family="Consolas, 'Cascadia Mono', Menlo, monospace" font-size="11.5" font-weight="normal" text-anchor="middle" fill="#1f2937" xml:space="preserve">set_level(26, 0)</text>
+<polyline points="1096,530 1239,530" fill="none" stroke="#374151" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#filled-ink)"/>
+<rect x="1118.7" y="512.5" width="97.7" height="16.5" rx="3" fill="#ffffff" fill-opacity="0.92"/>
+<text x="1167.5" y="524" font-family="Consolas, 'Cascadia Mono', Menlo, monospace" font-size="11.5" font-weight="normal" text-anchor="middle" fill="#1f2937" xml:space="preserve">get_level(26)</text>
+<polyline points="1239,562 1096,562" fill="none" stroke="#374151" stroke-width="1.6" stroke-linejoin="round" stroke-dasharray="6 4" marker-end="url(#open-ink)"/>
+<rect x="1135.9" y="544.5" width="63.2" height="16.5" rx="3" fill="#ffffff" fill-opacity="0.92"/>
+<text x="1167.5" y="556" font-family="Consolas, 'Cascadia Mono', Menlo, monospace" font-size="11.5" font-weight="normal" text-anchor="middle" fill="#1f2937" xml:space="preserve">0  (LOW)</text>
+<polyline points="1096,594 953,594" fill="none" stroke="#374151" stroke-width="1.6" stroke-linejoin="round" stroke-dasharray="6 4" marker-end="url(#open-ink)"/>
+<rect x="992.9" y="576.5" width="63.2" height="16.5" rx="3" fill="#ffffff" fill-opacity="0.92"/>
+<text x="1024.5" y="588" font-family="Consolas, 'Cascadia Mono', Menlo, monospace" font-size="11.5" font-weight="normal" text-anchor="middle" fill="#1f2937" xml:space="preserve">RELAY_OK</text>
+<polyline points="953,626 810,626" fill="none" stroke="#374151" stroke-width="1.6" stroke-linejoin="round" stroke-dasharray="6 4" marker-end="url(#open-ink)"/>
+<rect x="849.9" y="608.5" width="63.2" height="16.5" rx="3" fill="#ffffff" fill-opacity="0.92"/>
+<text x="881.5" y="620" font-family="Consolas, 'Cascadia Mono', Menlo, monospace" font-size="11.5" font-weight="normal" text-anchor="middle" fill="#1f2937" xml:space="preserve">RELAY_OK</text>
+<rect x="747.5" y="640" width="125.0" height="28" rx="4" fill="#fffbeb" stroke="#b45309" stroke-width="1.5"/>
+<text x="755.5" y="657" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1f2937" xml:space="preserve">pin is ON now</text>
+<polyline points="810,692 844,692 844,708 813,708" fill="none" stroke="#374151" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#filled-ink)"/>
+<rect x="846.0" y="692.5" width="146.0" height="16.5" rx="3" fill="#ffffff" fill-opacity="0.92"/>
+<text x="850" y="704" font-family="Consolas, 'Cascadia Mono', Menlo, monospace" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1f2937" xml:space="preserve">delay(15 ms)  settle</text>
+<polyline points="810,742 953,742" fill="none" stroke="#374151" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#filled-ink)"/>
+<rect x="849.9" y="724.5" width="63.2" height="16.5" rx="3" fill="#ffffff" fill-opacity="0.92"/>
+<text x="881.5" y="736" font-family="Consolas, 'Cascadia Mono', Menlo, monospace" font-size="11.5" font-weight="normal" text-anchor="middle" fill="#1f2937" xml:space="preserve">is_on(0)</text>
+<polyline points="953,774 810,774" fill="none" stroke="#374151" stroke-width="1.6" stroke-linejoin="round" stroke-dasharray="6 4" marker-end="url(#open-ink)"/>
+<rect x="863.7" y="756.5" width="35.6" height="16.5" rx="3" fill="#ffffff" fill-opacity="0.92"/>
+<text x="881.5" y="768" font-family="Consolas, 'Cascadia Mono', Menlo, monospace" font-size="11.5" font-weight="normal" text-anchor="middle" fill="#1f2937" xml:space="preserve">true</text>
+<polyline points="810,798 844,798 844,814 813,814" fill="none" stroke="#374151" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#filled-ink)"/>
+<rect x="846.0" y="798.5" width="132.2" height="16.5" rx="3" fill="#ffffff" fill-opacity="0.92"/>
+<text x="850" y="810" font-family="Consolas, 'Cascadia Mono', Menlo, monospace" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1f2937" xml:space="preserve">format → IN1_ON_OK</text>
+<polyline points="810,848 381,848" fill="none" stroke="#374151" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#filled-ink)"/>
+<rect x="543.2" y="830.5" width="104.6" height="16.5" rx="3" fill="#ffffff" fill-opacity="0.92"/>
+<text x="595.5" y="842" font-family="Consolas, 'Cascadia Mono', Menlo, monospace" font-size="11.5" font-weight="normal" text-anchor="middle" fill="#1f2937" xml:space="preserve">link_tx_send()</text>
+<polyline points="381,880 238,880" fill="none" stroke="#374151" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#filled-ink)"/>
+<rect x="250.3" y="862.5" width="118.4" height="16.5" rx="3" fill="#ffffff" fill-opacity="0.92"/>
+<text x="309.5" y="874" font-family="Consolas, 'Cascadia Mono', Menlo, monospace" font-size="11.5" font-weight="normal" text-anchor="middle" fill="#1f2937" xml:space="preserve">uart_write_bytes</text>
+<polyline points="238,912 95,912" fill="none" stroke="#374151" stroke-width="1.6" stroke-linejoin="round" stroke-dasharray="6 4" marker-end="url(#open-ink)"/>
+<rect x="110.8" y="894.5" width="111.5" height="16.5" rx="3" fill="#ffffff" fill-opacity="0.92"/>
+<text x="166.5" y="906" font-family="Consolas, 'Cascadia Mono', Menlo, monospace" font-size="11.5" font-weight="normal" text-anchor="middle" fill="#1f2937" xml:space="preserve">&quot;IN1_ON_OK\r\n&quot;</text>
+<rect x="32.5" y="926" width="268.0" height="44" rx="4" fill="#fffbeb" stroke="#b45309" stroke-width="1.5"/>
+<text x="40.5" y="943" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1f2937" xml:space="preserve">≈ 19 ms after sending: 15 ms settle</text>
+<text x="40.5" y="959" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1f2937" xml:space="preserve">+ USB transfer both ways</text>
+</svg>

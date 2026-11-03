@@ -8,6 +8,11 @@
  * never needs to know how many relays exist or how each one switches.
  *
  * The bank does not own the relays; it only references an array of them.
+ *
+ * @image html module-relay.svg "Module: relay"
+ * Diagram: docs/diagrams/module-relay.svg
+ * @image html state-relay-channel.svg "One relay channel"
+ * Diagram: docs/diagrams/state-relay-channel.svg
  */
 #pragma once
 

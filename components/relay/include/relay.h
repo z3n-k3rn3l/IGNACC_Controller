@@ -6,6 +6,9 @@
  * register tomorrow) fills in a #relay_ops_t and keeps its state behind the
  * opaque `ctx` pointer. Users (relay_bank, app_fsm) only see this header, so a
  * new implementation never requires changes to them.
+ *
+ * @image html module-relay.svg "Module: relay"
+ * Diagram: docs/diagrams/module-relay.svg
  */
 #pragma once
 

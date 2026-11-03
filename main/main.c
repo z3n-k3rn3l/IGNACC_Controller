@@ -1,8 +1,14 @@
-/*
- * IGNACC_Controller - composition root.
+/**
+ * @file main.c
+ * @brief IGNACC_Controller composition root.
  *
- * Reads the Kconfig settings, creates the objects, injects dependencies and
- * starts the tasks. No application logic lives here.
+ * Reads the Kconfig settings, checks the relay pins at compile time, creates
+ * the objects, injects dependencies and starts the tasks. No application
+ * logic lives here.
+ *
+ * @image html module-main.svg "Module: main"
+ * @image html kconfig-channel-model.svg "Kconfig channel model"
+ * Diagrams: docs/diagrams/module-main.svg, docs/diagrams/kconfig-channel-model.svg
  */
 #include <assert.h>
 #include <stdbool.h>

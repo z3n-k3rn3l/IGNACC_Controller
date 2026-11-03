@@ -4,6 +4,9 @@
  *
  * A task blocks on the line queue and feeds each line to the state machine.
  * Kept separate from app_fsm.c so the state machine itself stays pure C.
+ *
+ * @image html module-app-fsm.svg "Module: app_fsm"
+ * Diagram: docs/diagrams/module-app-fsm.svg
  */
 #pragma once
 

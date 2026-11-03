@@ -5,6 +5,9 @@
  * Pure C: all pin access goes through the injected #pin_hal_t, so the driver
  * runs on the host with a mock HAL. Each relay is verified by reading the pin
  * back after every drive. This checks the pin, not the relay contact.
+ *
+ * @image html module-relay.svg "Module: relay"
+ * Diagram: docs/diagrams/module-relay.svg
  */
 #pragma once
 

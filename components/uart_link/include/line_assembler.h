@@ -6,6 +6,9 @@
  * - Lines longer than `max_len` (excluding terminators) are discarded entirely,
  *   including any command at their end.
  * - Empty lines are not emitted.
+ *
+ * @image html state-line-assembler.svg "State machine: line_assembler"
+ * Diagram: docs/diagrams/state-line-assembler.svg
  */
 #pragma once
 

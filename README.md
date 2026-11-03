@@ -98,6 +98,15 @@ UART0 through the on-board micro-USB bridge, **115200 8N1**.
    ```
    In terminal programs, turn off DTR/RTS or hardware flow control.
 
+## Diagrams
+
+Architecture and UML diagrams, each explained in plain words and for engineers,
+are in [docs/diagrams/](docs/diagrams/README.md). They include the system context,
+use cases, AUTOSAR-style layers, state machines, activity, sequence,
+communication and interaction-overview diagrams, plus one diagram per module.
+
+![System context](docs/diagrams/system-context.svg)
+
 ## Configuration
 
 `idf.py menuconfig` → **IGNACC Controller** has these settings:

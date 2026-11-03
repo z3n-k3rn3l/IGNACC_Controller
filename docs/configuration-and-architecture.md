@@ -7,6 +7,11 @@ they are, and how to extend the system without touching its core.
 
 ## 1. The big picture
 
+Diagrams for everything in this document are in [diagrams/](diagrams/README.md),
+in particular [layered-architecture.svg](diagrams/layered-architecture.svg),
+[kconfig-channel-model.svg](diagrams/kconfig-channel-model.svg) and
+[module-main.svg](diagrams/module-main.svg).
+
 ```
                       +-------------------- main (composition root) --------------------+
                       |  reads Kconfig, checks pins at compile time, creates and wires  |

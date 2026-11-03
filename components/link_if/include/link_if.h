@@ -5,6 +5,9 @@
  * Header only, pure C. The link (uart_link) produces #link_line_t items and
  * implements #link_tx_t; the state machine (app_fsm) consumes lines and sends
  * responses through #link_tx_t. Neither knows about the other.
+ *
+ * @image html module-uart-link.svg "Module: uart_link"
+ * Diagram: docs/diagrams/module-uart-link.svg
  */
 #pragma once
 

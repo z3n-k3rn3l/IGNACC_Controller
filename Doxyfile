@@ -1,0 +1,37 @@
+# Doxygen configuration for IGNACC_Controller.
+# Generate the HTML API docs (with the SVG diagrams) from the project root:
+#     doxygen
+# Output: build/doxygen/html/index.html  (git-ignored; idf.py fullclean removes it)
+# Only the settings that differ from Doxygen's defaults are listed here.
+
+PROJECT_NAME           = "IGNACC Controller"
+PROJECT_NUMBER         = 1.2.0
+PROJECT_BRIEF          = "ESP32 UART-controlled relay controller for ACC / IGN testing"
+OUTPUT_DIRECTORY       = build/doxygen
+
+# Sources: public headers, implementation, composition root and the docs.
+INPUT                  = README.md docs components main
+FILE_PATTERNS          = *.h *.c *.md
+RECURSIVE              = YES
+USE_MDFILE_AS_MAINPAGE = README.md
+IMAGE_PATH             = docs/diagrams
+
+# C project: show structs and functions, include static (file-local) helpers.
+OPTIMIZE_OUTPUT_FOR_C  = YES
+EXTRACT_STATIC         = YES
+JAVADOC_AUTOBRIEF      = YES
+MARKDOWN_SUPPORT       = YES
+
+# Output
+GENERATE_HTML          = YES
+GENERATE_LATEX         = NO
+GENERATE_TREEVIEW      = YES
+SOURCE_BROWSER         = YES
+
+# Call/include graphs need Graphviz (dot). Set to YES after installing it.
+HAVE_DOT               = NO
+
+# Warnings
+QUIET                  = YES
+WARN_IF_UNDOCUMENTED   = YES
+WARN_NO_PARAMDOC       = YES

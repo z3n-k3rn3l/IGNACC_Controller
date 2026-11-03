@@ -19,6 +19,9 @@
  *
  * Received lines have their terminator stripped before parsing. Every
  * formatted response ends with `"\r\n"`.
+ *
+ * @image html module-protocol.svg "Module: protocol"
+ * Diagram: docs/diagrams/module-protocol.svg
  */
 #pragma once
 

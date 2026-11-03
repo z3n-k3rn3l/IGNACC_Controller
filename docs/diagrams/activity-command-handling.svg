@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1110" viewBox="0 0 1200 1110" role="img" aria-labelledby="t d">
+<title id="t">Activity: handling one command</title>
+<desc id="d">What the state machine does with every received line.</desc>
+<defs><marker id="filled-ink" viewBox="0 0 10 10" refX="9.6" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#374151"/></marker><marker id="open-ink" viewBox="0 0 10 10" refX="9.6" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0.5 L10,5 L0,9.5" fill="none" stroke="#374151" stroke-width="1.6"/></marker><marker id="hollow-ink" viewBox="0 0 12 12" refX="11.4" refY="6" markerWidth="15" markerHeight="15" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0.5,0.5 L11.5,6 L0.5,11.5 z" fill="#fff" stroke="#374151" stroke-width="1.3"/></marker><marker id="diamond-ink" viewBox="0 0 16 10" refX="0.6" refY="5" markerWidth="18" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0.5,5 L8,0.6 L15.5,5 L8,9.4 z" fill="#fff" stroke="#374151" stroke-width="1.3"/></marker><marker id="filled-red" viewBox="0 0 10 10" refX="9.6" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="open-red" viewBox="0 0 10 10" refX="9.6" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0.5 L10,5 L0,9.5" fill="none" stroke="#b91c1c" stroke-width="1.6"/></marker><marker id="hollow-red" viewBox="0 0 12 12" refX="11.4" refY="6" markerWidth="15" markerHeight="15" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0.5,0.5 L11.5,6 L0.5,11.5 z" fill="#fff" stroke="#b91c1c" stroke-width="1.3"/></marker><marker id="diamond-red" viewBox="0 0 16 10" refX="0.6" refY="5" markerWidth="18" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0.5,5 L8,0.6 L15.5,5 L8,9.4 z" fill="#fff" stroke="#b91c1c" stroke-width="1.3"/></marker><marker id="filled-green" viewBox="0 0 10 10" refX="9.6" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#15803d"/></marker><marker id="open-green" viewBox="0 0 10 10" refX="9.6" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0.5 L10,5 L0,9.5" fill="none" stroke="#15803d" stroke-width="1.6"/></marker><marker id="hollow-green" viewBox="0 0 12 12" refX="11.4" refY="6" markerWidth="15" markerHeight="15" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0.5,0.5 L11.5,6 L0.5,11.5 z" fill="#fff" stroke="#15803d" stroke-width="1.3"/></marker><marker id="diamond-green" viewBox="0 0 16 10" refX="0.6" refY="5" markerWidth="18" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0.5,5 L8,0.6 L15.5,5 L8,9.4 z" fill="#fff" stroke="#15803d" stroke-width="1.3"/></marker><marker id="filled-blue" viewBox="0 0 10 10" refX="9.6" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2563eb"/></marker><marker id="open-blue" viewBox="0 0 10 10" refX="9.6" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0.5 L10,5 L0,9.5" fill="none" stroke="#2563eb" stroke-width="1.6"/></marker><marker id="hollow-blue" viewBox="0 0 12 12" refX="11.4" refY="6" markerWidth="15" markerHeight="15" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0.5,0.5 L11.5,6 L0.5,11.5 z" fill="#fff" stroke="#2563eb" stroke-width="1.3"/></marker><marker id="diamond-blue" viewBox="0 0 16 10" refX="0.6" refY="5" markerWidth="18" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0.5,5 L8,0.6 L15.5,5 L8,9.4 z" fill="#fff" stroke="#2563eb" stroke-width="1.3"/></marker></defs>
+<rect x="0" y="0" width="1200" height="1110" fill="#ffffff"/>
+<text x="30" y="36" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="21" font-weight="bold" fill="#1f2937">Activity: handling one command</text>
+<text x="30" y="58" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13" fill="#4b5563">What the state machine does with every received line.</text>
+<circle cx="560" cy="92" r="10" fill="#1f2937"/>
+<rect x="410.0" y="124.0" width="300" height="44" rx="18" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="560" y="150.375" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="normal" text-anchor="middle" fill="#1f2937" xml:space="preserve">Take the next line from the queue</text>
+<circle cx="360" cy="146" r="13" fill="#fff" stroke="#1f2937" stroke-width="1.6"/>
+<text x="360" y="150.5" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#1f2937" xml:space="preserve">1</text>
+<polyline points="373,146 410,146" fill="none" stroke="#374151" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#filled-ink)"/>
+<polyline points="560,102 560,124" fill="none" stroke="#374151" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#filled-ink)"/>
+<polygon points="560,191.0 645.0,226 560,261.0 475.0,226" fill="#fef9c3" stroke="#a16207" stroke-width="1.5"/>
+<text x="560" y="230.2" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="normal" text-anchor="middle" fill="#1f2937" xml:space="preserve">FSM READY?</text>
+<polyline points="560,168 560,191" fill="none" stroke="#374151" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#filled-ink)"/>
+<rect x="790.0" y="204.0" width="200" height="44" rx="18" fill="#f9fafb" stroke="#6b7280" stroke-width="1.5"/>
+<text x="890" y="230.375" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="normal" text-anchor="middle" fill="#1f2937" xml:space="preserve">Ignore (no reply)</text>
+<polyline points="645,226 790,226" fill="none" stroke="#374151" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#filled-ink)"/>
+<rect x="666.9" y="207.0" width="66.3" height="16.0" rx="3" fill="#ffffff" fill-opacity="0.92"/>
+<text x="700" y="218" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="normal" text-anchor="middle" fill="#4b5563" xml:space="preserve">[no: INIT]</text>
+<polyline points="990,226 1040,226" fill="none" stroke="#374151" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#filled-ink)"/>
+<circle cx="1053" cy="226" r="13" fill="#fff" stroke="#1f2937" stroke-width="1.6"/>
+<text x="1053" y="230.5" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#1f2937" xml:space="preserve">1</text>
+<rect x="410.0" y="284.0" width="300" height="44" rx="18" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="560" y="310.375" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="normal" text-anchor="middle" fill="#1f2937" xml:space="preserve">Parse the line  (proto_parse)</text>
+<polyline points="560,261 560,284" fill="none" stroke="#374151" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#filled-ink)"/>
+<rect x="582.0" y="265.0" width="37.2" height="16.0" rx="3" fill="#ffffff" fill-opacity="0.92"/>
+<text x="586" y="276" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="normal" text-anchor="start" fill="#4b5563" xml:space="preserve">[yes]</text>
+<polygon points="560,352.0 660.0,390 560,428.0 460.0,390" fill="#fef9c3" stroke="#a16207" stroke-width="1.5"/>
+<text x="560" y="386.4" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="normal" text-anchor="middle" fill="#1f2937" xml:space="preserve">Valid command</text>
+<text x="560" y="402.0" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="normal" text-anchor="middle" fill="#1f2937" xml:space="preserve">for this board?</text>
+<polyline points="560,328 560,352" fill="none" stroke="#374151" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#filled-ink)"/>
+<rect x="90.0" y="368.0" width="220" height="44" rx="18" fill="#fee2e2" stroke="#b91c1c" stroke-width="1.5"/>
+<text x="200" y="394.375" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="normal" text-anchor="middle" fill="#1f2937" xml:space="preserve">Reply UNK_NACK</text>
+<polyline points="460,390 310,390" fill="none" stroke="#374151" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#filled-ink)"/>
+<rect x="379.3" y="370.0" width="31.3" height="16.0" rx="3" fill="#ffffff" fill-opacity="0.92"/>
+<text x="395" y="381" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="normal" text-anchor="middle" fill="#4b5563" xml:space="preserve">[no]</text>
+<polyline points="90,390 62,390" fill="none" stroke="#374151" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#filled-ink)"/>
+<circle cx="49" cy="390" r="13" fill="#fff" stroke="#1f2937" stroke-width="1.6"/>
+<text x="49" y="394.5" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#1f2937" xml:space="preserve">1</text>
+<polygon points="560,451.0 660.0,486 560,521.0 460.0,486" fill="#fef9c3" stroke="#a16207" stroke-width="1.5"/>
+<text x="560" y="490.2" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="normal" text-anchor="middle" fill="#1f2937" xml:space="preserve">Which command?</text>
+<polyline points="560,428 560,451" fill="none" stroke="#374151" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#filled-ink)"/>
+<rect x="582.0" y="434.0" width="37.2" height="16.0" rx="3" fill="#ffffff" fill-opacity="0.92"/>
+<text x="586" y="445" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="normal" text-anchor="start" fill="#4b5563" xml:space="preserve">[yes]</text>
+<rect x="80.0" y="464.0" width="240" height="44" rx="18" fill="#dcfce7" stroke="#15803d" stroke-width="1.5"/>
+<text x="200" y="490.375" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="normal" text-anchor="middle" fill="#1f2937" xml:space="preserve">Reply Hello IGNACC v… READY</text>
+<polyline points="460,486 320,486" fill="none" stroke="#374151" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#filled-ink)"/>
+<rect x="373.5" y="467.0" width="43.0" height="16.0" rx="3" fill="#ffffff" fill-opacity="0.92"/>
+<text x="395" y="478" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="normal" text-anchor="middle" fill="#4b5563" xml:space="preserve">[HeyU]</text>
+<polyline points="200,508 200,540" fill="none" stroke="#374151" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#filled-ink)"/>
+<circle cx="200" cy="553" r="13" fill="#fff" stroke="#1f2937" stroke-width="1.6"/>
+<text x="200" y="557.5" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#1f2937" xml:space="preserve">1</text>
+<rect x="790.0" y="460.0" width="270" height="52" rx="18" fill="#dcfce7" stroke="#15803d" stroke-width="1.5"/>
+<text x="925" y="481.9375" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="normal" text-anchor="middle" fill="#1f2937" xml:space="preserve">Read every relay back,</text>
+<text x="925" y="498.8125" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="normal" text-anchor="middle" fill="#1f2937" xml:space="preserve">reply STATUS IN1=… IN&lt;n&gt;=…</text>
+<polyline points="660,486 790,486" fill="none" stroke="#374151" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#filled-ink)"/>
+<rect x="697.7" y="467.0" width="54.6" height="16.0" rx="3" fill="#ffffff" fill-opacity="0.92"/>
+<text x="725" y="478" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="normal" text-anchor="middle" fill="#4b5563" xml:space="preserve">[STATUS]</text>
+<polyline points="925,512 925,540" fill="none" stroke="#374151" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#filled-ink)"/>
+<circle cx="925" cy="553" r="13" fill="#fff" stroke="#1f2937" stroke-width="1.6"/>
+<text x="925" y="557.5" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#1f2937" xml:space="preserve">1</text>
+<rect x="360.0" y="564.0" width="400" height="52" rx="18" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="560" y="585.9375" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="normal" text-anchor="middle" fill="#1f2937" xml:space="preserve">Drive relay n — or every relay for ALL,</text>
+<text x="560" y="602.8125" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="normal" text-anchor="middle" fill="#1f2937" xml:space="preserve">back to back</text>
+<polyline points="560,521 560,564" fill="none" stroke="#374151" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#filled-ink)"/>
+<rect x="582.0" y="537.0" width="171.2" height="16.0" rx="3" fill="#ffffff" fill-opacity="0.92"/>
+<text x="586" y="548" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="normal" text-anchor="start" fill="#4b5563" xml:space="preserve">[IN&lt;n&gt;_ON/OFF or ALL_ON/OFF]</text>
+<polygon points="560,647.0 655.0,680 560,713.0 465.0,680" fill="#fef9c3" stroke="#a16207" stroke-width="1.5"/>
+<text x="560" y="684.2" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="normal" text-anchor="middle" fill="#1f2937" xml:space="preserve">Every drive OK?</text>
+<polyline points="560,616 560,647" fill="none" stroke="#374151" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#filled-ink)"/>
+<rect x="400.0" y="748.0" width="320" height="44" rx="18" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="560" y="774.375" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="normal" text-anchor="middle" fill="#1f2937" xml:space="preserve">Wait the settle delay (15 ms, once)</text>
+<polyline points="560,713 560,748" fill="none" stroke="#374151" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#filled-ink)"/>
+<rect x="582.0" y="725.0" width="37.2" height="16.0" rx="3" fill="#ffffff" fill-opacity="0.92"/>
+<text x="586" y="736" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="normal" text-anchor="start" fill="#4b5563" xml:space="preserve">[yes]</text>
+<rect x="400.0" y="823.0" width="320" height="44" rx="18" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="560" y="849.375" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="normal" text-anchor="middle" fill="#1f2937" xml:space="preserve">Read back relay n — or every relay</text>
+<polyline points="560,792 560,823" fill="none" stroke="#374151" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#filled-ink)"/>
+<polygon points="560,895.0 665.0,930 560,965.0 455.0,930" fill="#fef9c3" stroke="#a16207" stroke-width="1.5"/>
+<text x="560" y="926.4000000000001" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="normal" text-anchor="middle" fill="#1f2937" xml:space="preserve">Read-back matches</text>
+<text x="560" y="942.0000000000001" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="normal" text-anchor="middle" fill="#1f2937" xml:space="preserve">the command?</text>
+<polyline points="560,867 560,895" fill="none" stroke="#374151" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#filled-ink)"/>
+<rect x="430.0" y="993.0" width="260" height="44" rx="18" fill="#dcfce7" stroke="#15803d" stroke-width="1.5"/>
+<text x="560" y="1019.375" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="normal" text-anchor="middle" fill="#1f2937" xml:space="preserve">Reply …_OK</text>
+<polyline points="560,965 560,993" fill="none" stroke="#374151" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#filled-ink)"/>
+<rect x="582.0" y="973.0" width="37.2" height="16.0" rx="3" fill="#ffffff" fill-opacity="0.92"/>
+<text x="586" y="984" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="normal" text-anchor="start" fill="#4b5563" xml:space="preserve">[yes]</text>
+<polyline points="690,1015 760,1015" fill="none" stroke="#374151" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#filled-ink)"/>
+<circle cx="773" cy="1015" r="13" fill="#fff" stroke="#1f2937" stroke-width="1.6"/>
+<text x="773" y="1019.5" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#1f2937" xml:space="preserve">1</text>
+<rect x="805.0" y="744.0" width="270" height="52" rx="18" fill="#fee2e2" stroke="#b91c1c" stroke-width="1.5"/>
+<text x="940" y="765.9375" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="normal" text-anchor="middle" fill="#1f2937" xml:space="preserve">Drive ALL relays OFF</text>
+<text x="940" y="782.8125" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="normal" text-anchor="middle" fill="#1f2937" xml:space="preserve">(safe state)</text>
+<polyline points="655,680 940,680 940,744" fill="none" stroke="#b91c1c" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#filled-red)"/>
+<rect x="784.3" y="661.0" width="31.3" height="16.0" rx="3" fill="#ffffff" fill-opacity="0.92"/>
+<text x="800" y="672" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="normal" text-anchor="middle" fill="#b91c1c" xml:space="preserve">[no]</text>
+<polyline points="665,930 1110,930 1110,770 1075,770" fill="none" stroke="#b91c1c" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#filled-red)"/>
+<rect x="864.3" y="911.0" width="31.3" height="16.0" rx="3" fill="#ffffff" fill-opacity="0.92"/>
+<text x="880" y="922" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="normal" text-anchor="middle" fill="#b91c1c" xml:space="preserve">[no]</text>
+<rect x="830.0" y="838.0" width="220" height="44" rx="18" fill="#fee2e2" stroke="#b91c1c" stroke-width="1.5"/>
+<text x="940" y="864.375" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="normal" text-anchor="middle" fill="#1f2937" xml:space="preserve">Reply …_FAIL</text>
+<polyline points="940,796 940,838" fill="none" stroke="#b91c1c" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#filled-red)"/>
+<polyline points="1050,860 1080,860" fill="none" stroke="#b91c1c" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#filled-red)"/>
+<circle cx="1093" cy="860" r="13" fill="#fff" stroke="#1f2937" stroke-width="1.6"/>
+<text x="1093" y="864.5" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#1f2937" xml:space="preserve">1</text>
+<rect x="60" y="989" width="28" height="15" rx="3" fill="#dcfce7" stroke="#15803d" stroke-width="1.5"/>
+<text x="96" y="1000" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="normal" text-anchor="start" fill="#4b5563" xml:space="preserve">normal answer</text>
+<rect x="60" y="1011" width="28" height="15" rx="3" fill="#fee2e2" stroke="#b91c1c" stroke-width="1.5"/>
+<text x="96" y="1022" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="normal" text-anchor="start" fill="#4b5563" xml:space="preserve">UNK_NACK / failure path</text>
+<text x="60" y="1060" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="normal" text-anchor="start" fill="#4b5563" xml:space="preserve">1 = back to the top: take the next line.</text>
+</svg>

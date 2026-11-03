@@ -6,6 +6,9 @@
  * no custom ISR). A receive task assembles bytes into lines with
  * line_assembler and posts each complete line to the injected queue. Knows
  * nothing about relays or the command set.
+ *
+ * @image html module-uart-link.svg "Module: uart_link"
+ * Diagram: docs/diagrams/module-uart-link.svg
  */
 #pragma once
 
