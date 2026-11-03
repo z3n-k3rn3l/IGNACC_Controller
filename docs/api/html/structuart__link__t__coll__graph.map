@@ -1,0 +1,5 @@
+<map id="uart_link_t" name="uart_link_t">
+<area shape="rect" id="Node000001" title="Private link state (the opaque link_tx_t::ctx and the RX task argument)." alt="" coords="7,104,88,131"/>
+<area shape="rect" id="Node000002" href="$structline__asm__t.html" title="Assembler state." alt="" coords="5,5,90,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="50,47,50,104,45,103,45,49"/>
+</map>

@@ -1,0 +1,66 @@
+<map id="main/main.c" name="main/main.c">
+<area shape="rect" id="Node000001" title="IGNACC_Controller composition root." alt="" coords="585,5,678,32"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,80,74,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="583,25,372,46,233,62,93,83,91,83,87,79,92,77,232,57,371,40,587,22"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="228,379,302,405"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="583,24,380,44,274,60,231,71,199,82,165,98,138,114,121,135,116,149,114,167,114,244,117,265,125,285,151,320,186,348,224,372,219,372,183,353,147,324,120,288,112,267,109,244,109,167,111,148,116,132,135,110,163,94,197,78,229,66,273,55,380,39,587,21"/>
+<area shape="rect" id="Node000004" href="$app__fsm_8h.html" title="Application state machine: the sole owner of the relays." alt="" coords="417,155,499,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="596,34,559,55,520,82,494,111,474,143,470,139,490,108,516,78,557,50,600,31"/>
+<area shape="rect" id="Node000007" href="$link__if_8h.html" title="Transport&#45;independent contracts shared by the link and the state machine." alt="" coords="573,229,639,256"/>
+<area shape="poly" id="edge28_Node000001_Node000007" title=" " alt="" coords="611,31,585,54,565,81,561,98,561,124,571,180,590,218,585,216,566,182,556,124,556,98,560,79,581,51,606,34"/>
+<area shape="rect" id="Node000009" href="$relay__bank_8h.html" title="A group of relays addressed by index; the layer behind ALL_ON / ALL_OFF." alt="" coords="149,229,244,256"/>
+<area shape="poly" id="edge31_Node000001_Node000009" title=" " alt="" coords="582,21,494,26,386,34,286,52,248,65,223,82,203,112,194,147,192,183,195,214,189,213,187,183,189,146,198,110,219,78,246,61,285,47,385,29,494,20,587,19"/>
+<area shape="rect" id="Node000011" href="$app__fsm__task_8h.html" title="FreeRTOS runner for app_fsm." alt="" coords="574,80,689,107"/>
+<area shape="poly" id="edge17_Node000001_Node000011" title=" " alt="" coords="633,30,634,66,629,63,630,35"/>
+<area shape="rect" id="Node000013" title=" " alt="" coords="624,155,767,181"/>
+<area shape="poly" id="edge25_Node000001_Node000013" title=" " alt="" coords="655,30,682,51,703,79,709,110,706,141,701,138,704,110,698,81,678,54,654,35"/>
+<area shape="rect" id="Node000014" title=" " alt="" coords="791,155,906,181"/>
+<area shape="poly" id="edge26_Node000001_Node000014" title=" " alt="" coords="651,30,724,78,821,146,816,146,721,82,650,35"/>
+<area shape="rect" id="Node000015" href="$esp32__relay__pins_8h.html" title="Which ESP32 (WROOM&#45;32) GPIOs are safe to drive a relay." alt="" coords="921,80,1054,107"/>
+<area shape="poly" id="edge23_Node000001_Node000015" title=" " alt="" coords="678,27,913,76,908,77,678,32"/>
+<area shape="rect" id="Node000016" title=" " alt="" coords="1079,80,1195,107"/>
+<area shape="poly" id="edge24_Node000001_Node000016" title=" " alt="" coords="678,23,1066,79,1061,81,678,29"/>
+<area shape="rect" id="Node000017" title=" " alt="" coords="1219,80,1324,107"/>
+<area shape="poly" id="edge27_Node000001_Node000017" title=" " alt="" coords="678,21,901,41,1206,79,1201,80,900,46,679,26"/>
+<area shape="rect" id="Node000018" href="$pin__hal__esp_8h.html" title="pin_hal_t implementation on top of the ESP&#45;IDF GPIO driver." alt="" coords="348,80,449,107"/>
+<area shape="poly" id="edge29_Node000001_Node000018" title=" " alt="" coords="589,34,454,77,452,73,593,31"/>
+<area shape="rect" id="Node000020" href="$relay__gpio_8h.html" title="relay_t implementation for a relay driven by one digital pin." alt="" coords="232,80,324,107"/>
+<area shape="poly" id="edge32_Node000001_Node000020" title=" " alt="" coords="583,31,340,82,338,77,587,28"/>
+<area shape="rect" id="Node000021" title=" " alt="" coords="1349,80,1437,107"/>
+<area shape="poly" id="edge35_Node000001_Node000021" title=" " alt="" coords="678,19,952,36,1139,53,1336,79,1330,80,1139,58,951,41,678,25"/>
+<area shape="rect" id="Node000022" href="$uart__link_8h.html" title="Line transport over an ESP&#45;IDF UART." alt="" coords="815,80,896,107"/>
+<area shape="poly" id="edge36_Node000001_Node000022" title=" " alt="" coords="671,30,805,74,799,75,671,35"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="430,181,394,204,360,231,341,256,331,279,323,303,308,332,285,368,281,364,304,329,318,301,326,277,337,253,356,227,391,199,426,183"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="465,304,534,331"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="463,180,494,290,489,288,460,184"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="634,304,698,331"/>
+<area shape="poly" id="edge6_Node000004_Node000006" title=" " alt="" coords="472,179,512,215,562,254,631,297,625,296,559,258,509,219,471,185"/>
+<area shape="poly" id="edge7_Node000004_Node000007" title=" " alt="" coords="484,179,569,222,564,222,484,185"/>
+<area shape="rect" id="Node000008" href="$protocol_8h.html" title="IGNACC ASCII line protocol: parse commands, format responses." alt="" coords="370,229,448,256"/>
+<area shape="poly" id="edge10_Node000004_Node000008" title=" " alt="" coords="452,180,428,218,424,214,447,184"/>
+<area shape="poly" id="edge13_Node000004_Node000009" title=" " alt="" coords="415,182,258,227,256,222,419,179"/>
+<area shape="poly" id="edge8_Node000007_Node000005" title=" " alt="" coords="590,256,532,297,530,292,585,258"/>
+<area shape="poly" id="edge9_Node000007_Node000006" title=" " alt="" coords="618,254,649,293,644,291,616,259"/>
+<area shape="poly" id="edge11_Node000008_Node000003" title=" " alt="" coords="405,255,384,293,353,333,328,354,301,373,299,368,325,350,350,329,380,290,401,258"/>
+<area shape="poly" id="edge12_Node000008_Node000005" title=" " alt="" coords="425,254,475,295,470,294,424,259"/>
+<area shape="poly" id="edge14_Node000009_Node000003" title=" " alt="" coords="201,254,211,290,226,329,248,367,243,365,221,332,206,291,198,259"/>
+<area shape="rect" id="Node000010" href="$relay_8h.html" title="Abstract relay interface: an opaque handle plus a function table." alt="" coords="235,304,294,331"/>
+<area shape="poly" id="edge15_Node000009_Node000010" title=" " alt="" coords="209,254,245,293,240,293,208,259"/>
+<area shape="poly" id="edge16_Node000010_Node000003" title=" " alt="" coords="267,329,267,365,263,362,263,333"/>
+<area shape="poly" id="edge19_Node000011_Node000004" title=" " alt="" coords="599,108,504,151,501,146,604,106"/>
+<area shape="poly" id="edge18_Node000011_Node000006" title=" " alt="" coords="626,105,615,142,612,161,615,180,623,195,633,204,644,213,654,228,663,259,667,290,663,287,658,260,649,230,640,217,630,208,619,198,610,182,607,161,610,141,623,109"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="931,155,1006,181"/>
+<area shape="poly" id="edge20_Node000011_Node000012" title=" " alt="" coords="689,104,919,154,914,155,689,109"/>
+<area shape="poly" id="edge21_Node000011_Node000013" title=" " alt="" coords="643,105,677,143,672,142,642,110"/>
+<area shape="poly" id="edge22_Node000011_Node000014" title=" " alt="" coords="669,105,799,149,794,150,669,110"/>
+<area shape="rect" id="Node000019" href="$pin__hal_8h.html" title="Thin digital&#45;pin HAL used by relay_gpio." alt="" coords="320,155,394,181"/>
+<area shape="poly" id="edge30_Node000018_Node000019" title=" " alt="" coords="393,105,373,143,369,140,389,109"/>
+<area shape="poly" id="edge34_Node000020_Node000010" title=" " alt="" coords="280,106,269,290,264,288,275,109"/>
+<area shape="poly" id="edge33_Node000020_Node000019" title=" " alt="" coords="292,105,335,144,329,144,292,110"/>
+<area shape="poly" id="edge37_Node000022_Node000005" title=" " alt="" coords="897,103,985,128,1022,141,1042,153,1048,168,1042,183,1016,199,969,217,831,253,676,286,550,310,549,305,675,281,830,248,967,212,1014,195,1037,180,1042,168,1037,156,1020,146,983,133,896,108"/>
+<area shape="poly" id="edge38_Node000022_Node000006" title=" " alt="" coords="897,101,1115,153,1121,168,1115,183,1088,207,1046,229,994,248,935,266,814,294,714,311,714,306,813,288,934,261,992,243,1044,224,1085,203,1111,180,1116,168,1111,157,896,107"/>
+<area shape="poly" id="edge42_Node000022_Node000007" title=" " alt="" coords="897,102,969,123,1001,137,1020,153,1026,168,1020,183,992,203,951,215,902,222,848,225,741,227,658,232,655,233,654,227,658,227,740,222,848,220,902,217,950,210,990,198,1016,180,1021,168,1016,156,998,142,967,128,897,107"/>
+<area shape="poly" id="edge39_Node000022_Node000012" title=" " alt="" coords="876,105,939,146,934,146,875,110"/>
+<area shape="poly" id="edge40_Node000022_Node000013" title=" " alt="" coords="830,106,738,150,736,145,825,108"/>
+<area shape="poly" id="edge41_Node000022_Node000014" title=" " alt="" coords="856,105,854,141,849,137,853,109"/>
+</map>

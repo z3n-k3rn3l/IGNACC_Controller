@@ -1,0 +1,13 @@
+<map id="components/relay/relay_gpio.c" name="components/relay/relay_gpio.c">
+<area shape="rect" id="Node000001" title="GPIO relay: one relay_t per pin, verified by read&#45;back." alt="" coords="60,5,216,48"/>
+<area shape="rect" id="Node000002" href="$relay__gpio_8h.html" title="relay_t implementation for a relay driven by one digital pin." alt="" coords="42,96,133,123"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="124,51,106,84,101,81,126,46"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="157,96,220,123"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="151,46,175,83,170,83,151,51"/>
+<area shape="rect" id="Node000003" href="$pin__hal_8h.html" title="Thin digital&#45;pin HAL used by relay_gpio." alt="" coords="5,171,79,197"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="78,126,60,159,56,156,81,121"/>
+<area shape="rect" id="Node000004" href="$relay_8h.html" title="Abstract relay interface: an opaque handle plus a function table." alt="" coords="103,171,162,197"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="96,121,119,157,114,158,95,126"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="96,245,170,272"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="134,196,135,231,130,229,131,200"/>
+</map>

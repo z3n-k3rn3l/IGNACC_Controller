@@ -1,0 +1,37 @@
+<map id="components/app_fsm/app_fsm_task.c" name="components/app_fsm/app_fsm_task.c">
+<area shape="rect" id="Node000001" title="FreeRTOS task that feeds queued lines to the state machine." alt="" coords="514,5,660,48"/>
+<area shape="rect" id="Node000002" href="$app__fsm__task_8h.html" title="FreeRTOS runner for app_fsm." alt="" coords="347,96,462,123"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="538,50,448,92,446,87,542,47"/>
+<area shape="rect" id="Node000007" href="$link__if_8h.html" title="Transport&#45;independent contracts shared by the link and the state machine." alt="" coords="433,245,499,272"/>
+<area shape="poly" id="edge21_Node000001_Node000007" title=" " alt="" coords="580,46,549,116,507,199,485,234,481,230,502,196,545,114,576,50"/>
+<area shape="rect" id="Node000014" title=" " alt="" coords="625,96,730,123"/>
+<area shape="poly" id="edge20_Node000001_Node000014" title=" " alt="" coords="611,46,655,86,650,86,610,51"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="434,320,498,347"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="442,121,478,140,494,153,507,169,520,196,525,220,522,244,514,273,504,293,491,311,488,306,499,290,509,271,517,243,520,220,515,197,502,172,490,157,475,144,442,126"/>
+<area shape="rect" id="Node000004" href="$app__fsm_8h.html" title="Application state machine: the sole owner of the relays." alt="" coords="311,171,394,197"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="397,121,372,160,368,156,394,125"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="418,171,493,197"/>
+<area shape="poly" id="edge17_Node000002_Node000011" title=" " alt="" coords="414,121,441,158,435,158,413,126"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="5,171,148,197"/>
+<area shape="poly" id="edge18_Node000002_Node000012" title=" " alt="" coords="346,126,150,169,148,164,348,121"/>
+<area shape="rect" id="Node000013" title=" " alt="" coords="172,171,288,197"/>
+<area shape="poly" id="edge19_Node000002_Node000013" title=" " alt="" coords="372,125,276,167,273,162,376,122"/>
+<area shape="poly" id="edge6_Node000004_Node000003" title=" " alt="" coords="363,195,450,308,444,307,361,200"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="122,395,196,421"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="309,196,264,216,240,230,220,247,197,279,182,314,165,380,160,378,177,312,193,276,216,244,237,225,261,211,313,193"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="310,320,379,347"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="354,196,348,306,344,303,350,200"/>
+<area shape="poly" id="edge7_Node000004_Node000007" title=" " alt="" coords="373,195,436,236,431,237,372,201"/>
+<area shape="rect" id="Node000008" href="$protocol_8h.html" title="IGNACC ASCII line protocol: parse commands, format responses." alt="" coords="229,245,308,272"/>
+<area shape="poly" id="edge10_Node000004_Node000008" title=" " alt="" coords="340,196,296,237,293,233,336,199"/>
+<area shape="rect" id="Node000009" href="$relay__bank_8h.html" title="A group of relays addressed by index; the layer behind ALL_ON / ALL_OFF." alt="" coords="60,245,155,272"/>
+<area shape="poly" id="edge13_Node000004_Node000009" title=" " alt="" coords="309,200,166,243,164,238,313,195"/>
+<area shape="poly" id="edge9_Node000007_Node000003" title=" " alt="" coords="468,270,468,306,464,303,464,275"/>
+<area shape="poly" id="edge8_Node000007_Node000006" title=" " alt="" coords="447,272,380,314,378,309,442,274"/>
+<area shape="poly" id="edge11_Node000008_Node000005" title=" " alt="" coords="264,271,213,348,182,385,179,381,209,345,259,273"/>
+<area shape="poly" id="edge12_Node000008_Node000006" title=" " alt="" coords="282,270,323,309,318,309,281,275"/>
+<area shape="poly" id="edge14_Node000009_Node000005" title=" " alt="" coords="100,270,86,307,83,327,87,346,102,367,124,386,118,386,98,370,82,348,78,327,81,306,97,275"/>
+<area shape="rect" id="Node000010" href="$relay_8h.html" title="Abstract relay interface: an opaque handle plus a function table." alt="" coords="96,320,156,347"/>
+<area shape="poly" id="edge15_Node000009_Node000010" title=" " alt="" coords="111,270,121,305,116,304,109,275"/>
+<area shape="poly" id="edge16_Node000010_Node000005" title=" " alt="" coords="133,345,150,381,144,380,130,349"/>
+</map>

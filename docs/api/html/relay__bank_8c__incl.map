@@ -1,0 +1,12 @@
+<map id="components/relay/relay_bank.c" name="components/relay/relay_bank.c">
+<area shape="rect" id="Node000001" title="Relay bank: index&#45;based and all&#45;at&#45;once operations on relay_t." alt="" coords="27,5,183,48"/>
+<area shape="rect" id="Node000002" href="$relay__bank_8h.html" title="A group of relays addressed by index; the layer behind ALL_ON / ALL_OFF." alt="" coords="5,96,101,123"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="91,51,72,84,67,82,93,46"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="124,96,192,123"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="119,46,144,82,139,83,118,51"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="16,245,90,272"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="52,121,48,171,51,230,46,230,42,171,50,126"/>
+<area shape="rect" id="Node000004" href="$relay_8h.html" title="Abstract relay interface: an opaque handle plus a function table." alt="" coords="57,171,116,197"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="59,121,77,156,72,157,58,126"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="83,196,67,233,63,230,78,199"/>
+</map>

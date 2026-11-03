@@ -1,0 +1,9 @@
+<map id="components/relay/include/relay_gpio.h" name="components/relay/include/relay_gpio.h">
+<area shape="rect" id="Node000001" title="relay_t implementation for a relay driven by one digital pin." alt="" coords="5,5,175,48"/>
+<area shape="rect" id="Node000002" href="$pin__hal_8h.html" title="Thin digital&#45;pin HAL used by relay_gpio." alt="" coords="8,96,81,123"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="77,51,62,84,57,81,80,46"/>
+<area shape="rect" id="Node000003" href="$relay_8h.html" title="Abstract relay interface: an opaque handle plus a function table." alt="" coords="106,96,165,123"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="102,46,123,82,118,83,101,51"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="98,171,172,197"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="137,121,138,156,133,154,134,125"/>
+</map>

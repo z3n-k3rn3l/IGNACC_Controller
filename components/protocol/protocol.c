@@ -1,14 +1,25 @@
+/**
+ * @file protocol.c
+ * @brief Command parser and response formatter (implementation of protocol.h).
+ *
+ * Tour stop 5. Fixed commands (`ALL_ON`, `ALL_OFF`, `HeyU`, `STATUS`) are
+ * matched against a table; `IN<n>_ON/OFF` is parsed by parse_relay(). All
+ * formatters go through snprintf and report truncation as -1.
+ *
+ * @see docs/diagrams/module-protocol.svg
+ */
 #include "protocol.h"
 
 #include <stdio.h>
 #include <string.h>
 
+/** One fixed (parameterless) command: its exact text and the parsed result. */
 typedef struct {
-    const char *text;
-    proto_cmd_t cmd;
+    const char *text; /**< Exact, case-sensitive command text. */
+    proto_cmd_t cmd;  /**< What proto_parse() returns for it. */
 } fixed_cmd_t;
 
-/* Commands without parameters. */
+/** Commands without parameters, matched exactly. */
 static const fixed_cmd_t s_fixed[] = {
     { "ALL_ON",  { PROTO_CMD_ALL,    0, true  } },
     { "ALL_OFF", { PROTO_CMD_ALL,    0, false } },
@@ -16,14 +27,31 @@ static const fixed_cmd_t s_fixed[] = {
     { "STATUS",  { PROTO_CMD_STATUS, 0, false } },
 };
 
+/** Result for anything that is not a command. */
 static const proto_cmd_t s_none = { PROTO_CMD_NONE, 0, false };
 
+/**
+ * @brief Exact comparison of a length-delimited line with a C string.
+ * @param line Bytes to compare (not necessarily NUL-terminated).
+ * @param len  Number of bytes in @p line.
+ * @param text NUL-terminated expected text.
+ * @return true if @p line is exactly @p text (same length, same bytes).
+ */
 static bool equals(const char *line, size_t len, const char *text)
 {
     return strlen(text) == len && memcmp(text, line, len) == 0;
 }
 
-/* "IN<n>_ON" / "IN<n>_OFF", n = 1..PROTO_MAX_CHANNELS without leading zeros. */
+/**
+ * @brief Parse `IN<n>_ON` / `IN<n>_OFF`.
+ *
+ * n is 1..#PROTO_MAX_CHANNELS, decimal, without leading zeros. Parsing stops as
+ * soon as n exceeds the maximum, so long digit strings can't overflow.
+ *
+ * @param line Line bytes.
+ * @param len  Number of bytes.
+ * @return A #PROTO_CMD_RELAY command, or a #PROTO_CMD_NONE command.
+ */
 static proto_cmd_t parse_relay(const char *line, size_t len)
 {
     if (len < 3 || line[0] != 'I' || line[1] != 'N' || line[2] < '1' || line[2] > '9') {
@@ -62,7 +90,12 @@ proto_cmd_t proto_parse(const char *line, size_t len)
     return parse_relay(line, len);
 }
 
-/* snprintf wrapper: returns length, or -1 if truncated or failed. */
+/**
+ * @brief Turn an snprintf() result into a formatter result.
+ * @param size Buffer size passed to snprintf().
+ * @param n    snprintf() return value.
+ * @return @p n, or -1 if snprintf failed or the output was truncated.
+ */
 static int format_checked(size_t size, int n)
 {
     if (n < 0 || (size_t)n >= size) {

@@ -1,0 +1,5 @@
+<map id="link_tx_t" name="link_tx_t">
+<area shape="rect" id="Node000001" title="A link&#39;s transmit side: function table plus opaque handle." alt="" coords="19,104,90,131"/>
+<area shape="rect" id="Node000002" href="$structlink__tx__ops__t.html" title="Outgoing side of a link." alt="" coords="5,5,104,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="57,46,57,104,52,103,52,49"/>
+</map>

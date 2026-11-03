@@ -1,0 +1,35 @@
+<map id="handle_relay_command" name="handle_relay_command">
+<area shape="rect" id="Node000001" title="IN&lt;n&gt;_ON / IN&lt;n&gt;_OFF: drive, settle, verify, reply." alt="" coords="5,204,164,231"/>
+<area shape="poly" id="edge7_Node000001_Node000001" title=" " alt="" coords="51,204,46,195,50,186,63,179,85,177,108,180,121,188,116,190,106,185,84,183,64,185,53,189,51,195,56,203"/>
+<area shape="rect" id="Node000002" href="$app__fsm_8c.html#a8becb5c30722f64bef117c72e063aec0" title="Drive every relay OFF, even if one of them fails." alt="" coords="220,29,337,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="92,202,137,138,171,100,210,66,221,61,217,65,213,70,175,103,141,141,96,205"/>
+<area shape="rect" id="Node000005" href="$protocol_8c.html#ad3fe801773c0082ef786558de048eb87" title="Format the result of a relay command." alt="" coords="212,104,345,131"/>
+<area shape="poly" id="edge8_Node000001_Node000005" title=" " alt="" coords="105,202,153,172,210,140,226,135,222,139,213,145,155,176,108,206"/>
+<area shape="rect" id="Node000007" href="$relay__bank_8c.html#a9482fba067668562180399cd3a6ab9f8" title="Read one relay back from the hardware." alt="" coords="217,179,340,205"/>
+<area shape="poly" id="edge12_Node000001_Node000007" title=" " alt="" coords="163,205,204,201,200,203,165,209"/>
+<area shape="rect" id="Node000009" href="$relay__bank_8c.html#ac1d353ce7bd6290e9a9c664970d92a8f" title="Drive one relay." alt="" coords="403,253,512,280"/>
+<area shape="poly" id="edge16_Node000001_Node000009" title=" " alt="" coords="164,225,390,256,386,260,164,230"/>
+<area shape="rect" id="Node000010" href="$app__fsm_8c.html#af519e1a57ff2d33e10aca70d5f0cc74b" title="Send a formatted reply if formatting succeeded." alt="" coords="224,304,333,331"/>
+<area shape="poly" id="edge19_Node000001_Node000010" title=" " alt="" coords="113,229,239,295,235,298,112,234"/>
+<area shape="rect" id="Node000011" href="$app__fsm_8c.html#a80c60678de2dac7afda66ba5affec6ee" title="Wait the relay settle delay (skipped when settle_ms is 0)." alt="" coords="252,379,305,405"/>
+<area shape="poly" id="edge21_Node000001_Node000011" title=" " alt="" coords="99,229,149,280,213,341,248,370,243,369,210,345,145,283,98,234"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="247,29,242,21,246,11,258,5,278,3,300,5,313,13,307,15,298,10,278,8,260,10,250,15,247,20,253,29"/>
+<area shape="rect" id="Node000003" href="$relay__bank_8c.html#a38596e1993b8ae71eb91ab101a62444e" title="Drive every relay to the same state, back to back." alt="" coords="393,29,522,56"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="337,40,380,42,375,44,338,45"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="431,28,427,21,430,11,441,5,458,3,476,5,487,14,481,14,474,10,458,8,442,10,434,14,432,20,436,29"/>
+<area shape="rect" id="Node000004" href="$relay_8h.html#adc8654c20392b034a958b35d530256d8" title="Drive a relay ON or OFF." alt="" coords="570,141,645,168"/>
+<area shape="poly" id="edge5_Node000003_Node000004" title=" " alt="" coords="501,54,524,66,560,96,589,130,584,129,556,100,521,70,501,59"/>
+<area shape="poly" id="edge6_Node000004_Node000004" title=" " alt="" coords="581,140,577,133,580,123,591,117,608,115,626,117,637,126,631,126,624,122,607,120,592,122,584,126,582,132,586,142"/>
+<area shape="poly" id="edge11_Node000005_Node000005" title=" " alt="" coords="247,103,242,95,246,86,258,79,278,77,300,80,313,88,307,89,298,85,278,83,260,85,250,89,247,95,253,104"/>
+<area shape="rect" id="Node000006" href="$protocol_8c.html#a61135c69a6a504dd23a47c3800ac53b0" title="Turn an snprintf() result into a formatter result." alt="" coords="400,104,515,131"/>
+<area shape="poly" id="edge9_Node000005_Node000006" title=" " alt="" coords="345,115,388,116,383,118,346,120"/>
+<area shape="poly" id="edge10_Node000006_Node000006" title=" " alt="" coords="431,103,427,95,430,86,441,80,458,77,476,80,487,89,481,89,474,85,458,83,442,85,434,89,432,95,436,104"/>
+<area shape="poly" id="edge13_Node000007_Node000007" title=" " alt="" coords="247,178,242,170,246,160,258,154,278,152,300,155,313,163,307,164,298,160,278,157,260,159,250,164,247,169,252,179"/>
+<area shape="rect" id="Node000008" href="$relay_8h.html#a8609e0220c4b51cad4d7c58b4af65df1" title="Read a relay&#39;s state back from the hardware." alt="" coords="414,179,501,205"/>
+<area shape="poly" id="edge14_Node000007_Node000008" title=" " alt="" coords="339,189,401,191,396,193,341,195"/>
+<area shape="poly" id="edge15_Node000008_Node000008" title=" " alt="" coords="431,177,427,170,430,160,441,154,458,152,476,155,487,164,481,163,474,160,458,157,442,159,434,164,432,169,436,179"/>
+<area shape="poly" id="edge18_Node000009_Node000004" title=" " alt="" coords="476,251,573,179,578,177,478,255"/>
+<area shape="poly" id="edge17_Node000009_Node000009" title=" " alt="" coords="431,252,427,245,430,235,441,229,458,227,476,229,487,238,481,238,474,234,458,232,442,234,434,238,432,244,436,254"/>
+<area shape="poly" id="edge20_Node000010_Node000010" title=" " alt="" coords="247,303,242,295,246,286,258,279,278,277,300,280,313,289,307,289,298,285,278,283,260,285,250,289,247,295,252,304"/>
+<area shape="poly" id="edge22_Node000011_Node000011" title=" " alt="" coords="249,378,242,371,245,361,258,354,278,352,302,355,314,366,309,365,300,360,278,357,259,359,249,364,248,370,254,380"/>
+</map>

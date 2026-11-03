@@ -1,0 +1,5 @@
+<map id="components/relay/include/pin_hal_esp.h" name="components/relay/include/pin_hal_esp.h">
+<area shape="rect" id="Node000001" title="pin_hal_t implementation on top of the ESP&#45;IDF GPIO driver." alt="" coords="5,5,175,48"/>
+<area shape="rect" id="Node000002" href="$pin__hal_8h.html" title="Thin digital&#45;pin HAL used by relay_gpio." alt="" coords="53,96,127,123"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="92,47,93,81,87,79,88,51"/>
+</map>

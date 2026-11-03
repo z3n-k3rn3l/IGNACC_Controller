@@ -1,0 +1,25 @@
+var searchData=
+[
+  ['of_20the_20firmware_20adapts_0',['3.4 How the rest of the firmware adapts',['../md_docs_2configuration-and-architecture.html#autotoc_md42',1,'']]],
+  ['off_20microsoft_20c_20c_20intellisense_1',['Step 3: Turn off Microsoft C/C++ IntelliSense',['../md_docs_2vscode-clangd-setup.html#autotoc_md117',1,'']]],
+  ['on_20linux_20start_20to_20finish_2',['Setting this up on Linux, start to finish',['../md_docs_2github-two-accounts.html#autotoc_md104',1,'']]],
+  ['on_20to_20ready_3',['Activity: power-on to READY',['../dir_185e1be576cc3aab87068787be53911a.html#autotoc_md65',1,'']]],
+  ['one_20command_4',['Activity: handling one command',['../dir_185e1be576cc3aab87068787be53911a.html#autotoc_md64',1,'']]],
+  ['one_20command_20through_20every_20layer_5',['Sequence: one command through every layer',['../dir_185e1be576cc3aab87068787be53911a.html#autotoc_md68',1,'']]],
+  ['one_20computer_20one_20repo_6',['Two GitHub accounts, one computer, one repo',['../md_docs_2github-two-accounts.html',1,'']]],
+  ['one_20diagram_20per_20module_7',['4. One diagram per module',['../dir_185e1be576cc3aab87068787be53911a.html#autotoc_md73',1,'']]],
+  ['one_20git_20push_20update_20both_8',['Make one &lt;span class=&quot;tt&quot;&gt;git push&lt;/span&gt; update both',['../md_docs_2github-two-accounts.html#autotoc_md100',1,'']]],
+  ['one_20list_20three_20compile_20time_20checks_9',['3.2 main.c: one list, three compile-time checks',['../md_docs_2configuration-and-architecture.html#autotoc_md40',1,'']]],
+  ['one_20minute_10',['The idea in one minute',['../md_docs_2github-two-accounts.html#autotoc_md82',1,'']]],
+  ['one_20pin_20per_20channel_11',['3.1 Kconfig: a count plus one pin per channel',['../md_docs_2configuration-and-architecture.html#autotoc_md39',1,'']]],
+  ['one_20pin_20safely_2010_20min_12',['Stop 2 — &lt;span class=&quot;tt&quot;&gt;relay&lt;/span&gt;: switching one pin, safely (10 min)',['../md_docs_2code-tour.html#autotoc_md21',1,'']]],
+  ['one_20relay_20channel_13',['State machine: one relay channel',['../dir_185e1be576cc3aab87068787be53911a.html#autotoc_md62',1,'']]],
+  ['one_20repo_14',['Two GitHub accounts, one computer, one repo',['../md_docs_2github-two-accounts.html',1,'']]],
+  ['one_20ssh_20key_20per_20account_15',['Step 1: One SSH key per account',['../md_docs_2github-two-accounts.html#autotoc_md84',1,'']]],
+  ['optional_3a_20a_20different_20identity_20per_20folder_16',['Optional: a different identity per folder',['../md_docs_2github-two-accounts.html#autotoc_md95',1,'']]],
+  ['optional_3a_20verify_20from_20the_20command_20line_17',['Optional: verify from the command line',['../md_docs_2vscode-clangd-setup.html#autotoc_md123',1,'']]],
+  ['or_20the_20tools_18',['After upgrading ESP-IDF or the tools',['../md_docs_2vscode-clangd-setup.html#autotoc_md126',1,'']]],
+  ['other_20settings_19',['4. Other settings',['../md_docs_2configuration-and-architecture.html#autotoc_md44',1,'']]],
+  ['out_208_20min_20',['Stop 3 — &lt;span class=&quot;tt&quot;&gt;uart_link&lt;/span&gt;: bytes in, lines out (8 min)',['../md_docs_2code-tour.html#autotoc_md23',1,'']]],
+  ['overview_21',['Interaction overview',['../dir_185e1be576cc3aab87068787be53911a.html#autotoc_md71',1,'']]]
+];

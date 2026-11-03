@@ -1,0 +1,7 @@
+<map id="components/relay/include/pin_hal_esp.h" name="components/relay/include/pin_hal_esp.h">
+<area shape="rect" id="Node000001" title="pin_hal_t implementation on top of the ESP&#45;IDF GPIO driver." alt="" coords="64,5,233,48"/>
+<area shape="rect" id="Node000002" href="$pin__hal__esp_8c.html" title="pin_hal_t on the ESP&#45;IDF GPIO driver: the only file using driver/gpio.h." alt="" coords="5,96,151,139"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="125,59,96,98,92,94,120,61"/>
+<area shape="rect" id="Node000003" href="$main_8c.html" title="IGNACC_Controller composition root." alt="" coords="174,104,267,131"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="176,58,213,104,208,103,174,62"/>
+</map>

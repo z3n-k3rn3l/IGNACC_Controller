@@ -14,10 +14,10 @@ python docs/diagrams/generate_diagrams.py
 
 | Group | Diagrams |
 |---|---|
-| [Big picture](#1-big-picture) | system context · use cases · layered architecture · component dependencies |
-| [Behaviour](#2-behaviour) | 3 state machines · 2 activity diagrams |
-| [Interactions](#3-interactions) | 2 sequence diagrams · communication diagram · interaction overview |
-| [Modules](#4-one-diagram-per-module) | protocol · relay · uart_link · app_fsm · main · Kconfig channel model · Python tester |
+| 1. Big picture | system context · use cases · layered architecture · component dependencies |
+| 2. Behaviour | 3 state machines · 2 activity diagrams |
+| 3. Interactions | 2 sequence diagrams · communication diagram · interaction overview |
+| 4. Modules | protocol · relay · uart_link · app_fsm · main · Kconfig channel model · Python tester |
 
 ### Which UML diagrams, and why
 

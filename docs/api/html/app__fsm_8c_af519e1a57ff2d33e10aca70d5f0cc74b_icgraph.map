@@ -1,0 +1,31 @@
+<map id="send_response" name="send_response">
+<area shape="rect" id="Node000001" title="Send a formatted reply if formatting succeeded." alt="" coords="1035,117,1145,144"/>
+<area shape="poly" id="edge20_Node000001_Node000001" title=" " alt="" coords="1120,102,1110,98,1090,96,1071,98,1061,103,1059,108,1064,118,1059,116,1053,109,1057,99,1070,93,1090,91,1112,93,1125,103"/>
+<area shape="rect" id="Node000002" href="$app__fsm_8c.html#a837df714bf5c501ee62904bca5652249" title="ALL_ON / ALL_OFF: drive every relay, settle once, verify all, reply." alt="" coords="836,29,980,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1050,109,986,77,946,59,946,54,988,72,1055,110"/>
+<area shape="rect" id="Node000003" href="$app__fsm_8c.html#a3d4f35d84ceaaee7aa0b8630361f8acc" title="Dispatch one parsed command (READY state only)." alt="" coords="658,117,781,144"/>
+<area shape="poly" id="edge13_Node000001_Node000003" title=" " alt="" coords="1017,122,987,121,908,118,829,121,782,125,781,120,829,116,908,113,987,116,1023,121"/>
+<area shape="rect" id="Node000008" href="$app__fsm_8c.html#aa703c67ae53e3f2c6916be8e3305f173" title="IN&lt;n&gt;_ON / IN&lt;n&gt;_OFF: drive, settle, verify, reply." alt="" coords="829,155,987,181"/>
+<area shape="poly" id="edge14_Node000001_Node000008" title=" " alt="" coords="1023,145,977,157,976,151,1018,145"/>
+<area shape="rect" id="Node000009" href="$app__fsm_8c.html#ab738c12a78eb79e7470dd8af9ca652f6" title="STATUS: read every relay back and reply with one field per channel." alt="" coords="857,229,959,256"/>
+<area shape="poly" id="edge17_Node000001_Node000009" title=" " alt="" coords="1056,152,932,231,931,226,1051,153"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="938,14,928,10,908,8,889,10,879,15,877,20,882,30,877,28,871,21,875,11,888,5,908,3,930,5,943,14"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="860,61,830,77,747,119,745,114,828,72,855,63"/>
+<area shape="poly" id="edge12_Node000003_Node000003" title=" " alt="" coords="749,102,739,98,719,96,701,98,690,103,688,108,693,118,688,116,683,109,687,99,699,93,719,91,741,93,754,102"/>
+<area shape="rect" id="Node000004" href="$app__fsm_8c.html#a0a79060be7a1e1b2c649c4e498a49ae0" title="Handle one received line." alt="" coords="466,117,610,144"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="639,131,610,133,610,128,644,130"/>
+<area shape="poly" id="edge5_Node000004_Node000004" title=" " alt="" coords="566,102,557,98,538,96,520,98,511,103,509,108,513,118,508,116,503,109,507,99,519,93,538,91,559,93,571,102"/>
+<area shape="rect" id="Node000005" href="$app__fsm__task_8c.html#ab32351dd700b6b15e4ffdab4b2bc711c" title="Task body: block on the queue, hand each line to app_fsm_handle_line()." alt="" coords="315,117,418,144"/>
+<area shape="poly" id="edge6_Node000004_Node000005" title=" " alt="" coords="448,131,419,133,418,128,454,130"/>
+<area shape="poly" id="edge7_Node000005_Node000005" title=" " alt="" coords="394,102,385,98,367,96,349,98,340,103,338,108,343,118,337,116,333,109,336,99,348,93,367,91,387,93,399,102"/>
+<area shape="rect" id="Node000006" href="$app__fsm__task_8c.html#a5eb5fef3b715161cee899030cc9b54f2" title="Start the FSM task." alt="" coords="131,117,267,144"/>
+<area shape="poly" id="edge8_Node000005_Node000006" title=" " alt="" coords="297,131,268,133,267,128,302,130"/>
+<area shape="poly" id="edge9_Node000006_Node000006" title=" " alt="" coords="224,102,216,98,199,96,183,98,175,103,173,108,177,117,172,116,167,109,170,99,181,93,199,91,218,93,229,102"/>
+<area shape="rect" id="Node000007" href="$main_8c.html#a630544a7f0a2cc40d8a7fefab7e2fe70" title="Firmware entry point (called by ESP&#45;IDF after boot)." alt="" coords="5,117,83,144"/>
+<area shape="poly" id="edge10_Node000006_Node000007" title=" " alt="" coords="113,132,84,133,82,128,117,129"/>
+<area shape="poly" id="edge11_Node000007_Node000007" title=" " alt="" coords="69,103,61,98,44,96,28,98,20,103,18,108,22,116,17,117,12,109,16,99,26,93,44,91,63,93,74,101"/>
+<area shape="poly" id="edge15_Node000008_Node000003" title=" " alt="" coords="820,151,781,146,782,140,825,151"/>
+<area shape="poly" id="edge16_Node000008_Node000008" title=" " alt="" coords="938,139,928,136,908,133,889,135,879,140,877,145,882,155,877,153,871,146,875,136,888,130,908,128,930,131,943,140"/>
+<area shape="poly" id="edge18_Node000009_Node000003" title=" " alt="" coords="868,221,743,147,744,142,873,221"/>
+<area shape="poly" id="edge19_Node000009_Node000009" title=" " alt="" coords="938,213,928,210,908,208,889,210,879,215,877,220,882,230,877,228,871,221,875,211,888,205,908,203,930,205,943,215"/>
+</map>

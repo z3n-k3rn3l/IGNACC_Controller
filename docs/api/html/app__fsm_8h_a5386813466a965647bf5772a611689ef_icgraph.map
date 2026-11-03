@@ -1,0 +1,7 @@
+<map id="app_fsm_start" name="app_fsm_start">
+<area shape="rect" id="Node000001" title="Go from INIT to READY, driving all relays OFF first." alt="" coords="131,29,235,56"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="205,14,198,10,183,8,169,10,161,14,160,20,163,30,158,28,154,21,157,11,167,5,183,3,200,5,210,15"/>
+<area shape="rect" id="Node000002" href="$main_8c.html#a630544a7f0a2cc40d8a7fefab7e2fe70" title="Firmware entry point (called by ESP&#45;IDF after boot)." alt="" coords="5,29,83,56"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="112,43,83,45,83,40,117,42"/>
+<area shape="poly" id="edge3_Node000002_Node000002" title=" " alt="" coords="66,14,59,10,44,8,30,10,22,14,21,20,25,29,19,29,15,21,18,11,28,5,44,3,61,5,71,14"/>
+</map>

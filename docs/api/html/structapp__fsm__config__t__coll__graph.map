@@ -1,0 +1,13 @@
+<map id="app_fsm_config_t" name="app_fsm_config_t">
+<area shape="rect" id="Node000001" title="FSM configuration." alt="" coords="43,301,167,328"/>
+<area shape="rect" id="Node000002" href="$structrelay__bank__t.html" title="A bank of relays." alt="" coords="5,203,101,229"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="64,241,80,276,97,301,92,301,76,279,61,246"/>
+<area shape="rect" id="Node000003" href="$structrelay__t.html" title="A relay: function table plus opaque implementation handle." alt="" coords="23,104,83,131"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="54,144,56,203,50,202,52,149"/>
+<area shape="rect" id="Node000004" href="$structrelay__ops__t.html" title="Operations every relay implementation provides." alt="" coords="9,5,97,32"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="53,45,56,104,50,104,53,50"/>
+<area shape="rect" id="Node000005" href="$structlink__tx__t.html" title="A link&#39;s transmit side: function table plus opaque handle." alt="" coords="124,203,195,229"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="148,242,114,303,110,299,143,244"/>
+<area shape="rect" id="Node000006" href="$structlink__tx__ops__t.html" title="Outgoing side of a link." alt="" coords="110,104,209,131"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="161,144,162,203,157,202,158,149"/>
+</map>

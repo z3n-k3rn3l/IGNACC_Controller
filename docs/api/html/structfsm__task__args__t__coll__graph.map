@@ -1,0 +1,18 @@
+<map id="fsm_task_args_t" name="fsm_task_args_t">
+<area shape="rect" id="Node000001" title="Arguments of the (single) FSM task." alt="" coords="5,499,124,525"/>
+<area shape="rect" id="Node000002" href="$structapp__fsm.html" title="FSM instance (opaque to users of app_fsm.h)." alt="" coords="29,400,100,427"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="67,441,67,499,62,498,62,444"/>
+<area shape="rect" id="Node000003" href="$structapp__fsm__config__t.html" title="FSM configuration." alt="" coords="81,301,205,328"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="122,343,77,401,72,398,124,338"/>
+<area shape="rect" id="Node000004" href="$structrelay__bank__t.html" title="A bank of relays." alt="" coords="81,203,176,229"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="133,242,144,301,139,301,132,247"/>
+<area shape="rect" id="Node000005" href="$structrelay__t.html" title="A relay: function table plus opaque implementation handle." alt="" coords="46,104,107,131"/>
+<area shape="poly" id="edge8_Node000002_Node000005" title=" " alt="" coords="74,144,71,203,67,317,67,400,62,399,62,317,66,203,73,149"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="90,142,124,202,119,203,90,147"/>
+<area shape="rect" id="Node000006" href="$structrelay__ops__t.html" title="Operations every relay implementation provides." alt="" coords="32,5,121,32"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="77,45,79,104,74,104,76,50"/>
+<area shape="rect" id="Node000007" href="$structlink__tx__t.html" title="A link&#39;s transmit side: function table plus opaque handle." alt="" coords="200,203,270,229"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="215,244,188,279,161,303,157,299,184,275,218,240"/>
+<area shape="rect" id="Node000008" href="$structlink__tx__ops__t.html" title="Outgoing side of a link." alt="" coords="186,104,284,131"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="236,144,238,203,233,202,234,149"/>
+</map>

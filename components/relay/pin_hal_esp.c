@@ -1,7 +1,27 @@
+/**
+ * @file pin_hal_esp.c
+ * @brief #pin_hal_t on the ESP-IDF GPIO driver: the only file using driver/gpio.h.
+ *
+ * Tour stop 2.
+ *
+ * @see docs/diagrams/module-relay.svg
+ */
 #include "pin_hal_esp.h"
 
 #include "driver/gpio.h"
 
+/**
+ * @brief pin_hal_ops_t::configure_output: latch the level, then enable the output.
+ *
+ * gpio_set_level() writes the output register even while the pin is still an
+ * input, so the pin comes up at @p initial_level with no glitch. The pin is
+ * configured as input+output so its level can be read back.
+ *
+ * @param ctx           Unused.
+ * @param pin           GPIO number.
+ * @param initial_level Level to latch before the output is enabled.
+ * @return 0 on success, -1 on an ESP-IDF error.
+ */
 static int esp_configure_output(void *ctx, int pin, int initial_level)
 {
     (void)ctx;
@@ -20,18 +40,32 @@ static int esp_configure_output(void *ctx, int pin, int initial_level)
     return gpio_config(&io) == ESP_OK ? 0 : -1;
 }
 
+/**
+ * @brief pin_hal_ops_t::set_level via gpio_set_level().
+ * @param ctx   Unused.
+ * @param pin   GPIO number.
+ * @param level 0 or 1.
+ * @return 0 on success, -1 on an ESP-IDF error.
+ */
 static int esp_set_level(void *ctx, int pin, int level)
 {
     (void)ctx;
     return gpio_set_level((gpio_num_t)pin, (uint32_t)level) == ESP_OK ? 0 : -1;
 }
 
+/**
+ * @brief pin_hal_ops_t::get_level via gpio_get_level() (the real pad level).
+ * @param ctx Unused.
+ * @param pin GPIO number.
+ * @return 0 or 1.
+ */
 static int esp_get_level(void *ctx, int pin)
 {
     (void)ctx;
     return gpio_get_level((gpio_num_t)pin);
 }
 
+/** The ESP-IDF function table. */
 static const pin_hal_ops_t s_esp_ops = {
     .configure_output = esp_configure_output,
     .set_level = esp_set_level,

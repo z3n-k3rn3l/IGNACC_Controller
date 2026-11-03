@@ -1,3 +1,13 @@
+/**
+ * @file line_assembler.c
+ * @brief Byte stream to lines: the COLLECTING / DISCARDING state machine.
+ *
+ * Tour stop 3. `discarding` is the DISCARDING state; otherwise the assembler
+ * is COLLECTING. A line is kept up to max_len + 1 bytes (room for one trailing
+ * `'\r'`); anything longer switches to DISCARDING until the next `'\n'`.
+ *
+ * @see docs/diagrams/state-line-assembler.svg
+ */
 #include "line_assembler.h"
 
 #include <string.h>

@@ -1,0 +1,7 @@
+<map id="components/protocol/include/protocol.h" name="components/protocol/include/protocol.h">
+<area shape="rect" id="Node000001" title="IGNACC ASCII line protocol: parse commands, format responses." alt="" coords="19,5,162,48"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,96,80,123"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="80,47,60,84,56,81,76,50"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="104,96,173,123"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="104,46,126,82,120,82,102,51"/>
+</map>

@@ -1,0 +1,31 @@
+<map id="components/uart_link/uart_link.c" name="components/uart_link/uart_link.c">
+<area shape="rect" id="Node000001" title="UART line transport: IDF driver events in, complete lines out." alt="" coords="390,5,535,48"/>
+<area shape="rect" id="Node000002" href="$uart__link_8h.html" title="Line transport over an ESP&#45;IDF UART." alt="" coords="326,96,407,123"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="440,47,395,88,392,83,436,50"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="431,96,494,123"/>
+<area shape="poly" id="edge10_Node000001_Node000009" title=" " alt="" coords="464,46,465,82,460,79,461,51"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="519,96,609,123"/>
+<area shape="poly" id="edge11_Node000001_Node000010" title=" " alt="" coords="489,46,539,86,533,86,488,51"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="632,96,738,123"/>
+<area shape="poly" id="edge12_Node000001_Node000011" title=" " alt="" coords="520,46,639,90,633,91,520,51"/>
+<area shape="rect" id="Node000012" href="$line__assembler_8h.html" title="Assembles a byte stream into lines." alt="" coords="94,96,213,123"/>
+<area shape="poly" id="edge13_Node000001_Node000012" title=" " alt="" coords="387,49,217,94,215,89,391,45"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="154,245,222,272"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="351,122,286,173,213,237,210,233,282,169,346,124"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="464,245,528,272"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="407,118,419,120,481,126,562,131,639,143,670,153,691,169,701,188,697,206,682,220,660,231,602,246,544,256,543,250,601,241,658,226,679,215,692,203,696,189,687,172,667,158,638,148,561,136,480,131,418,125,407,123"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="602,171,678,197"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="408,119,590,168,584,169,407,124"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="295,171,438,197"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="368,121,369,156,364,154,365,125"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="462,171,578,197"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="394,121,482,163,476,164,393,126"/>
+<area shape="rect" id="Node000008" href="$link__if_8h.html" title="Transport&#45;independent contracts shared by the link and the state machine." alt="" coords="155,171,221,197"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="333,124,234,167,232,162,338,122"/>
+<area shape="poly" id="edge8_Node000008_Node000003" title=" " alt="" coords="190,196,190,231,186,228,186,200"/>
+<area shape="poly" id="edge9_Node000008_Node000004" title=" " alt="" coords="222,191,450,244,446,248,221,196"/>
+<area shape="poly" id="edge15_Node000012_Node000003" title=" " alt="" coords="150,121,143,157,142,177,145,197,154,215,167,234,162,233,150,218,140,198,136,177,137,156,147,125"/>
+<area shape="poly" id="edge16_Node000012_Node000008" title=" " alt="" coords="160,121,178,157,173,156,158,126"/>
+<area shape="rect" id="Node000013" title=" " alt="" coords="5,171,80,197"/>
+<area shape="poly" id="edge14_Node000012_Node000013" title=" " alt="" coords="132,125,76,164,73,160,135,121"/>
+</map>

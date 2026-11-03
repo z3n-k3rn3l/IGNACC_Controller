@@ -1,0 +1,10 @@
+var searchData=
+[
+  ['parse_5frelay_0',['parse_relay',['../protocol_8c.html#a8309dd7a881c6c489b9cbc3e0b66d1cd',1,'protocol.c']]],
+  ['pin_5fhal_5fesp_1',['pin_hal_esp',['../pin__hal__esp_8h.html#adff0505dbf829790feb44d06d8d44ab8',1,'pin_hal_esp(void):&#160;pin_hal_esp.c'],['../pin__hal__esp_8c.html#adff0505dbf829790feb44d06d8d44ab8',1,'pin_hal_esp(void):&#160;pin_hal_esp.c']]],
+  ['proto_5fformat_5fhello_2',['proto_format_hello',['../protocol_8h.html#af6b07b27daeb59e69c63292682dab54d',1,'proto_format_hello(const char *fw_version, char *buf, size_t size):&#160;protocol.c'],['../protocol_8c.html#af6b07b27daeb59e69c63292682dab54d',1,'proto_format_hello(const char *fw_version, char *buf, size_t size):&#160;protocol.c']]],
+  ['proto_5fformat_5fnack_3',['proto_format_nack',['../protocol_8h.html#a96fe80d67bcdbd93050e1929411056a9',1,'proto_format_nack(char *buf, size_t size):&#160;protocol.c'],['../protocol_8c.html#a96fe80d67bcdbd93050e1929411056a9',1,'proto_format_nack(char *buf, size_t size):&#160;protocol.c']]],
+  ['proto_5fformat_5fresult_4',['proto_format_result',['../protocol_8h.html#ad3fe801773c0082ef786558de048eb87',1,'proto_format_result(const proto_cmd_t *cmd, bool ok, char *buf, size_t size):&#160;protocol.c'],['../protocol_8c.html#ad3fe801773c0082ef786558de048eb87',1,'proto_format_result(const proto_cmd_t *cmd, bool ok, char *buf, size_t size):&#160;protocol.c']]],
+  ['proto_5fformat_5fstatus_5',['proto_format_status',['../protocol_8h.html#a624a3c67e4d6206f13cd0b72ad92bb98',1,'proto_format_status(const bool *on, unsigned count, char *buf, size_t size):&#160;protocol.c'],['../protocol_8c.html#a624a3c67e4d6206f13cd0b72ad92bb98',1,'proto_format_status(const bool *on, unsigned count, char *buf, size_t size):&#160;protocol.c']]],
+  ['proto_5fparse_6',['proto_parse',['../protocol_8h.html#a0890abe5267aeb515e5bc943d5601be9',1,'proto_parse(const char *line, size_t len):&#160;protocol.c'],['../protocol_8c.html#a0890abe5267aeb515e5bc943d5601be9',1,'proto_parse(const char *line, size_t len):&#160;protocol.c']]]
+];

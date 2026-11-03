@@ -1,0 +1,68 @@
+<map id="handle_command" name="handle_command">
+<area shape="rect" id="Node000001" title="Dispatch one parsed command (READY state only)." alt="" coords="5,449,129,475"/>
+<area shape="poly" id="edge22_Node000001_Node000001" title=" " alt="" coords="34,449,29,440,33,430,46,424,67,422,90,425,103,432,98,434,88,430,67,427,47,429,37,434,34,439,40,448"/>
+<area shape="rect" id="Node000002" href="$app__fsm_8c.html#a837df714bf5c501ee62904bca5652249" title="ALL_ON / ALL_OFF: drive every relay, settle once, verify all, reply." alt="" coords="184,211,328,238"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="74,447,115,381,175,299,229,246,226,251,179,302,119,384,79,450"/>
+<area shape="rect" id="Node000010" href="$app__fsm_8c.html#af519e1a57ff2d33e10aca70d5f0cc74b" title="Send a formatted reply if formatting succeeded." alt="" coords="397,411,506,438"/>
+<area shape="poly" id="edge48_Node000001_Node000010" title=" " alt="" coords="128,453,176,447,384,429,380,433,177,453,130,457"/>
+<area shape="rect" id="Node000012" href="$app__fsm_8c.html#aa703c67ae53e3f2c6916be8e3305f173" title="IN&lt;n&gt;_ON / IN&lt;n&gt;_OFF: drive, settle, verify, reply." alt="" coords="177,337,335,363"/>
+<area shape="poly" id="edge23_Node000001_Node000012" title=" " alt="" coords="90,446,220,369,218,374,93,450"/>
+<area shape="rect" id="Node000015" href="$app__fsm_8c.html#ab738c12a78eb79e7470dd8af9ca652f6" title="STATUS: read every relay back and reply with one field per channel." alt="" coords="205,486,307,513"/>
+<area shape="poly" id="edge35_Node000001_Node000015" title=" " alt="" coords="129,472,192,485,188,488,130,477"/>
+<area shape="rect" id="Node000017" href="$protocol_8c.html#af6b07b27daeb59e69c63292682dab54d" title="Format the handshake reply &quot;Hello IGNACC v&lt;fw_version&gt; READY\r\n&quot;." alt="" coords="192,567,320,594"/>
+<area shape="poly" id="edge42_Node000001_Node000017" title=" " alt="" coords="91,473,222,557,218,560,89,478"/>
+<area shape="rect" id="Node000018" href="$protocol_8c.html#a96fe80d67bcdbd93050e1929411056a9" title="Format the reply to an unknown or unsupported command: &quot;UNK_NACK\r\n&quot;." alt="" coords="191,655,320,682"/>
+<area shape="poly" id="edge45_Node000001_Node000018" title=" " alt="" coords="78,473,120,533,179,604,225,646,220,646,175,608,116,536,77,479"/>
+<area shape="poly" id="edge8_Node000002_Node000002" title=" " alt="" coords="223,211,218,203,222,193,235,187,256,185,278,187,292,195,287,197,277,192,256,190,236,192,226,197,223,202,228,211"/>
+<area shape="rect" id="Node000003" href="$app__fsm_8c.html#a8becb5c30722f64bef117c72e063aec0" title="Drive every relay OFF, even if one of them fails." alt="" coords="393,137,510,163"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="291,209,382,173,401,168,397,171,384,178,294,213"/>
+<area shape="rect" id="Node000004" href="$relay__bank_8c.html#a38596e1993b8ae71eb91ab101a62444e" title="Drive every relay to the same state, back to back." alt="" coords="568,137,698,163"/>
+<area shape="poly" id="edge17_Node000002_Node000004" title=" " alt="" coords="258,210,271,171,296,119,332,65,355,42,382,24,418,8,451,3,484,9,522,24,553,43,580,69,620,123,614,123,576,72,550,47,519,28,482,14,451,8,420,13,384,28,358,46,336,69,300,121,276,173,263,212"/>
+<area shape="rect" id="Node000006" href="$protocol_8c.html#ad3fe801773c0082ef786558de048eb87" title="Format the result of a relay command." alt="" coords="385,286,518,313"/>
+<area shape="poly" id="edge9_Node000002_Node000006" title=" " alt="" coords="293,236,403,279,398,281,293,241"/>
+<area shape="rect" id="Node000008" href="$relay__bank_8c.html#a94437bd678a980230ffcd34e27039c2d" title="Check that every relay reads back in the given state." alt="" coords="387,62,516,89"/>
+<area shape="poly" id="edge13_Node000002_Node000008" title=" " alt="" coords="266,209,313,156,345,126,382,98,393,94,389,98,384,103,349,130,316,160,270,212"/>
+<area shape="poly" id="edge18_Node000002_Node000010" title=" " alt="" coords="272,236,337,299,430,399,425,400,333,303,272,241"/>
+<area shape="rect" id="Node000011" href="$app__fsm_8c.html#a80c60678de2dac7afda66ba5affec6ee" title="Wait the relay settle delay (skipped when settle_ms is 0)." alt="" coords="425,211,478,238"/>
+<area shape="poly" id="edge20_Node000002_Node000011" title=" " alt="" coords="327,222,412,223,407,226,329,227"/>
+<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="420,136,415,128,419,118,431,112,452,110,473,113,486,121,481,122,472,118,452,115,433,117,423,122,420,127,426,136"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="510,147,555,149,550,151,511,152"/>
+<area shape="poly" id="edge5_Node000004_Node000004" title=" " alt="" coords="607,136,602,128,605,118,616,112,633,110,651,113,662,121,657,122,649,118,633,115,618,117,610,122,608,127,612,137"/>
+<area shape="rect" id="Node000005" href="$relay_8h.html#adc8654c20392b034a958b35d530256d8" title="Drive a relay ON or OFF." alt="" coords="746,231,820,258"/>
+<area shape="poly" id="edge6_Node000004_Node000005" title=" " alt="" coords="657,161,699,186,751,222,746,222,696,191,657,166"/>
+<area shape="poly" id="edge7_Node000005_Node000005" title=" " alt="" coords="756,230,752,223,755,213,766,207,783,205,801,207,812,216,807,216,799,212,783,210,768,212,759,216,757,222,762,232"/>
+<area shape="poly" id="edge12_Node000006_Node000006" title=" " alt="" coords="420,285,415,277,419,268,431,261,452,259,473,262,486,270,481,271,472,267,452,265,433,267,423,271,420,277,426,286"/>
+<area shape="rect" id="Node000007" href="$protocol_8c.html#a61135c69a6a504dd23a47c3800ac53b0" title="Turn an snprintf() result into a formatter result." alt="" coords="576,586,690,613"/>
+<area shape="poly" id="edge10_Node000006_Node000007" title=" " alt="" coords="467,310,495,339,523,374,555,426,583,481,623,572,618,571,578,483,550,429,518,377,491,342,467,316"/>
+<area shape="poly" id="edge11_Node000007_Node000007" title=" " alt="" coords="607,584,602,577,605,568,616,562,633,559,651,562,662,571,657,570,649,567,633,565,618,567,610,571,608,577,612,587"/>
+<area shape="poly" id="edge14_Node000008_Node000008" title=" " alt="" coords="420,61,415,53,419,44,431,37,452,35,473,38,486,46,481,47,472,43,452,41,433,43,423,47,420,53,426,62"/>
+<area shape="rect" id="Node000009" href="$relay_8h.html#a8609e0220c4b51cad4d7c58b4af65df1" title="Read a relay&#39;s state back from the hardware." alt="" coords="589,225,677,251"/>
+<area shape="poly" id="edge15_Node000008_Node000009" title=" " alt="" coords="501,87,522,99,539,117,549,135,557,153,570,174,608,214,602,214,566,177,552,155,544,137,535,120,519,103,502,92"/>
+<area shape="poly" id="edge16_Node000009_Node000009" title=" " alt="" coords="607,224,602,216,605,206,616,200,633,198,651,201,662,209,657,209,649,206,633,203,618,205,610,210,608,215,612,225"/>
+<area shape="poly" id="edge19_Node000010_Node000010" title=" " alt="" coords="420,410,415,403,419,393,431,387,452,385,473,387,486,396,481,396,472,392,452,390,433,392,423,397,420,402,425,411"/>
+<area shape="poly" id="edge21_Node000011_Node000011" title=" " alt="" coords="422,212,415,204,418,194,431,187,452,185,476,188,488,199,483,199,474,193,452,190,432,192,422,197,421,203,427,212"/>
+<area shape="poly" id="edge24_Node000012_Node000003" title=" " alt="" coords="267,334,333,249,354,209,364,191,381,173,390,169,387,173,385,177,368,195,358,211,337,251,271,338"/>
+<area shape="poly" id="edge26_Node000012_Node000006" title=" " alt="" coords="309,334,385,316,380,319,312,338"/>
+<area shape="poly" id="edge33_Node000012_Node000010" title=" " alt="" coords="293,361,403,404,398,406,293,367"/>
+<area shape="poly" id="edge34_Node000012_Node000011" title=" " alt="" coords="270,334,317,292,382,248,413,236,408,239,384,252,321,297,273,338"/>
+<area shape="poly" id="edge25_Node000012_Node000012" title=" " alt="" coords="223,336,218,328,222,318,235,312,256,310,278,313,292,321,287,322,277,318,256,315,236,317,226,322,223,327,228,336"/>
+<area shape="rect" id="Node000013" href="$relay__bank_8c.html#a9482fba067668562180399cd3a6ab9f8" title="Read one relay back from the hardware." alt="" coords="390,486,513,513"/>
+<area shape="poly" id="edge27_Node000012_Node000013" title=" " alt="" coords="275,361,385,448,422,477,417,477,381,452,274,366"/>
+<area shape="rect" id="Node000014" href="$relay__bank_8c.html#ac1d353ce7bd6290e9a9c664970d92a8f" title="Drive one relay." alt="" coords="578,325,688,351"/>
+<area shape="poly" id="edge30_Node000012_Node000014" title=" " alt="" coords="335,345,565,339,561,342,336,350"/>
+<area shape="poly" id="edge29_Node000013_Node000009" title=" " alt="" coords="478,483,500,468,518,448,531,427,538,407,542,369,547,331,554,310,566,287,594,262,598,259,570,290,558,312,552,332,547,370,543,408,535,429,522,452,503,472,481,488"/>
+<area shape="poly" id="edge28_Node000013_Node000013" title=" " alt="" coords="420,485,415,477,419,468,431,461,452,459,473,462,486,471,481,471,472,467,452,465,433,467,423,471,420,477,425,486"/>
+<area shape="poly" id="edge32_Node000014_Node000005" title=" " alt="" coords="655,322,745,268,749,265,657,326"/>
+<area shape="poly" id="edge31_Node000014_Node000014" title=" " alt="" coords="607,323,602,316,605,306,616,300,633,298,651,301,662,309,657,309,649,306,633,303,618,305,610,310,608,315,612,325"/>
+<area shape="poly" id="edge41_Node000015_Node000010" title=" " alt="" coords="291,483,382,447,401,443,396,445,384,452,294,488"/>
+<area shape="poly" id="edge40_Node000015_Node000013" title=" " alt="" coords="307,497,377,498,372,500,308,502"/>
+<area shape="poly" id="edge36_Node000015_Node000015" title=" " alt="" coords="223,485,218,477,222,468,235,461,256,459,278,462,292,470,287,471,277,467,256,465,236,467,226,471,223,477,228,486"/>
+<area shape="rect" id="Node000016" href="$protocol_8c.html#a624a3c67e4d6206f13cd0b72ad92bb98" title="Format &quot;STATUS IN1=&lt;ON|OFF&gt; ... IN&lt;count&gt;=&lt;ON|OFF&gt;\r\n&quot;." alt="" coords="383,561,520,587"/>
+<area shape="poly" id="edge37_Node000015_Node000016" title=" " alt="" coords="293,511,403,554,398,555,293,516"/>
+<area shape="poly" id="edge38_Node000016_Node000007" title=" " alt="" coords="521,581,563,589,558,589,521,586"/>
+<area shape="poly" id="edge39_Node000016_Node000016" title=" " alt="" coords="420,559,415,552,419,542,431,536,452,534,473,537,486,546,481,545,472,542,452,539,433,541,423,546,420,551,425,561"/>
+<area shape="poly" id="edge43_Node000017_Node000007" title=" " alt="" coords="320,589,383,597,475,600,563,602,558,602,475,605,383,602,320,595"/>
+<area shape="poly" id="edge44_Node000017_Node000017" title=" " alt="" coords="223,566,218,559,222,549,235,543,256,541,278,543,292,552,287,552,277,548,256,546,236,548,226,553,223,558,228,567"/>
+<area shape="poly" id="edge46_Node000018_Node000007" title=" " alt="" coords="321,654,558,612,563,613,322,659"/>
+<area shape="poly" id="edge47_Node000018_Node000018" title=" " alt="" coords="223,654,218,647,222,637,235,631,256,629,278,631,292,640,287,640,277,636,256,634,236,636,226,641,223,646,228,656"/>
+</map>

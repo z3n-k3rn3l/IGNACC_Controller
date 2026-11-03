@@ -1,3 +1,13 @@
+/**
+ * @file relay_bank.c
+ * @brief Relay bank: index-based and all-at-once operations on #relay_t.
+ *
+ * Tour stop 2. relay_bank_set_all() is the lower half of `ALL_ON` / `ALL_OFF`:
+ * it drives every relay back to back and never stops early, so one faulty
+ * relay can't leave the others in the wrong state.
+ *
+ * @see docs/diagrams/module-relay.svg
+ */
 #include "relay_bank.h"
 
 #include <stddef.h>

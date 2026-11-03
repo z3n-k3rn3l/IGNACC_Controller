@@ -1,7 +1,11 @@
 # IGNACC_Controller
 
-ESP32 firmware (ESP-IDF v6.1, C) that switches a 2-channel relay module on
-ASCII commands received over the board's USB-UART bridge.
+ESP32 firmware (ESP-IDF v6.1, C) that switches relays (2 by default, up to 14)
+on ASCII commands received over the board's USB-UART bridge.
+
+**New here?** Start with the [code tour](docs/code-tour.md). It's a 45-minute
+reading order through the firmware, starting at `app_main()`. Then see the
+[diagrams](docs/diagrams/README.md).
 
 ## Hardware
 

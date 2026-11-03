@@ -1,0 +1,5 @@
+<map id="components/relay/include/esp32_relay_pins.h" name="components/relay/include/esp32_relay_pins.h">
+<area shape="rect" id="Node000001" title="Which ESP32 (WROOM&#45;32) GPIOs are safe to drive a relay." alt="" coords="5,5,175,48"/>
+<area shape="rect" id="Node000002" href="$main_8c.html" title="IGNACC_Controller composition root." alt="" coords="44,96,136,123"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="92,62,92,96,88,94,88,66"/>
+</map>

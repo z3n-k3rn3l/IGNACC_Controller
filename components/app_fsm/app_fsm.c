@@ -1,14 +1,35 @@
+/**
+ * @file app_fsm.c
+ * @brief The state machine: parses each line, drives relays, sends replies.
+ *
+ * Tour stop 4, the heart of the firmware. Read app_fsm_handle_line() first,
+ * then handle_command(), which dispatches to the handlers above it. Every
+ * relay failure ends in drive_safe_state() (all relays OFF).
+ *
+ * @see docs/diagrams/state-app-fsm.svg
+ * @see docs/diagrams/activity-command-handling.svg
+ */
 #include "app_fsm.h"
 
 #include <stdlib.h>
 #include <string.h>
 
+/** FSM instance (opaque to users of app_fsm.h). */
 struct app_fsm {
-    app_fsm_config_t cfg; /* cfg.relays points at relays[] below */
-    app_fsm_state_t state;
-    relay_t relays[];     /* owned copy of the relay handles */
+    app_fsm_config_t cfg;  /**< Copy of the config; cfg.relays points at @ref relays. */
+    app_fsm_state_t state; /**< INIT or READY. */
+    relay_t relays[];      /**< Owned copy of the relay handles (flexible array). */
 };
 
+/**
+ * @brief Send a formatted reply if formatting succeeded.
+ *
+ * Link errors are ignored: nothing useful can be done, and the host times out.
+ *
+ * @param self The FSM.
+ * @param buf  Reply text.
+ * @param len  Length from a proto_format_*() call; nothing is sent if <= 0.
+ */
 static void send_response(app_fsm_t *self, const char *buf, int len)
 {
     if (len > 0) {
@@ -17,12 +38,20 @@ static void send_response(app_fsm_t *self, const char *buf, int len)
     }
 }
 
-/* Drive every relay OFF, even if one of them fails. */
+/**
+ * @brief Drive every relay OFF, even if one of them fails.
+ * @param self The FSM.
+ * @return true if every relay was driven OFF successfully.
+ */
 static bool drive_safe_state(app_fsm_t *self)
 {
     return relay_bank_set_all(&self->cfg.relays, false) == RELAY_OK;
 }
 
+/**
+ * @brief Wait the relay settle delay (skipped when settle_ms is 0).
+ * @param self The FSM.
+ */
 static void settle(app_fsm_t *self)
 {
     if (self->cfg.settle_ms > 0) {
@@ -30,7 +59,15 @@ static void settle(app_fsm_t *self)
     }
 }
 
-/* IN<n>_ON / IN<n>_OFF: drive, settle, verify the read-back still holds. */
+/**
+ * @brief `IN<n>_ON` / `IN<n>_OFF`: drive, settle, verify, reply.
+ *
+ * On any failure all relays are driven OFF and the reply is `_FAIL`, sent
+ * immediately (no settle delay).
+ *
+ * @param self The FSM.
+ * @param cmd  A #PROTO_CMD_RELAY command whose channel exists on this board.
+ */
 static void handle_relay_command(app_fsm_t *self, const proto_cmd_t *cmd)
 {
     const relay_bank_t *bank = &self->cfg.relays;
@@ -48,7 +85,11 @@ static void handle_relay_command(app_fsm_t *self, const proto_cmd_t *cmd)
     send_response(self, buf, proto_format_result(cmd, ok, buf, sizeof(buf)));
 }
 
-/* ALL_ON / ALL_OFF: drive every relay, settle once, verify all read-backs. */
+/**
+ * @brief `ALL_ON` / `ALL_OFF`: drive every relay, settle once, verify all, reply.
+ * @param self The FSM.
+ * @param cmd  A #PROTO_CMD_ALL command.
+ */
 static void handle_all_command(app_fsm_t *self, const proto_cmd_t *cmd)
 {
     const relay_bank_t *bank = &self->cfg.relays;
@@ -65,6 +106,10 @@ static void handle_all_command(app_fsm_t *self, const proto_cmd_t *cmd)
     send_response(self, buf, proto_format_result(cmd, ok, buf, sizeof(buf)));
 }
 
+/**
+ * @brief `STATUS`: read every relay back and reply with one field per channel.
+ * @param self The FSM.
+ */
 static void handle_status(app_fsm_t *self)
 {
     const relay_bank_t *bank = &self->cfg.relays;
@@ -77,6 +122,15 @@ static void handle_status(app_fsm_t *self)
     send_response(self, buf, proto_format_status(states, relay_bank_count(bank), buf, sizeof(buf)));
 }
 
+/**
+ * @brief Dispatch one parsed command (READY state only).
+ *
+ * Unknown lines, and `IN<n>` for a channel this board doesn't have, are
+ * answered with `UNK_NACK`; no relay is touched.
+ *
+ * @param self The FSM.
+ * @param cmd  Result of proto_parse().
+ */
 static void handle_command(app_fsm_t *self, const proto_cmd_t *cmd)
 {
     char buf[PROTO_RESPONSE_MAX];
