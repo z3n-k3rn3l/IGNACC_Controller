@@ -10,3 +10,10 @@ tools/ignacc_tester/.venv/
 tools/ignacc_tester/build/
 tools/ignacc_tester/dist/
 __pycache__/
+
+# Doxygen: keep the browsable HTML (docs/api/html: .html .js .css .svg .png),
+# drop the build cache and log that Doxygen regenerates on every run.
+docs/api/html/*.md5
+docs/api/html/*.map
+docs/api/html/*.cmapx
+docs/api/doxygen-warnings.log

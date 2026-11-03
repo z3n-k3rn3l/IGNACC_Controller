@@ -1,5 +1,0 @@
-<map id="relay_t" name="relay_t">
-<area shape="rect" id="Node000001" title="A relay: function table plus opaque implementation handle." alt="" coords="19,104,80,131"/>
-<area shape="rect" id="Node000002" href="$structrelay__ops__t.html" title="Operations every relay implementation provides." alt="" coords="5,5,94,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="52,46,52,104,47,103,47,49"/>
-</map>

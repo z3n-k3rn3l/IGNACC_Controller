@@ -1,7 +1,0 @@
-<map id="parse_relay" name="parse_relay">
-<area shape="rect" id="Node000001" title="Parse IN&lt;n&gt;_ON / IN&lt;n&gt;_OFF." alt="" coords="5,29,94,56"/>
-<area shape="poly" id="edge3_Node000001_Node000001" title=" " alt="" coords="27,29,24,20,27,11,35,5,50,3,65,5,74,14,68,14,62,10,49,8,37,10,31,14,29,20,33,29"/>
-<area shape="rect" id="Node000002" href="$protocol_8c.html#a68ed687477e9e4b5390a7d197a5a6625" title="Exact comparison of a length&#45;delimited line with a C string." alt="" coords="142,29,201,56"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="94,40,129,42,124,43,94,45"/>
-<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="150,28,146,20,148,11,157,5,171,3,187,5,195,15,190,14,184,10,171,8,159,10,153,14,151,20,154,30"/>
-</map>

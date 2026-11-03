@@ -1,4 +1,0 @@
-<map id="relay_gpio_set" name="relay_gpio_set">
-<area shape="rect" id="Node000001" title="relay_ops_t::set for a GPIO relay: drive the pin, then read it back." alt="" coords="5,29,111,56"/>
-<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="74,14,69,10,58,8,48,10,42,14,41,20,44,29,39,29,36,20,38,11,46,5,58,3,71,5,79,14"/>
-</map>

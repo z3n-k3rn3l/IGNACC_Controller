@@ -1,7 +1,0 @@
-<map id="halt" name="halt">
-<area shape="rect" id="Node000001" title="Stop after a start&#45;up failure." alt="" coords="131,29,173,56"/>
-<area shape="poly" id="edge3_Node000001_Node000001" title=" " alt="" coords="168,13,163,10,152,8,141,10,136,14,134,20,137,30,132,28,129,20,131,11,139,5,152,3,165,5,173,14"/>
-<area shape="rect" id="Node000002" href="$main_8c.html#a630544a7f0a2cc40d8a7fefab7e2fe70" title="Firmware entry point (called by ESP&#45;IDF after boot)." alt="" coords="5,29,83,56"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="112,43,83,45,83,40,118,42"/>
-<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="60,14,55,10,44,8,33,10,28,14,26,20,30,29,24,29,21,20,23,11,31,5,44,3,57,5,65,13"/>
-</map>

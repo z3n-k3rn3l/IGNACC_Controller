@@ -1,7 +1,0 @@
-<map id="uart_link_start" name="uart_link_start">
-<area shape="rect" id="Node000001" title="Install the UART driver, start the receive task, return the transmit side." alt="" coords="131,29,234,56"/>
-<area shape="poly" id="edge3_Node000001_Node000001" title=" " alt="" coords="204,14,197,10,182,8,168,10,161,14,159,20,163,30,158,28,154,21,157,11,167,5,182,3,199,5,209,15"/>
-<area shape="rect" id="Node000002" href="$main_8c.html#a630544a7f0a2cc40d8a7fefab7e2fe70" title="Firmware entry point (called by ESP&#45;IDF after boot)." alt="" coords="5,29,83,56"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="112,43,83,45,83,40,117,42"/>
-<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="66,14,59,10,44,8,30,10,23,14,21,20,25,29,19,29,15,21,18,11,28,5,44,3,61,5,71,14"/>
-</map>

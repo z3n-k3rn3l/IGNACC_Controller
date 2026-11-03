@@ -1,7 +1,0 @@
-<map id="app_fsm_create" name="app_fsm_create">
-<area shape="rect" id="Node000001" title="Create an FSM in state APP_FSM_STATE_INIT." alt="" coords="131,29,245,56"/>
-<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="211,14,203,10,188,8,173,10,165,14,164,20,167,30,163,28,158,21,161,11,171,5,188,3,205,5,216,15"/>
-<area shape="rect" id="Node000002" href="$main_8c.html#a630544a7f0a2cc40d8a7fefab7e2fe70" title="Firmware entry point (called by ESP&#45;IDF after boot)." alt="" coords="5,29,83,56"/>
-<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="113,43,83,45,83,40,118,42"/>
-<area shape="poly" id="edge3_Node000002_Node000002" title=" " alt="" coords="67,14,60,10,44,8,29,10,22,14,20,20,24,29,19,29,14,21,17,11,28,5,44,3,62,5,72,14"/>
-</map>

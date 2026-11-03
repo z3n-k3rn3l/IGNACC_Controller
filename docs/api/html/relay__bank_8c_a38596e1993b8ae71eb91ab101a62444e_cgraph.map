@@ -1,7 +1,0 @@
-<map id="relay_bank_set_all" name="relay_bank_set_all">
-<area shape="rect" id="Node000001" title="Drive every relay to the same state, back to back." alt="" coords="5,29,135,56"/>
-<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="44,29,39,21,42,11,53,5,70,3,88,5,99,14,94,14,86,10,70,8,55,10,47,14,45,20,49,29"/>
-<area shape="rect" id="Node000002" href="$relay_8h.html#adc8654c20392b034a958b35d530256d8" title="Drive a relay ON or OFF." alt="" coords="183,29,257,56"/>
-<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="135,40,170,42,164,43,135,45"/>
-<area shape="poly" id="edge3_Node000002_Node000002" title=" " alt="" coords="194,28,189,21,192,11,203,5,220,3,238,5,249,15,244,14,236,10,220,8,205,10,196,14,194,20,198,30"/>
-</map>

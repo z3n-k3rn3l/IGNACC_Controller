@@ -1,7 +1,0 @@
-<map id="line_asm_push" name="line_asm_push">
-<area shape="rect" id="Node000001" title="Feed one byte." alt="" coords="5,29,114,56"/>
-<area shape="poly" id="edge3_Node000001_Node000001" title=" " alt="" coords="31,29,26,21,30,11,41,5,60,3,79,5,91,14,86,14,77,10,59,8,43,10,34,15,32,20,36,29"/>
-<area shape="rect" id="Node000002" href="$line__assembler_8c.html#a12318f7f31e904a09d85cb1bcc64ec9e" title="Drop the partial line and everything up to and including the next &#39;\n&#39;." alt="" coords="162,29,284,56"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="114,40,149,42,143,43,114,45"/>
-<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="194,28,190,21,193,11,204,5,223,3,243,5,254,15,249,14,241,10,223,8,206,10,197,15,195,20,199,30"/>
-</map>

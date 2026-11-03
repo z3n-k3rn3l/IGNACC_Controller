@@ -1,7 +1,0 @@
-<map id="components/link_if/include/link_if.h" name="components/link_if/include/link_if.h">
-<area shape="rect" id="Node000001" title="Transport&#45;independent contracts shared by the link and the state machine." alt="" coords="20,5,150,48"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,96,74,123"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="75,47,56,84,52,81,71,50"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="98,96,162,123"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="98,46,118,82,113,82,95,51"/>
-</map>

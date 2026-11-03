@@ -1,7 +1,0 @@
-<map id="relay_bank_t" name="relay_bank_t">
-<area shape="rect" id="Node000001" title="A bank of relays." alt="" coords="5,203,101,229"/>
-<area shape="rect" id="Node000002" href="$structrelay__t.html" title="A relay: function table plus opaque implementation handle." alt="" coords="23,104,83,131"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="55,145,56,203,50,202,51,148"/>
-<area shape="rect" id="Node000003" href="$structrelay__ops__t.html" title="Operations every relay implementation provides." alt="" coords="9,5,97,32"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="54,45,56,104,50,103,52,50"/>
-</map>
