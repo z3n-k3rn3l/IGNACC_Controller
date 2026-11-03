@@ -203,5 +203,5 @@ Every hop you just read, in the order a real command takes them (the
 | [unit-testing.md](unit-testing.md) | How those tests are built, linked and run on the PC (no hardware) |
 | [configuration-and-architecture.md](configuration-and-architecture.md) | Every setting, and how the Kconfig channel model works |
 | [diagrams/README.md](diagrams/README.md) | All 20 diagrams, each explained in plain words |
-| [tools/ignacc_tester](../tools/ignacc_tester) | How the board is tested from the PC |
+| [toolchain.md](toolchain.md) | Every tool and version, and how to use and adapt the IGNACC Tester app |
 | Doxygen (`doxygen` in the project root) | API pages with every function, struct and diagram |

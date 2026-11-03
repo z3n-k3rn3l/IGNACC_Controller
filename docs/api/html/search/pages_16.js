@@ -1,7 +1,7 @@
 var searchData=
 [
   ['of_20the_20firmware_20adapts_0',['3.4 How the rest of the firmware adapts',['../md_docs_2configuration-and-architecture.html#autotoc_md42',1,'']]],
-  ['off_20microsoft_20c_20c_20intellisense_1',['Step 3: Turn off Microsoft C/C++ IntelliSense',['../md_docs_2vscode-clangd-setup.html#autotoc_md139',1,'']]],
+  ['off_20microsoft_20c_20c_20intellisense_1',['Step 3: Turn off Microsoft C/C++ IntelliSense',['../md_docs_2vscode-clangd-setup.html#autotoc_md158',1,'']]],
   ['on_20linux_20start_20to_20finish_2',['Setting this up on Linux, start to finish',['../md_docs_2github-two-accounts.html#autotoc_md104',1,'']]],
   ['on_20to_20ready_3',['Activity: power-on to READY',['../dir_185e1be576cc3aab87068787be53911a.html#autotoc_md65',1,'']]],
   ['one_20command_4',['Activity: handling one command',['../dir_185e1be576cc3aab87068787be53911a.html#autotoc_md64',1,'']]],
@@ -16,12 +16,14 @@ var searchData=
   ['one_20relay_20channel_13',['State machine: one relay channel',['../dir_185e1be576cc3aab87068787be53911a.html#autotoc_md62',1,'']]],
   ['one_20repo_14',['Two GitHub accounts, one computer, one repo',['../md_docs_2github-two-accounts.html',1,'']]],
   ['one_20ssh_20key_20per_20account_15',['Step 1: One SSH key per account',['../md_docs_2github-two-accounts.html#autotoc_md84',1,'']]],
-  ['one_20suite_20or_20see_20every_20test_16',['Run one suite or see every test',['../md_docs_2unit-testing.html#autotoc_md124',1,'']]],
+  ['one_20suite_20or_20see_20every_20test_16',['Run one suite or see every test',['../md_docs_2unit-testing.html#autotoc_md143',1,'']]],
   ['optional_3a_20a_20different_20identity_20per_20folder_17',['Optional: a different identity per folder',['../md_docs_2github-two-accounts.html#autotoc_md95',1,'']]],
-  ['optional_3a_20verify_20from_20the_20command_20line_18',['Optional: verify from the command line',['../md_docs_2vscode-clangd-setup.html#autotoc_md145',1,'']]],
-  ['or_20see_20every_20test_19',['Run one suite or see every test',['../md_docs_2unit-testing.html#autotoc_md124',1,'']]],
-  ['or_20the_20tools_20',['After upgrading ESP-IDF or the tools',['../md_docs_2vscode-clangd-setup.html#autotoc_md148',1,'']]],
-  ['other_20settings_21',['4. Other settings',['../md_docs_2configuration-and-architecture.html#autotoc_md44',1,'']]],
-  ['out_208_20min_22',['Stop 3 — &lt;span class=&quot;tt&quot;&gt;uart_link&lt;/span&gt;: bytes in, lines out (8 min)',['../md_docs_2code-tour.html#autotoc_md23',1,'']]],
-  ['overview_23',['Interaction overview',['../dir_185e1be576cc3aab87068787be53911a.html#autotoc_md71',1,'']]]
+  ['optional_3a_20verify_20from_20the_20command_20line_18',['Optional: verify from the command line',['../md_docs_2vscode-clangd-setup.html#autotoc_md164',1,'']]],
+  ['or_20see_20every_20test_19',['Run one suite or see every test',['../md_docs_2unit-testing.html#autotoc_md143',1,'']]],
+  ['or_20the_20tools_20',['After upgrading ESP-IDF or the tools',['../md_docs_2vscode-clangd-setup.html#autotoc_md167',1,'']]],
+  ['other_20hardware_20tools_21',['Other hardware tools',['../md_docs_2toolchain.html#autotoc_md124',1,'']]],
+  ['other_20settings_22',['4. Other settings',['../md_docs_2configuration-and-architecture.html#autotoc_md44',1,'']]],
+  ['out_208_20min_23',['Stop 3 — &lt;span class=&quot;tt&quot;&gt;uart_link&lt;/span&gt;: bytes in, lines out (8 min)',['../md_docs_2code-tour.html#autotoc_md23',1,'']]],
+  ['overview_24',['Overview',['../md_docs_2toolchain.html#autotoc_md112',1,'']]],
+  ['overview_25',['Interaction overview',['../dir_185e1be576cc3aab87068787be53911a.html#autotoc_md71',1,'']]]
 ];

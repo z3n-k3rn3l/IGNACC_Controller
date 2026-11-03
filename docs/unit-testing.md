@@ -37,8 +37,10 @@ calls, with the PC's own compiler. Hardware is replaced by small fakes (mocks).
 - `app_fsm_task.c` (FreeRTOS task)
 - `main.c` (wiring)
 
-They are thin by design, and the [hardware tests](../tools/ignacc_tester)
-cover them on the real board. The full picture is three layers:
+They are thin by design, and the hardware tests cover them on the real
+board. The hardware tests run in the **IGNACC Tester**, a compiled Python app
+that drives the board over the serial port; see
+[toolchain.md](toolchain.md), section 3. The full picture is three layers:
 
 | Layer | What it catches | Needs hardware |
 |---|---|---|

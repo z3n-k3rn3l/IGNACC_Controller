@@ -5,7 +5,9 @@ on ASCII commands received over the board's USB-UART bridge.
 
 **New here?** Start with the [code tour](docs/code-tour.md). It's a 45-minute
 reading order through the firmware, starting at `app_main()`. Then see the
-[diagrams](docs/diagrams/README.md).
+[diagrams](docs/diagrams/README.md). The [toolchain](docs/toolchain.md) page
+lists every tool, with versions: ESP-IDF, unit tests, the **IGNACC Tester**
+app for hardware testing over the serial port, Doxygen and VS Code.
 
 ## Hardware
 
